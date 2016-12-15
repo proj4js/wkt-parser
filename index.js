@@ -1,6 +1,6 @@
 var D2R = 0.01745329251994329577;
 var extend = require('./extend');
-
+var parser = require('old-parser');
 function mapit(obj, key, v) {
   obj[key] = v.map(function(aa) {
     var o = {};
@@ -210,7 +210,7 @@ function cleanWKT(wkt) {
   }
 }
 module.exports = function(wkt, self) {
-  var lisp = JSON.parse(("," + wkt).replace(/\s*\,\s*([A-Z_0-9]+?)(\[)/g, ',["$1",').slice(1).replace(/\s*\,\s*([A-Z_0-9]+?)\]/g, ',"$1"]').replace(/,\["VERTCS".+/,''));
+
   var type = lisp.shift();
   var name = lisp.shift();
   lisp.unshift(['name', name]);
