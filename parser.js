@@ -107,7 +107,7 @@ class Parser {
     return;
   }
   keyword(char) {
-    if (keyword.test(char)) {
+    if (keyword .test(char)) {
       this.word += char;
       return;
     }
