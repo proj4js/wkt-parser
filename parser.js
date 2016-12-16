@@ -9,6 +9,7 @@ const AFTERQUOTE = 5;
 const ENDED = -1;
 const whitespace = /\s/;
 const latin = /[A-Za-z]/;
+const keyword = /[A-Za-z84]/;
 const endThings = /[,\]]/;
 const digets = /[\d\.E\-\+]/;
 class Parser {
@@ -106,7 +107,7 @@ class Parser {
     return;
   }
   keyword(char) {
-    if (latin.test(char)) {
+    if (keyword.test(char)) {
       this.word += char;
       return;
     }

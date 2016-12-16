@@ -1,6 +1,6 @@
 var D2R = 0.01745329251994329577;
 var extend = require('./extend');
-var parser = require('old-parser');
+var parser = require('./parser');
 function mapit(obj, key, v) {
   obj[key] = v.map(function(aa) {
     var o = {};
@@ -113,10 +113,10 @@ function cleanWKT(wkt) {
     if (wkt.UNIT.convert) {
       if (wkt.type === 'GEOGCS') {
         if (wkt.DATUM && wkt.DATUM.SPHEROID) {
-          wkt.to_meter = parseFloat(wkt.UNIT.convert, 10)*wkt.DATUM.SPHEROID.a;
+          wkt.to_meter = wkt.UNIT.convert*wkt.DATUM.SPHEROID.a;
         }
       } else {
-        wkt.to_meter = parseFloat(wkt.UNIT.convert, 10);
+        wkt.to_meter = wkt.UNIT.convert, 10;
       }
     }
   }
@@ -171,7 +171,7 @@ function cleanWKT(wkt) {
 
   function toMeter(input) {
     var ratio = wkt.to_meter || 1;
-    return parseFloat(input, 10) * ratio;
+    return input * ratio;
   }
   var renamer = function(a) {
     return rename(wkt, a);
@@ -210,7 +210,7 @@ function cleanWKT(wkt) {
   }
 }
 module.exports = function(wkt, self) {
-
+  var lisp = parser(wkt);
   var type = lisp.shift();
   var name = lisp.shift();
   lisp.unshift(['name', name]);
@@ -219,5 +219,5 @@ module.exports = function(wkt, self) {
   var obj = {};
   sExpr(lisp, obj);
   cleanWKT(obj.output);
-  return extend(self, obj.output);
+  return obj.output;
 };
