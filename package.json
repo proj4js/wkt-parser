@@ -1,6 +1,6 @@
 {
   "name": "wkt-parser",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "wkt-parser ===",
   "main": "index.js",
   "scripts": {
