@@ -4,7 +4,7 @@
   "description": "wkt-parser ===",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node test.js"
   },
   "repository": {
     "type": "git",
@@ -31,5 +31,8 @@
   "dependencies": {
     "babel-preset-es2015": "^6.18.0",
     "babelify": "^7.3.0"
+  },
+  "devDependencies": {
+    "tape": "^4.6.3"
   }
 }

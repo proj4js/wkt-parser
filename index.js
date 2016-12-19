@@ -1,78 +1,8 @@
 var D2R = 0.01745329251994329577;
-var extend = require('./extend');
 var parser = require('./parser');
-function mapit(obj, key, v) {
-  obj[key] = v.map(function(aa) {
-    var o = {};
-    sExpr(aa, o);
-    return o;
-  }).reduce(function(a, b) {
-    return extend(a, b);
-  }, {});
-}
+var sExpr = require('./process');
 
-function sExpr(v, obj) {
-  var key;
-  if (!Array.isArray(v)) {
-    obj[v] = true;
-    return;
-  }
-  else {
-    key = v.shift();
-    if (key === 'PARAMETER') {
-      key = v.shift();
-    }
-    if (v.length === 1) {
-      if (Array.isArray(v[0])) {
-        obj[key] = {};
-        sExpr(v[0], obj[key]);
-      }
-      else {
-        obj[key] = v[0];
-      }
-    }
-    else if (!v.length) {
-      obj[key] = true;
-    }
-    else if (key === 'TOWGS84') {
-      obj[key] = v;
-    }
-    else {
-      obj[key] = {};
-      if (['UNIT', 'PRIMEM', 'VERT_DATUM'].indexOf(key) > -1) {
-        obj[key] = {
-          name: v[0].toLowerCase(),
-          convert: v[1]
-        };
-        if (v.length === 3) {
-          obj[key].auth = v[2];
-        }
-      }
-      else if (key === 'SPHEROID') {
-        obj[key] = {
-          name: v[0],
-          a: v[1],
-          rf: v[2]
-        };
-        if (v.length === 4) {
-          obj[key].auth = v[3];
-        }
-      }
-      else if (['GEOGCS', 'GEOCCS', 'DATUM', 'VERT_CS', 'COMPD_CS', 'LOCAL_CS', 'FITTED_CS', 'LOCAL_DATUM'].indexOf(key) > -1) {
-        v[0] = ['name', v[0]];
-        mapit(obj, key, v);
-      }
-      else if (v.every(function(aa) {
-        return Array.isArray(aa);
-      })) {
-        mapit(obj, key, v);
-      }
-      else {
-        sExpr(v, obj[key]);
-      }
-    }
-  }
-}
+
 
 function rename(obj, params) {
   var outName = params[0];
@@ -127,8 +57,7 @@ function cleanWKT(wkt) {
     //}
     if (wkt.GEOGCS.DATUM) {
       wkt.datumCode = wkt.GEOGCS.DATUM.name.toLowerCase();
-    }
-    else {
+    } else {
       wkt.datumCode = wkt.GEOGCS.name.toLowerCase();
     }
     if (wkt.datumCode.slice(0, 2) === 'd_') {
@@ -209,15 +138,14 @@ function cleanWKT(wkt) {
     wkt.lat_ts = wkt.lat1;
   }
 }
-module.exports = function(wkt, self) {
+module.exports = function(wkt) {
   var lisp = parser(wkt);
   var type = lisp.shift();
   var name = lisp.shift();
   lisp.unshift(['name', name]);
   lisp.unshift(['type', type]);
-  lisp.unshift('output');
   var obj = {};
   sExpr(lisp, obj);
-  cleanWKT(obj.output);
-  return obj.output;
+  cleanWKT(obj);
+  return obj;
 };

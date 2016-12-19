@@ -12,6 +12,7 @@ const latin = /[A-Za-z]/;
 const keyword = /[A-Za-z84]/;
 const endThings = /[,\]]/;
 const digets = /[\d\.E\-\+]/;
+const ignoredChar = /[\s_\-\/\(\)]/g;
 class Parser {
   constructor(text) {
     if (typeof text !== 'string') {
@@ -57,6 +58,7 @@ class Parser {
       return;
     }
     if (endThings.test(char)) {
+      this.word = this.word.trim();
       this.afterItem(char);
       return;
     }
