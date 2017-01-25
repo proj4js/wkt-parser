@@ -1,45 +1,5 @@
 'use strict';
 
-var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) {
-  return typeof obj;
-} : function (obj) {
-  return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
-};
-
-
-
-
-
-
-
-
-
-
-
-var classCallCheck = function (instance, Constructor) {
-  if (!(instance instanceof Constructor)) {
-    throw new TypeError("Cannot call a class as a function");
-  }
-};
-
-var createClass = function () {
-  function defineProperties(target, props) {
-    for (var i = 0; i < props.length; i++) {
-      var descriptor = props[i];
-      descriptor.enumerable = descriptor.enumerable || false;
-      descriptor.configurable = true;
-      if ("value" in descriptor) descriptor.writable = true;
-      Object.defineProperty(target, descriptor.key, descriptor);
-    }
-  }
-
-  return function (Constructor, protoProps, staticProps) {
-    if (protoProps) defineProperties(Constructor.prototype, protoProps);
-    if (staticProps) defineProperties(Constructor, staticProps);
-    return Constructor;
-  };
-}();
-
 var NEUTRAL = 1;
 var KEYWORD = 2;
 var NUMBER = 3;
@@ -48,184 +8,160 @@ var AFTERQUOTE = 5;
 var ENDED = -1;
 var whitespace = /\s/;
 var latin = /[A-Za-z]/;
-var _keyword = /[A-Za-z84]/;
+var keyword = /[A-Za-z84]/;
 var endThings = /[,\]]/;
 var digets = /[\d\.E\-\+]/;
 // const ignoredChar = /[\s_\-\/\(\)]/g;
-
-var Parser = function () {
-  function Parser(text) {
-    classCallCheck(this, Parser);
-
-    if (typeof text !== 'string') {
-      throw new Error('not a string');
-    }
-    this.text = text.trim();
-    this.level = 0;
-    this.place = 0;
-    this.root = null;
-    this.stack = [];
-    this.currentObject = null;
-    this.state = NEUTRAL;
+function Parser(text) {
+  if (typeof text !== 'string') {
+    throw new Error('not a string');
   }
-
-  createClass(Parser, [{
-    key: 'readCharicter',
-    value: function readCharicter() {
-      var char = this.text[this.place++];
-      if (this.state !== QUOTED) {
-        while (whitespace.test(char)) {
-          if (this.place >= this.text.length) {
-            return;
-          }
-          char = this.text[this.place++];
-        }
+  this.text = text.trim();
+  this.level = 0;
+  this.place = 0;
+  this.root = null;
+  this.stack = [];
+  this.currentObject = null;
+  this.state = NEUTRAL;
+}
+Parser.prototype.readCharicter = function() {
+  let char = this.text[this.place++];
+  if (this.state !== QUOTED) {
+    while (whitespace.test(char)) {
+      if (this.place >= this.text.length) {
+        return;
       }
-      switch (this.state) {
-        case NEUTRAL:
-          return this.neutral(char);
-        case KEYWORD:
-          return this.keyword(char);
-        case QUOTED:
-          return this.quoted(char);
-        case AFTERQUOTE:
-          return this.afterquote(char);
-        case NUMBER:
-          return this.number(char);
-        case ENDED:
-          return;
-      }
+      char = this.text[this.place++];
     }
-  }, {
-    key: 'afterquote',
-    value: function afterquote(char) {
-      if (char === '"') {
-        this.word += '"';
-        this.state = QUOTED;
-        return;
-      }
-      if (endThings.test(char)) {
-        this.word = this.word.trim();
-        this.afterItem(char);
-        return;
-      }
-      throw new Error('havn\'t handled "' + char + '" in afterquote yet, index ' + this.place);
-    }
-  }, {
-    key: 'afterItem',
-    value: function afterItem(char) {
-      if (char === ',') {
-        if (this.word !== null) {
-          this.currentObject.push(this.word);
-        }
-        this.word = null;
-        this.state = NEUTRAL;
-        return;
-      }
-      if (char === ']') {
-        this.level--;
-        if (this.word !== null) {
-          this.currentObject.push(this.word);
-          this.word = null;
-        }
-        this.state = NEUTRAL;
-        this.currentObject = this.stack.pop();
-        if (!this.currentObject) {
-          this.state = ENDED;
-        }
-
-        return;
-      }
-    }
-  }, {
-    key: 'number',
-    value: function number(char) {
-      if (digets.test(char)) {
-        this.word += char;
-        return;
-      }
-      if (endThings.test(char)) {
-        this.word = parseFloat(this.word);
-        this.afterItem(char);
-        return;
-      }
-      throw new Error('havn\'t handled "' + char + '" in number yet, index ' + this.place);
-    }
-  }, {
-    key: 'quoted',
-    value: function quoted(char) {
-      if (char === '"') {
-        this.state = AFTERQUOTE;
-        return;
-      }
-      this.word += char;
+  }
+  switch (this.state) {
+    case NEUTRAL:
+      return this.neutral(char);
+    case KEYWORD:
+      return this.keyword(char)
+    case QUOTED:
+      return this.quoted(char);
+    case AFTERQUOTE:
+      return this.afterquote(char);
+    case NUMBER:
+      return this.number(char);
+    case ENDED:
       return;
+  }
+};
+Parser.prototype.afterquote = function(char) {
+  if (char === '"') {
+    this.word += '"';
+    this.state = QUOTED;
+    return;
+  }
+  if (endThings.test(char)) {
+    this.word = this.word.trim();
+    this.afterItem(char);
+    return;
+  }
+  throw new Error(`havn't handled "${char}" in afterquote yet, index ${this.place}`);
+};
+Parser.prototype.afterItem = function(char) {
+  if (char === ',') {
+    if (this.word !== null) {
+      this.currentObject.push(this.word);
     }
-  }, {
-    key: 'keyword',
-    value: function keyword(char) {
-      if (_keyword.test(char)) {
-        this.word += char;
-        return;
-      }
-      if (char === '[') {
-        var newObjects = [];
-        newObjects.push(this.word);
-        this.level++;
-        if (this.root === null) {
-          this.root = newObjects;
-        } else {
-          this.currentObject.push(newObjects);
-        }
-        this.stack.push(this.currentObject);
-        this.currentObject = newObjects;
-        this.state = NEUTRAL;
-        return;
-      }
-      if (endThings.test(char)) {
-        this.afterItem(char);
-        return;
-      }
-      throw new Error('havn\'t handled "' + char + '" in keyword yet, index ' + this.place);
+    this.word = null;
+    this.state = NEUTRAL;
+    return;
+  }
+  if (char === ']') {
+    this.level--;
+    if (this.word !== null) {
+      this.currentObject.push(this.word);
+      this.word = null;
     }
-  }, {
-    key: 'neutral',
-    value: function neutral(char) {
-      if (latin.test(char)) {
-        this.word = char;
-        this.state = KEYWORD;
-        return;
-      }
-      if (char === '"') {
-        this.word = '';
-        this.state = QUOTED;
-        return;
-      }
-      if (digets.test(char)) {
-        this.word = char;
-        this.state = NUMBER;
-        return;
-      }
-      if (endThings.test(char)) {
-        this.afterItem(char);
-        return;
-      }
-      throw new Error('havn\'t handled "' + char + '" in neutral yet, index ' + this.place);
+    this.state = NEUTRAL;
+    this.currentObject = this.stack.pop();
+    if (!this.currentObject) {
+      this.state = ENDED;
     }
-  }, {
-    key: 'output',
-    value: function output() {
-      while (this.place < this.text.length) {
-        this.readCharicter();
-      }
-      if (this.state === ENDED) {
-        return this.root;
-      }
-      throw new Error('unable to parse string \'' + this.text + '\'. State is ' + this.state + '.');
+
+    return;
+  }
+};
+Parser.prototype.number = function(char) {
+  if (digets.test(char)) {
+    this.word += char;
+    return;
+  }
+  if (endThings.test(char)) {
+    this.word = parseFloat(this.word);
+    this.afterItem(char);
+    return;
+  }
+  throw new Error(`havn't handled "${char}" in number yet, index ${this.place}`);
+};
+Parser.prototype.quoted = function(char) {
+  if (char === '"') {
+    this.state = AFTERQUOTE;
+    return;
+  }
+  this.word += char;
+  return;
+};
+Parser.prototype.keyword = function(char) {
+  if (keyword.test(char)) {
+    this.word += char;
+    return;
+  }
+  if (char === '[') {
+    let newObjects = [];
+    newObjects.push(this.word);
+    this.level++;
+    if (this.root === null) {
+      this.root = newObjects;
+    } else {
+      this.currentObject.push(newObjects);
     }
-  }]);
-  return Parser;
-}();
+    this.stack.push(this.currentObject);
+    this.currentObject = newObjects;
+    this.state = NEUTRAL;
+    return;
+  }
+  if (endThings.test(char)) {
+    this.afterItem(char);
+    return;
+  }
+  throw new Error(`havn't handled "${char}" in keyword yet, index ${this.place}`);
+};
+Parser.prototype.neutral = function(char) {
+  if (latin.test(char)) {
+    this.word = char;
+    this.state = KEYWORD;
+    return;
+  }
+  if (char === '"') {
+    this.word = '';
+    this.state = QUOTED;
+    return;
+  }
+  if (digets.test(char)) {
+    this.word = char;
+    this.state = NUMBER;
+    return;
+  }
+  if (endThings.test(char)) {
+    this.afterItem(char);
+    return;
+  }
+  throw new Error(`havn't handled "${char}" in neutral yet, index ${this.place}`);
+};
+Parser.prototype.output = function() {
+  while (this.place < this.text.length) {
+    this.readCharicter();
+  }
+  if (this.state === ENDED) {
+    return this.root;
+  }
+  throw new Error(`unable to parse string '${this.text}'. State is ${this.state}.`);
+};
 
 function parseString(txt) {
   var parser = new Parser(txt);
@@ -239,9 +175,9 @@ function mapit(obj, key, value) {
   }
   var thing = key ? {} : obj;
 
-  var out = value.reduce(function (newObj, item) {
+  var out = value.reduce(function(newObj, item) {
     sExpr(item, newObj);
-    return newObj;
+    return newObj
   }, thing);
   if (key) {
     obj[key] = out;
@@ -338,7 +274,7 @@ var D2R = 0.01745329251994329577;
 function rename(obj, params) {
   var outName = params[0];
   var inName = params[1];
-  if (!(outName in obj) && inName in obj) {
+  if (!(outName in obj) && (inName in obj)) {
     obj[outName] = obj[inName];
     if (params.length === 3) {
       obj[outName] = params[2](obj[outName]);
@@ -357,7 +293,7 @@ function cleanWKT(wkt) {
     wkt.projName = 'identity';
     wkt.local = true;
   } else {
-    if (_typeof(wkt.PROJECTION) === "object") {
+    if (typeof wkt.PROJECTION === 'object') {
       wkt.projName = Object.keys(wkt.PROJECTION)[0];
     } else {
       wkt.projName = wkt.PROJECTION;
@@ -371,7 +307,7 @@ function cleanWKT(wkt) {
     if (wkt.UNIT.convert) {
       if (wkt.type === 'GEOGCS') {
         if (wkt.DATUM && wkt.DATUM.SPHEROID) {
-          wkt.to_meter = wkt.UNIT.convert * wkt.DATUM.SPHEROID.a;
+          wkt.to_meter = wkt.UNIT.convert*wkt.DATUM.SPHEROID.a;
         }
       } else {
         wkt.to_meter = wkt.UNIT.convert, 10;
@@ -394,24 +330,24 @@ function cleanWKT(wkt) {
     if (wkt.datumCode === 'new_zealand_geodetic_datum_1949' || wkt.datumCode === 'new_zealand_1949') {
       wkt.datumCode = 'nzgd49';
     }
-    if (wkt.datumCode === "wgs_1984") {
+    if (wkt.datumCode === 'wgs_1984') {
       if (wkt.PROJECTION === 'Mercator_Auxiliary_Sphere') {
         wkt.sphere = true;
       }
       wkt.datumCode = 'wgs84';
     }
     if (wkt.datumCode.slice(-6) === '_ferro') {
-      wkt.datumCode = wkt.datumCode.slice(0, -6);
+      wkt.datumCode = wkt.datumCode.slice(0, - 6);
     }
     if (wkt.datumCode.slice(-8) === '_jakarta') {
-      wkt.datumCode = wkt.datumCode.slice(0, -8);
+      wkt.datumCode = wkt.datumCode.slice(0, - 8);
     }
     if (~wkt.datumCode.indexOf('belge')) {
-      wkt.datumCode = "rnb72";
+      wkt.datumCode = 'rnb72';
     }
     if (wkt.GEOGCS.DATUM && wkt.GEOGCS.DATUM.SPHEROID) {
       wkt.ellps = wkt.GEOGCS.DATUM.SPHEROID.name.replace('_19', '').replace(/[Cc]larke\_18/, 'clrk');
-      if (wkt.ellps.toLowerCase().slice(0, 13) === "international") {
+      if (wkt.ellps.toLowerCase().slice(0, 13) === 'international') {
         wkt.ellps = 'intl';
       }
 
@@ -419,7 +355,7 @@ function cleanWKT(wkt) {
       wkt.rf = parseFloat(wkt.GEOGCS.DATUM.SPHEROID.rf, 10);
     }
     if (~wkt.datumCode.indexOf('osgb_1936')) {
-      wkt.datumCode = "osgb36";
+      wkt.datumCode = 'osgb36';
     }
   }
   if (wkt.b && !isFinite(wkt.b)) {
@@ -430,12 +366,35 @@ function cleanWKT(wkt) {
     var ratio = wkt.to_meter || 1;
     return input * ratio;
   }
-  var renamer = function renamer(a) {
+  var renamer = function(a) {
     return rename(wkt, a);
   };
-  var list = [['standard_parallel_1', 'Standard_Parallel_1'], ['standard_parallel_2', 'Standard_Parallel_2'], ['false_easting', 'False_Easting'], ['false_northing', 'False_Northing'], ['central_meridian', 'Central_Meridian'], ['latitude_of_origin', 'Latitude_Of_Origin'], ['latitude_of_origin', 'Central_Parallel'], ['scale_factor', 'Scale_Factor'], ['k0', 'scale_factor'], ['latitude_of_center', 'Latitude_of_center'], ['lat0', 'latitude_of_center', d2r], ['longitude_of_center', 'Longitude_Of_Center'], ['longc', 'longitude_of_center', d2r], ['x0', 'false_easting', toMeter], ['y0', 'false_northing', toMeter], ['long0', 'central_meridian', d2r], ['lat0', 'latitude_of_origin', d2r], ['lat0', 'standard_parallel_1', d2r], ['lat1', 'standard_parallel_1', d2r], ['lat2', 'standard_parallel_2', d2r], ['alpha', 'azimuth', d2r], ['srsCode', 'name']];
+  var list = [
+    ['standard_parallel_1', 'Standard_Parallel_1'],
+    ['standard_parallel_2', 'Standard_Parallel_2'],
+    ['false_easting', 'False_Easting'],
+    ['false_northing', 'False_Northing'],
+    ['central_meridian', 'Central_Meridian'],
+    ['latitude_of_origin', 'Latitude_Of_Origin'],
+    ['latitude_of_origin', 'Central_Parallel'],
+    ['scale_factor', 'Scale_Factor'],
+    ['k0', 'scale_factor'],
+    ['latitude_of_center', 'Latitude_of_center'],
+    ['lat0', 'latitude_of_center', d2r],
+    ['longitude_of_center', 'Longitude_Of_Center'],
+    ['longc', 'longitude_of_center', d2r],
+    ['x0', 'false_easting', toMeter],
+    ['y0', 'false_northing', toMeter],
+    ['long0', 'central_meridian', d2r],
+    ['lat0', 'latitude_of_origin', d2r],
+    ['lat0', 'standard_parallel_1', d2r],
+    ['lat1', 'standard_parallel_1', d2r],
+    ['lat2', 'standard_parallel_2', d2r],
+    ['alpha', 'azimuth', d2r],
+    ['srsCode', 'name']
+  ];
   list.forEach(renamer);
-  if (!wkt.long0 && wkt.longc && (wkt.projName === 'Albers_Conic_Equal_Area' || wkt.projName === "Lambert_Azimuthal_Equal_Area")) {
+  if (!wkt.long0 && wkt.longc && (wkt.projName === 'Albers_Conic_Equal_Area' || wkt.projName === 'Lambert_Azimuthal_Equal_Area')) {
     wkt.long0 = wkt.longc;
   }
   if (!wkt.lat_ts && wkt.lat1 && (wkt.projName === 'Stereographic_South_Pole' || wkt.projName === 'Polar Stereographic (variant B)')) {
@@ -443,7 +402,7 @@ function cleanWKT(wkt) {
     wkt.lat_ts = wkt.lat1;
   }
 }
-module.exports = function (wkt) {
+module.exports = function(wkt) {
   var lisp = parseString(wkt);
   var type = lisp.shift();
   var name = lisp.shift();

@@ -22,16 +22,13 @@ function d2r(input) {
 function cleanWKT(wkt) {
   if (wkt.type === 'GEOGCS') {
     wkt.projName = 'longlat';
-  }
-  else if (wkt.type === 'LOCAL_CS') {
+  } else if (wkt.type === 'LOCAL_CS') {
     wkt.projName = 'identity';
     wkt.local = true;
-  }
-  else {
-    if (typeof wkt.PROJECTION === "object") {
+  } else {
+    if (typeof wkt.PROJECTION === 'object') {
       wkt.projName = Object.keys(wkt.PROJECTION)[0];
-    }
-    else {
+    } else {
       wkt.projName = wkt.PROJECTION;
     }
   }
@@ -66,7 +63,7 @@ function cleanWKT(wkt) {
     if (wkt.datumCode === 'new_zealand_geodetic_datum_1949' || wkt.datumCode === 'new_zealand_1949') {
       wkt.datumCode = 'nzgd49';
     }
-    if (wkt.datumCode === "wgs_1984") {
+    if (wkt.datumCode === 'wgs_1984') {
       if (wkt.PROJECTION === 'Mercator_Auxiliary_Sphere') {
         wkt.sphere = true;
       }
@@ -79,11 +76,11 @@ function cleanWKT(wkt) {
       wkt.datumCode = wkt.datumCode.slice(0, - 8);
     }
     if (~wkt.datumCode.indexOf('belge')) {
-      wkt.datumCode = "rnb72";
+      wkt.datumCode = 'rnb72';
     }
     if (wkt.GEOGCS.DATUM && wkt.GEOGCS.DATUM.SPHEROID) {
       wkt.ellps = wkt.GEOGCS.DATUM.SPHEROID.name.replace('_19', '').replace(/[Cc]larke\_18/, 'clrk');
-      if (wkt.ellps.toLowerCase().slice(0, 13) === "international") {
+      if (wkt.ellps.toLowerCase().slice(0, 13) === 'international') {
         wkt.ellps = 'intl';
       }
 
@@ -91,7 +88,7 @@ function cleanWKT(wkt) {
       wkt.rf = parseFloat(wkt.GEOGCS.DATUM.SPHEROID.rf, 10);
     }
     if (~wkt.datumCode.indexOf('osgb_1936')) {
-      wkt.datumCode = "osgb36";
+      wkt.datumCode = 'osgb36';
     }
   }
   if (wkt.b && !isFinite(wkt.b)) {
@@ -130,7 +127,7 @@ function cleanWKT(wkt) {
     ['srsCode', 'name']
   ];
   list.forEach(renamer);
-  if (!wkt.long0 && wkt.longc && (wkt.projName === 'Albers_Conic_Equal_Area' || wkt.projName === "Lambert_Azimuthal_Equal_Area")) {
+  if (!wkt.long0 && wkt.longc && (wkt.projName === 'Albers_Conic_Equal_Area' || wkt.projName === 'Lambert_Azimuthal_Equal_Area')) {
     wkt.long0 = wkt.longc;
   }
   if (!wkt.lat_ts && wkt.lat1 && (wkt.projName === 'Stereographic_South_Pole' || wkt.projName === 'Polar Stereographic (variant B)')) {
