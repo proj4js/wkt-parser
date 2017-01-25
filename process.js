@@ -1,5 +1,4 @@
 
-module.exports = sExpr;
 
 function mapit(obj, key, value) {
   if (Array.isArray(key)) {
@@ -17,7 +16,7 @@ function mapit(obj, key, value) {
   }
 }
 
-function sExpr(v, obj) {
+export function sExpr(v, obj) {
   if (!Array.isArray(v)) {
     obj[v] = true;
     return;

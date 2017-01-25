@@ -1,6 +1,6 @@
 var D2R = 0.01745329251994329577;
-var parser = require('./parser');
-var sExpr = require('./process');
+import parser from './parser';
+import {sExpr} from './process';
 
 
 

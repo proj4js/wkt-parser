@@ -1,5 +1,4 @@
-'use strict';
-module.exports = parseString;
+export default parseString;
 
 const NEUTRAL = 1;
 const KEYWORD = 2;
@@ -12,7 +11,7 @@ const latin = /[A-Za-z]/;
 const keyword = /[A-Za-z84]/;
 const endThings = /[,\]]/;
 const digets = /[\d\.E\-\+]/;
-const ignoredChar = /[\s_\-\/\(\)]/g;
+// const ignoredChar = /[\s_\-\/\(\)]/g;
 class Parser {
   constructor(text) {
     if (typeof text !== 'string') {

@@ -1,6 +1,5 @@
 var test = require('tape');
-var wktParser = require('./');
-var parser = require('./parser')
+var wktParser = require('./wkt.build.js');
 var fixtures = require('./test-fixtures');
 
 fixtures.forEach((item, i)=>{
