@@ -135,7 +135,7 @@ function cleanWKT(wkt) {
     wkt.lat_ts = wkt.lat1;
   }
 }
-module.exports = function(wkt) {
+export default function(wkt) {
   var lisp = parser(wkt);
   var type = lisp.shift();
   var name = lisp.shift();
@@ -145,4 +145,4 @@ module.exports = function(wkt) {
   sExpr(lisp, obj);
   cleanWKT(obj);
   return obj;
-};
+}

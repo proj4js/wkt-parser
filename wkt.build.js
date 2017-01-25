@@ -402,7 +402,7 @@ function cleanWKT(wkt) {
     wkt.lat_ts = wkt.lat1;
   }
 }
-module.exports = function(wkt) {
+var index = function(wkt) {
   var lisp = parseString(wkt);
   var type = lisp.shift();
   var name = lisp.shift();
@@ -413,3 +413,5 @@ module.exports = function(wkt) {
   cleanWKT(obj);
   return obj;
 };
+
+module.exports = index;
