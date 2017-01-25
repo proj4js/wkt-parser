@@ -25,7 +25,7 @@ function Parser(text) {
   this.state = NEUTRAL;
 }
 Parser.prototype.readCharicter = function() {
-  let char = this.text[this.place++];
+  var char = this.text[this.place++];
   if (this.state !== QUOTED) {
     while (whitespace.test(char)) {
       if (this.place >= this.text.length) {
@@ -60,7 +60,7 @@ Parser.prototype.afterquote = function(char) {
     this.afterItem(char);
     return;
   }
-  throw new Error(`havn't handled "${char}" in afterquote yet, index ${this.place}`);
+  throw new Error('havn\'t handled "' +char + '" in afterquote yet, index ' + this.place);
 };
 Parser.prototype.afterItem = function(char) {
   if (char === ',') {
@@ -96,7 +96,7 @@ Parser.prototype.number = function(char) {
     this.afterItem(char);
     return;
   }
-  throw new Error(`havn't handled "${char}" in number yet, index ${this.place}`);
+  throw new Error('havn\'t handled "' +char + '" in number yet, index ' + this.place);
 };
 Parser.prototype.quoted = function(char) {
   if (char === '"') {
@@ -112,7 +112,7 @@ Parser.prototype.keyword = function(char) {
     return;
   }
   if (char === '[') {
-    let newObjects = [];
+    var newObjects = [];
     newObjects.push(this.word);
     this.level++;
     if (this.root === null) {
@@ -129,7 +129,7 @@ Parser.prototype.keyword = function(char) {
     this.afterItem(char);
     return;
   }
-  throw new Error(`havn't handled "${char}" in keyword yet, index ${this.place}`);
+  throw new Error('havn\'t handled "' +char + '" in keyword yet, index ' + this.place);
 };
 Parser.prototype.neutral = function(char) {
   if (latin.test(char)) {
@@ -151,7 +151,7 @@ Parser.prototype.neutral = function(char) {
     this.afterItem(char);
     return;
   }
-  throw new Error(`havn't handled "${char}" in neutral yet, index ${this.place}`);
+  throw new Error('havn\'t handled "' +char + '" in neutral yet, index ' + this.place);
 };
 Parser.prototype.output = function() {
   while (this.place < this.text.length) {
@@ -160,7 +160,7 @@ Parser.prototype.output = function() {
   if (this.state === ENDED) {
     return this.root;
   }
-  throw new Error(`unable to parse string '${this.text}'. State is ${this.state}.`);
+  throw new Error('unable to parse string "' +this.text + '". State is ' + this.state);
 };
 
 function parseString(txt) {
