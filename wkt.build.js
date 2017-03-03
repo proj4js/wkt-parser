@@ -25,7 +25,7 @@ function Parser(text) {
   this.state = NEUTRAL;
 }
 Parser.prototype.readCharicter = function() {
-  let char = this.text[this.place++];
+  var char = this.text[this.place++];
   if (this.state !== QUOTED) {
     while (whitespace.test(char)) {
       if (this.place >= this.text.length) {
@@ -60,7 +60,7 @@ Parser.prototype.afterquote = function(char) {
     this.afterItem(char);
     return;
   }
-  throw new Error(`havn't handled "${char}" in afterquote yet, index ${this.place}`);
+  throw new Error('havn\'t handled "' +char + '" in afterquote yet, index ' + this.place);
 };
 Parser.prototype.afterItem = function(char) {
   if (char === ',') {
@@ -96,7 +96,7 @@ Parser.prototype.number = function(char) {
     this.afterItem(char);
     return;
   }
-  throw new Error(`havn't handled "${char}" in number yet, index ${this.place}`);
+  throw new Error('havn\'t handled "' +char + '" in number yet, index ' + this.place);
 };
 Parser.prototype.quoted = function(char) {
   if (char === '"') {
@@ -112,7 +112,7 @@ Parser.prototype.keyword = function(char) {
     return;
   }
   if (char === '[') {
-    let newObjects = [];
+    var newObjects = [];
     newObjects.push(this.word);
     this.level++;
     if (this.root === null) {
@@ -129,7 +129,7 @@ Parser.prototype.keyword = function(char) {
     this.afterItem(char);
     return;
   }
-  throw new Error(`havn't handled "${char}" in keyword yet, index ${this.place}`);
+  throw new Error('havn\'t handled "' +char + '" in keyword yet, index ' + this.place);
 };
 Parser.prototype.neutral = function(char) {
   if (latin.test(char)) {
@@ -151,7 +151,7 @@ Parser.prototype.neutral = function(char) {
     this.afterItem(char);
     return;
   }
-  throw new Error(`havn't handled "${char}" in neutral yet, index ${this.place}`);
+  throw new Error('havn\'t handled "' +char + '" in neutral yet, index ' + this.place);
 };
 Parser.prototype.output = function() {
   while (this.place < this.text.length) {
@@ -160,7 +160,7 @@ Parser.prototype.output = function() {
   if (this.state === ENDED) {
     return this.root;
   }
-  throw new Error(`unable to parse string '${this.text}'. State is ${this.state}.`);
+  throw new Error('unable to parse string "' +this.text + '". State is ' + this.state);
 };
 
 function parseString(txt) {
@@ -210,7 +210,10 @@ function sExpr(v, obj) {
     obj[key] = v;
     return;
   }
-  obj[key] = {};
+  if (!Array.isArray(key)) {
+    obj[key] = {};
+  }
+
   var i;
   switch (key) {
     case 'UNIT':
@@ -314,15 +317,18 @@ function cleanWKT(wkt) {
       }
     }
   }
-
-  if (wkt.GEOGCS) {
+  var geogcs = wkt.GEOGCS;
+  if (wkt.type === 'GEOGCS') {
+    geogcs = wkt;
+  }
+  if (geogcs) {
     //if(wkt.GEOGCS.PRIMEM&&wkt.GEOGCS.PRIMEM.convert){
     //  wkt.from_greenwich=wkt.GEOGCS.PRIMEM.convert*D2R;
     //}
-    if (wkt.GEOGCS.DATUM) {
-      wkt.datumCode = wkt.GEOGCS.DATUM.name.toLowerCase();
+    if (geogcs.DATUM) {
+      wkt.datumCode = geogcs.DATUM.name.toLowerCase();
     } else {
-      wkt.datumCode = wkt.GEOGCS.name.toLowerCase();
+      wkt.datumCode = geogcs.name.toLowerCase();
     }
     if (wkt.datumCode.slice(0, 2) === 'd_') {
       wkt.datumCode = wkt.datumCode.slice(2);
@@ -345,14 +351,14 @@ function cleanWKT(wkt) {
     if (~wkt.datumCode.indexOf('belge')) {
       wkt.datumCode = 'rnb72';
     }
-    if (wkt.GEOGCS.DATUM && wkt.GEOGCS.DATUM.SPHEROID) {
-      wkt.ellps = wkt.GEOGCS.DATUM.SPHEROID.name.replace('_19', '').replace(/[Cc]larke\_18/, 'clrk');
+    if (geogcs.DATUM && geogcs.DATUM.SPHEROID) {
+      wkt.ellps = geogcs.DATUM.SPHEROID.name.replace('_19', '').replace(/[Cc]larke\_18/, 'clrk');
       if (wkt.ellps.toLowerCase().slice(0, 13) === 'international') {
         wkt.ellps = 'intl';
       }
 
-      wkt.a = wkt.GEOGCS.DATUM.SPHEROID.a;
-      wkt.rf = parseFloat(wkt.GEOGCS.DATUM.SPHEROID.rf, 10);
+      wkt.a = geogcs.DATUM.SPHEROID.a;
+      wkt.rf = parseFloat(geogcs.DATUM.SPHEROID.rf, 10);
     }
     if (~wkt.datumCode.indexOf('osgb_1936')) {
       wkt.datumCode = 'osgb36';
