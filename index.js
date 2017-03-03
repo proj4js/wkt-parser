@@ -47,49 +47,45 @@ function cleanWKT(wkt) {
       }
     }
   }
+  var geogcs = wkt.GEOGCS || wkt;
 
-  if (wkt.GEOGCS) {
-    //if(wkt.GEOGCS.PRIMEM&&wkt.GEOGCS.PRIMEM.convert){
-    //  wkt.from_greenwich=wkt.GEOGCS.PRIMEM.convert*D2R;
-    //}
-    if (wkt.GEOGCS.DATUM) {
-      wkt.datumCode = wkt.GEOGCS.DATUM.name.toLowerCase();
-    } else {
-      wkt.datumCode = wkt.GEOGCS.name.toLowerCase();
+  if (geogcs.DATUM) {
+    wkt.datumCode = geogcs.DATUM.name.toLowerCase();
+  } else {
+    wkt.datumCode = geogcs.name.toLowerCase();
+  }
+  if (wkt.datumCode.slice(0, 2) === 'd_') {
+    wkt.datumCode = wkt.datumCode.slice(2);
+  }
+  if (wkt.datumCode === 'new_zealand_geodetic_datum_1949' || wkt.datumCode === 'new_zealand_1949') {
+    wkt.datumCode = 'nzgd49';
+  }
+  if (wkt.datumCode === 'wgs_1984') {
+    if (wkt.PROJECTION === 'Mercator_Auxiliary_Sphere') {
+      wkt.sphere = true;
     }
-    if (wkt.datumCode.slice(0, 2) === 'd_') {
-      wkt.datumCode = wkt.datumCode.slice(2);
+    wkt.datumCode = 'wgs84';
+  }
+  if (wkt.datumCode.slice(-6) === '_ferro') {
+    wkt.datumCode = wkt.datumCode.slice(0, - 6);
+  }
+  if (wkt.datumCode.slice(-8) === '_jakarta') {
+    wkt.datumCode = wkt.datumCode.slice(0, - 8);
+  }
+  if (~wkt.datumCode.indexOf('belge')) {
+    wkt.datumCode = 'rnb72';
+  }
+  if (geogcs.DATUM && geogcs.DATUM.SPHEROID) {
+    wkt.ellps = geogcs.DATUM.SPHEROID.name.replace('_19', '').replace(/[Cc]larke\_18/, 'clrk');
+    if (wkt.ellps.toLowerCase().slice(0, 13) === 'international') {
+      wkt.ellps = 'intl';
     }
-    if (wkt.datumCode === 'new_zealand_geodetic_datum_1949' || wkt.datumCode === 'new_zealand_1949') {
-      wkt.datumCode = 'nzgd49';
-    }
-    if (wkt.datumCode === 'wgs_1984') {
-      if (wkt.PROJECTION === 'Mercator_Auxiliary_Sphere') {
-        wkt.sphere = true;
-      }
-      wkt.datumCode = 'wgs84';
-    }
-    if (wkt.datumCode.slice(-6) === '_ferro') {
-      wkt.datumCode = wkt.datumCode.slice(0, - 6);
-    }
-    if (wkt.datumCode.slice(-8) === '_jakarta') {
-      wkt.datumCode = wkt.datumCode.slice(0, - 8);
-    }
-    if (~wkt.datumCode.indexOf('belge')) {
-      wkt.datumCode = 'rnb72';
-    }
-    if (wkt.GEOGCS.DATUM && wkt.GEOGCS.DATUM.SPHEROID) {
-      wkt.ellps = wkt.GEOGCS.DATUM.SPHEROID.name.replace('_19', '').replace(/[Cc]larke\_18/, 'clrk');
-      if (wkt.ellps.toLowerCase().slice(0, 13) === 'international') {
-        wkt.ellps = 'intl';
-      }
 
-      wkt.a = wkt.GEOGCS.DATUM.SPHEROID.a;
-      wkt.rf = parseFloat(wkt.GEOGCS.DATUM.SPHEROID.rf, 10);
-    }
-    if (~wkt.datumCode.indexOf('osgb_1936')) {
-      wkt.datumCode = 'osgb36';
-    }
+    wkt.a = geogcs.DATUM.SPHEROID.a;
+    wkt.rf = parseFloat(geogcs.DATUM.SPHEROID.rf, 10);
+  }
+  if (~wkt.datumCode.indexOf('osgb_1936')) {
+    wkt.datumCode = 'osgb36';
   }
   if (wkt.b && !isFinite(wkt.b)) {
     wkt.b = wkt.a;

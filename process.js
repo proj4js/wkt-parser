@@ -42,7 +42,10 @@ export function sExpr(v, obj) {
     obj[key] = v;
     return;
   }
-  obj[key] = {};
+  if (!Array.isArray(key)) {
+    obj[key] = {};
+  }
+
   var i;
   switch (key) {
     case 'UNIT':
