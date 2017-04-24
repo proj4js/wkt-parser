@@ -363,6 +363,13 @@ function cleanWKT(wkt) {
     if (~wkt.datumCode.indexOf('osgb_1936')) {
       wkt.datumCode = 'osgb36';
     }
+    if (~wkt.datumCode.indexOf('osni_1952')) {
+      wkt.datumCode = 'osni52';
+    }
+    if (~wkt.datumCode.indexOf('tm65')
+      || ~wkt.datumCode.indexOf('geodetic_datum_of_1965')) {
+      wkt.datumCode = 'ire65';
+    }
   }
   if (wkt.b && !isFinite(wkt.b)) {
     wkt.b = wkt.a;
