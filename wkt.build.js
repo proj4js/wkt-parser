@@ -370,6 +370,9 @@ function cleanWKT(wkt) {
       || ~wkt.datumCode.indexOf('geodetic_datum_of_1965')) {
       wkt.datumCode = 'ire65';
     }
+    if (wkt.datumCode === 'ch1903+') {
+      wkt.datumCode = 'ch1903';
+    }
   }
   if (wkt.b && !isFinite(wkt.b)) {
     wkt.b = wkt.a;
@@ -392,9 +395,11 @@ function cleanWKT(wkt) {
     ['latitude_of_origin', 'Central_Parallel'],
     ['scale_factor', 'Scale_Factor'],
     ['k0', 'scale_factor'],
+    ['latitude_of_center', 'Latitude_Of_Center'],
     ['latitude_of_center', 'Latitude_of_center'],
     ['lat0', 'latitude_of_center', d2r],
     ['longitude_of_center', 'Longitude_Of_Center'],
+    ['longitude_of_center', 'Longitude_of_center'],
     ['longc', 'longitude_of_center', d2r],
     ['x0', 'false_easting', toMeter],
     ['y0', 'false_northing', toMeter],
@@ -403,6 +408,7 @@ function cleanWKT(wkt) {
     ['lat0', 'standard_parallel_1', d2r],
     ['lat1', 'standard_parallel_1', d2r],
     ['lat2', 'standard_parallel_2', d2r],
+    ['azimuth', 'Azimuth'],
     ['alpha', 'azimuth', d2r],
     ['srsCode', 'name']
   ];
