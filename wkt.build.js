@@ -359,10 +359,10 @@ function cleanWKT(wkt) {
 
       wkt.a = geogcs.DATUM.SPHEROID.a;
       wkt.rf = parseFloat(geogcs.DATUM.SPHEROID.rf, 10);
+    }
 
-      if (wkt.GEOGCS.DATUM.TOWGS84) {
-        wkt.datum_params = wkt.GEOGCS.DATUM.TOWGS84;
-      }
+    if (geogcs.DATUM && geogcs.DATUM.TOWGS84) {
+      wkt.datum_params = geogcs.DATUM.TOWGS84;
     }
     if (~wkt.datumCode.indexOf('osgb_1936')) {
       wkt.datumCode = 'osgb36';
