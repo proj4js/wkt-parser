@@ -210,6 +210,13 @@ function sExpr(v, obj) {
     obj[key] = v;
     return;
   }
+  if (key === 'AXIS') {
+      if (!obj[key]) {
+          obj[key] = [];
+      }
+      obj[key].push(v);
+      return;
+  }
   if (!Array.isArray(key)) {
     obj[key] = {};
   }
@@ -301,6 +308,20 @@ function cleanWKT(wkt) {
     } else {
       wkt.projName = wkt.PROJECTION;
     }
+  }
+  if (wkt.AXIS) {
+      var axisOrder = '';
+      wkt.AXIS.forEach(function(axis) {
+          if(axis.length >= 2) {
+              axisOrder += axis[1].substring(0, 1).toLowerCase();
+          }
+      });
+      if (axisOrder.length === 2) {
+          axisOrder += 'u';
+      }
+      if (axisOrder.length === 3) {
+          wkt.axis = axisOrder;
+      }
   }
   if (wkt.UNIT) {
     wkt.units = wkt.UNIT.name.toLowerCase();
