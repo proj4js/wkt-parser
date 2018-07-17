@@ -377,6 +377,9 @@ function cleanWKT(wkt) {
     if (wkt.datumCode === 'ch1903+') {
       wkt.datumCode = 'ch1903';
     }
+    if (~wkt.datumCode.indexOf('israel')) {
+      wkt.datumCode = 'isr93';
+    }
   }
   if (wkt.b && !isFinite(wkt.b)) {
     wkt.b = wkt.a;
