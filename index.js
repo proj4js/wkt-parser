@@ -43,7 +43,7 @@ function cleanWKT(wkt) {
           wkt.to_meter = wkt.UNIT.convert*wkt.DATUM.SPHEROID.a;
         }
       } else {
-        wkt.to_meter = wkt.UNIT.convert, 10;
+        wkt.to_meter = wkt.UNIT.convert;
       }
     }
   }
