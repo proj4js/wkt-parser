@@ -1,6 +1,6 @@
 {
-  "name": "wkt-parser",
-  "version": "1.2.1",
+  "name": "@geosolutions/wkt-parser",
+  "version": "1.2.2",
   "description": "wkt-parser ===",
   "main": "wkt.build.js",
   "module": "index.js",
@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/proj4js/wkt-parser.git"
+    "url": "git+https://github.com/geosolutions-it/wkt-parser.git"
   },
   "browserify": {
     "transform": [
