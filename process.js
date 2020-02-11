@@ -42,13 +42,6 @@ export function sExpr(v, obj) {
     obj[key] = v;
     return;
   }
-  if (key === 'AXIS') {
-      if (!obj[key]) {
-          obj[key] = [];
-      }
-      obj[key].push(v);
-      return;
-  }
   if (!Array.isArray(key)) {
     obj[key] = {};
   }
