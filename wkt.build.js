@@ -210,6 +210,13 @@ function sExpr(v, obj) {
     obj[key] = v;
     return;
   }
+  if (key === 'AXIS') {
+    if (!(key in obj)) {
+      obj[key] = [];
+    }
+    obj[key].push(v);
+    return;
+  }
   if (!Array.isArray(key)) {
     obj[key] = {};
   }
@@ -300,6 +307,28 @@ function cleanWKT(wkt) {
       wkt.projName = Object.keys(wkt.PROJECTION)[0];
     } else {
       wkt.projName = wkt.PROJECTION;
+    }
+  }
+  if (wkt.AXIS) {
+    var axisOrder = '';
+    for (var i = 0, ii = wkt.AXIS.length; i < ii; ++i) {
+      var axis = wkt.AXIS[i];
+      var descriptor = axis[0].toLowerCase();
+      if (descriptor.indexOf('north') !== -1) {
+        axisOrder += 'n';
+      } else if (descriptor.indexOf('south') !== -1) {
+        axisOrder += 's';
+      } else if (descriptor.indexOf('east') !== -1) {
+        axisOrder += 'e';
+      } else if (descriptor.indexOf('west') !== -1) {
+        axisOrder += 'w';
+      }
+    }
+    if (axisOrder.length === 2) {
+      axisOrder += 'u';
+    }
+    if (axisOrder.length === 3) {
+      wkt.axis = axisOrder;
     }
   }
   if (wkt.UNIT) {
