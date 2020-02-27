@@ -8,7 +8,7 @@ var AFTERQUOTE = 5;
 var ENDED = -1;
 var whitespace = /\s/;
 var latin = /[A-Za-z]/;
-var keyword = /[A-Za-z84]/;
+var keyword = /[_A-Za-z84]/;
 var endThings = /[,\]]/;
 var digets = /[\d\.E\-\+]/;
 // const ignoredChar = /[\s_\-\/\(\)]/g;
@@ -459,6 +459,11 @@ function cleanWKT(wkt) {
 }
 var index = function(wkt) {
   var lisp = parseString(wkt);
+  // if compound SRS (e.g. COMPD_CS) parse only the PROJCS part (e.g. horizontal SRS)
+  if (lisp[0] == "COMPD_CS") {
+    console.warn('COMPD_CS not yet supported. Stripped Vertical datum leaving only PROJCS');
+    lisp = lisp[2];
+  }
   var type = lisp.shift();
   var name = lisp.shift();
   lisp.unshift(['name', name]);
