@@ -172,10 +172,10 @@ function cleanWKT(wkt) {
     ['srsCode', 'name']
   ];
   list.forEach(renamer);
-  if (!wkt.long0 && wkt.longc && (wkt.projName === 'Albers_Conic_Equal_Area' || wkt.projName === 'Lambert_Azimuthal_Equal_Area')) {
+  if (!(wkt.long0 || wkt.long0 === 0) && (wkt.longc || wkt.longc === 0) && (wkt.projName === 'Albers_Conic_Equal_Area' || wkt.projName === 'Lambert_Azimuthal_Equal_Area')) {
     wkt.long0 = wkt.longc;
   }
-  if (!wkt.lat_ts && wkt.lat1 && (wkt.projName === 'Stereographic_South_Pole' || wkt.projName === 'Polar Stereographic (variant B)')) {
+  if (!(wkt.lat_ts || wkt.lat_ts === 0) && (wkt.lat1 || wkt.lat1 === 0)  && (wkt.projName === 'Stereographic_South_Pole' || wkt.projName === 'Polar Stereographic (variant B)')) {
     wkt.lat0 = d2r(wkt.lat1 > 0 ? 90 : -90);
     wkt.lat_ts = wkt.lat1;
   }
