@@ -388,4 +388,235 @@
     "lat2": 0.7280931862903012,
     "srsCode": "NAD83 / Massachusetts Mainland"
   }
-}]
+},
+{
+  "code":  "COMPD_CS[\"unknown\",PROJCS[\"NAD83 / Texas North Central\",GEOGCS[\"NAD83\",DATUM[\"North_American_Datum_1983\",SPHEROID[\"GRS 1980\",6378137,298.257222101004,AUTHORITY[\"EPSG\",\"7019\"]],AUTHORITY[\"EPSG\",\"6269\"]],PRIMEM[\"Greenwich\",0],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AUTHORITY[\"EPSG\",\"4269\"]],PROJECTION[\"Lambert_Conformal_Conic_2SP\"],PARAMETER[\"latitude_of_origin\",31.6666666666667],PARAMETER[\"central_meridian\",-98.5],PARAMETER[\"standard_parallel_1\",32.1333333333333],PARAMETER[\"standard_parallel_2\",33.9666666666667],PARAMETER[\"false_easting\",1968500],PARAMETER[\"false_northing\",6561666.66666667],UNIT[\"US survey foot\",0.304800609601219,AUTHORITY[\"EPSG\",\"9003\"]],AXIS[\"Easting\",EAST],AXIS[\"Northing\",NORTH],AUTHORITY[\"EPSG\",\"32138\"]],VERT_CS[\"NAVD88 height (ftUS)\",VERT_DATUM[\"North American Vertical Datum 1988\",2005,AUTHORITY[\"EPSG\",\"5103\"]],UNIT[\"US survey foot\",0.304800609601219,AUTHORITY[\"EPSG\",\"9003\"]],AXIS[\"Up\",UP],AUTHORITY[\"EPSG\",\"6360\"]]]",
+  "intermediate": [
+  "COMPD_CS",
+  "unknown",
+  [
+    "PROJCS",
+    "NAD83 / Texas North Central",
+    [
+      "GEOGCS",
+      "NAD83",
+      [
+        "DATUM",
+        "North_American_Datum_1983",
+        [
+          "SPHEROID",
+          "GRS 1980",
+          6378137,
+          298.257222101004,
+          [
+            "AUTHORITY",
+            "EPSG",
+            "7019"
+          ]
+        ],
+        [
+          "AUTHORITY",
+          "EPSG",
+          "6269"
+        ]
+      ],
+      [
+        "PRIMEM",
+        "Greenwich",
+        0
+      ],
+      [
+        "UNIT",
+        "degree",
+        0.0174532925199433,
+        [
+          "AUTHORITY",
+          "EPSG",
+          "9122"
+        ]
+      ],
+      [
+        "AUTHORITY",
+        "EPSG",
+        "4269"
+      ]
+    ],
+    [
+      "PROJECTION",
+      "Lambert_Conformal_Conic_2SP"
+    ],
+    [
+      "PARAMETER",
+      "latitude_of_origin",
+      31.6666666666667
+    ],
+    [
+      "PARAMETER",
+      "central_meridian",
+      -98.5
+    ],
+    [
+      "PARAMETER",
+      "standard_parallel_1",
+      32.1333333333333
+    ],
+    [
+      "PARAMETER",
+      "standard_parallel_2",
+      33.9666666666667
+    ],
+    [
+      "PARAMETER",
+      "false_easting",
+      1968500
+    ],
+    [
+      "PARAMETER",
+      "false_northing",
+      6561666.66666667
+    ],
+    [
+      "UNIT",
+      "US survey foot",
+      0.304800609601219,
+      [
+        "AUTHORITY",
+        "EPSG",
+        "9003"
+      ]
+    ],
+    [
+      "AXIS",
+      "Easting",
+      "EAST"
+    ],
+    [
+      "AXIS",
+      "Northing",
+      "NORTH"
+    ],
+    [
+      "AUTHORITY",
+      "EPSG",
+      "32138"
+    ]
+  ],
+  [
+    "VERT_CS",
+    "NAVD88 height (ftUS)",
+    [
+      "VERT_DATUM",
+      "North American Vertical Datum 1988",
+      2005,
+      [
+        "AUTHORITY",
+        "EPSG",
+        "5103"
+      ]
+    ],
+    [
+      "UNIT",
+      "US survey foot",
+      0.304800609601219,
+      [
+        "AUTHORITY",
+        "EPSG",
+        "9003"
+      ]
+    ],
+    [
+      "AXIS",
+      "Up",
+      "UP"
+    ],
+    [
+      "AUTHORITY",
+      "EPSG",
+      "6360"
+    ]
+  ]
+],
+  "value": {
+  "type": "COMPD_CS",
+  "name": "unknown",
+  "PROJCS": {
+    "name": "NAD83 / Texas North Central",
+    "GEOGCS": {
+      "name": "NAD83",
+      "DATUM": {
+        "name": "North_American_Datum_1983",
+        "SPHEROID": {
+          "name": "GRS 1980",
+          "a": 6378137,
+          "rf": 298.257222101004,
+          "AUTHORITY": {
+            "EPSG": "7019"
+          }
+        },
+        "AUTHORITY": {
+          "EPSG": "6269"
+        }
+      },
+      "PRIMEM": {
+        "name": "greenwich",
+        "convert": 0
+      },
+      "UNIT": {
+        "name": "degree",
+        "convert": 0.0174532925199433,
+        "AUTHORITY": {
+          "EPSG": "9122"
+        }
+      },
+      "AUTHORITY": {
+        "EPSG": "4269"
+      }
+    },
+    "PROJECTION": "Lambert_Conformal_Conic_2SP",
+    "latitude_of_origin": 31.6666666666667,
+    "central_meridian": -98.5,
+    "standard_parallel_1": 32.1333333333333,
+    "standard_parallel_2": 33.9666666666667,
+    "false_easting": 1968500,
+    "false_northing": 6561666.66666667,
+    "UNIT": {
+      "name": "us survey foot",
+      "convert": 0.304800609601219,
+      "AUTHORITY": {
+        "EPSG": "9003"
+      }
+    },
+    "AXIS": {
+      "Northing": "NORTH"
+    },
+    "AUTHORITY": {
+      "EPSG": "32138"
+    }
+  },
+  "VERT_CS": {
+    "name": "NAVD88 height (ftUS)",
+    "VERT_DATUM": {
+      "name": "north american vertical datum 1988",
+      "convert": 2005,
+      "AUTHORITY": {
+        "EPSG": "5103"
+      }
+    },
+    "UNIT": {
+      "name": "us survey foot",
+      "convert": 0.304800609601219,
+      "AUTHORITY": {
+        "EPSG": "9003"
+      }
+    },
+    "AXIS": {
+      "Up": "UP"
+    },
+    "AUTHORITY": {
+      "EPSG": "6360"
+    }
+  },
+  "srsCode": "unknown"
+}
+}
+]
