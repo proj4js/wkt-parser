@@ -35,15 +35,14 @@ function cleanWKT(wkt) {
   if (wkt.AXIS) {
     var axisOrder = '';
     for (var i = 0, ii = wkt.AXIS.length; i < ii; ++i) {
-      var axis = wkt.AXIS[i];
-      var descriptor = axis[1].toLowerCase();
-      if (descriptor.indexOf('north') !== -1) {
+      var axis = [wkt.AXIS[i][0].toLowerCase(), wkt.AXIS[i][1].toLowerCase()];
+      if (axis[0].indexOf('north') !== -1 || (axis[0] === 'y' && axis[1] === 'north')) {
         axisOrder += 'n';
-      } else if (descriptor.indexOf('south') !== -1) {
+      } else if (axis[0].indexOf('south') !== -1 || (axis[0] === 'y' && axis[1] === 'south')) {
         axisOrder += 's';
-      } else if (descriptor.indexOf('east') !== -1) {
+      } else if (axis[0].indexOf('east') !== -1 || (axis[0] === 'x' && axis[1] === 'east')) {
         axisOrder += 'e';
-      } else if (descriptor.indexOf('west') !== -1) {
+      } else if (axis[0].indexOf('west') !== -1 || (axis[0] === 'x' && axis[1] === 'west')) {
         axisOrder += 'w';
       }
     }
