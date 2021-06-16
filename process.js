@@ -80,6 +80,7 @@ export function sExpr(v, obj) {
     case 'PROJECTEDCRS':
     case 'PROJCRS':
     case 'GEOGCS':
+    case 'GEOGCRS':
     case 'GEOCCS':
     case 'PROJCS':
     case 'LOCAL_CS':
