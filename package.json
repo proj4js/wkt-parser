@@ -5,7 +5,7 @@
   "main": "wkt.build.js",
   "module": "index.js",
   "scripts": {
-    "test": "node test.js",
+    "test": "node -r esm test.js",
     "build": "rollup -c",
     "pretest": "npm run build"
   },
@@ -32,6 +32,8 @@
   },
   "homepage": "https://github.com/proj4js/wkt-parser#readme",
   "devDependencies": {
+    "esm": "^3.2.25",
+    "js-struct-compare": "^1.1.0",
     "rollup": "^0.41.4",
     "tape": "^4.6.3"
   }
