@@ -313,13 +313,13 @@ function cleanWKT(wkt) {
     var axisOrder = '';
     for (var i = 0, ii = wkt.AXIS.length; i < ii; ++i) {
       var axis = [wkt.AXIS[i][0].toLowerCase(), wkt.AXIS[i][1].toLowerCase()];
-      if (axis[0].indexOf('north') !== -1 || (axis[0] === 'y' && axis[1] === 'north')) {
+      if (axis[0].indexOf('north') !== -1 || ((axis[0] === 'y' || axis[0] === 'lat') && axis[1] === 'north')) {
         axisOrder += 'n';
-      } else if (axis[0].indexOf('south') !== -1 || (axis[0] === 'y' && axis[1] === 'south')) {
+      } else if (axis[0].indexOf('south') !== -1 || ((axis[0] === 'y' || axis[0] === 'lat') && axis[1] === 'south')) {
         axisOrder += 's';
-      } else if (axis[0].indexOf('east') !== -1 || (axis[0] === 'x' && axis[1] === 'east')) {
+      } else if (axis[0].indexOf('east') !== -1 || ((axis[0] === 'x' || axis[0] === 'lon') && axis[1] === 'east')) {
         axisOrder += 'e';
-      } else if (axis[0].indexOf('west') !== -1 || (axis[0] === 'x' && axis[1] === 'west')) {
+      } else if (axis[0].indexOf('west') !== -1 || ((axis[0] === 'x' || axis[0] === 'lon') && axis[1] === 'west')) {
         axisOrder += 'w';
       }
     }
