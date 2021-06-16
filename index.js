@@ -36,7 +36,7 @@ function cleanWKT(wkt) {
     var axisOrder = '';
     for (var i = 0, ii = wkt.AXIS.length; i < ii; ++i) {
       var axis = wkt.AXIS[i];
-      var descriptor = axis[0].toLowerCase();
+      var descriptor = axis[1].toLowerCase();
       if (descriptor.indexOf('north') !== -1) {
         axisOrder += 'n';
       } else if (descriptor.indexOf('south') !== -1) {

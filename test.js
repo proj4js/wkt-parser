@@ -1,12 +1,14 @@
 var test = require('tape');
+import compare from 'js-struct-compare';
 var wktParser = require('./wkt.build.js');
-var fixtures = require('./test-fixtures');
+var fixtures = require('./test-fixtures.json');
 
 fixtures.forEach((item, i)=>{
   test(`fixture ${i}`, t=>{
     var out = wktParser(item.code);
-    //var out = parser(item.code);
-    console.log(JSON.stringify(out, false, 2));
+    //console.log(JSON.stringify(out, false, 2));
+    const diff = JSON.stringify(compare(item.value, out), null, 2);
+    t.equal(diff, '[]');
     t.end();
   });
 })
