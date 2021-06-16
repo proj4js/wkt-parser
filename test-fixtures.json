@@ -237,4 +237,60 @@
     "srsCode": "ETRS89 / ETRS-LAEA",
     "long0": 0.17453292519943295
   }
+}, {
+  "code": "GEOGCS[\"ETRS89\",DATUM[\"European Terrestrial Reference System 1989 ensemble\",SPHEROID[\"GRS 1980\",6378137,298.2572221,AUTHORITY[\"EPSG\",\"7019\"]],AUTHORITY[\"EPSG\",\"6258\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9102\"]],AXIS[\"Lat\",north],AXIS[\"Lon\",east],AUTHORITY[\"EPSG\",\"4258\"]]",
+  "value": {
+    "type": "GEOGCS",
+    "name": "ETRS89",
+    "DATUM": {
+      "name": "European Terrestrial Reference System 1989 ensemble",
+      "SPHEROID": {
+        "name": "GRS 1980",
+        "a": 6378137,
+        "rf": 298.2572221,
+        "AUTHORITY": {
+          "EPSG": "7019"
+        }
+      },
+      "AUTHORITY": {
+        "EPSG": "6258"
+      }
+    },
+    "PRIMEM": {
+      "name": "greenwich",
+      "convert": 0,
+      "AUTHORITY": {
+        "EPSG": "8901"
+      }
+    },
+    "UNIT": {
+      "name": "degree",
+      "convert": 0.0174532925199433,
+      "AUTHORITY": {
+        "EPSG": "9102"
+      }
+    },
+    "AXIS": [
+      [
+        "Lat",
+        "north"
+      ],
+      [
+        "Lon",
+        "east"
+      ]
+    ],
+    "AUTHORITY": {
+      "EPSG": "4258"
+    },
+    "projName": "longlat",
+    "units": "degree",
+    "to_meter": 111319.4907932736,
+    "datumCode": "european terrestrial reference system 1989 ensemble",
+    "ellps": "GRS 1980",
+    "a": 6378137,
+    "rf": 298.2572221,
+    "axis": "neu",
+    "srsCode": "ETRS89"
+  }
 }]
