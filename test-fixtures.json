@@ -388,5 +388,87 @@
     },
     "srsCode": "unknown"
   }
+},
+{
+  "code": "PROJCS[\"WGS 84 / Antarctic Polar Stereographic\",GEOGCS[\"WGS 84\",DATUM[\"WGS_1984\",SPHEROID[\"WGS 84\",6378137,298.257223563,AUTHORITY[\"EPSG\",\"7030\"]],AUTHORITY[\"EPSG\",\"6326\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.01745329251994328,AUTHORITY[\"EPSG\",\"9122\"]],AUTHORITY[\"EPSG\",\"4326\"]],UNIT[\"metre\",1,AUTHORITY[\"EPSG\",\"9001\"]],PROJECTION[\"Polar_Stereographic\"],PARAMETER[\"latitude_of_origin\",-71],PARAMETER[\"central_meridian\",0],PARAMETER[\"scale_factor\",1],PARAMETER[\"false_easting\",0],PARAMETER[\"false_northing\",0],AUTHORITY[\"EPSG\",\"3031\"],AXIS[\"Easting\",UNKNOWN],AXIS[\"Northing\",UNKNOWN]]",
+  "value": {
+    "type": "PROJCS",
+    "name": "WGS 84 / Antarctic Polar Stereographic",
+    "GEOGCS": {
+      "name": "WGS 84",
+      "DATUM": {
+        "name": "WGS_1984",
+        "SPHEROID": {
+          "name": "WGS 84",
+          "a": 6378137,
+          "rf": 298.257223563,
+          "AUTHORITY": {
+            "EPSG": "7030"
+          }
+        },
+        "AUTHORITY": {
+          "EPSG": "6326"
+        }
+      },
+      "PRIMEM": {
+        "name": "greenwich",
+        "convert": 0,
+        "AUTHORITY": {
+          "EPSG": "8901"
+        }
+      },
+      "UNIT": {
+        "name": "degree",
+        "convert": 0.01745329251994328,
+        "AUTHORITY": {
+          "EPSG": "9122"
+        }
+      },
+      "AUTHORITY": {
+        "EPSG": "4326"
+      }
+    },
+    "UNIT": {
+      "name": "metre",
+      "convert": 1,
+      "AUTHORITY": {
+        "EPSG": "9001"
+      }
+    },
+    "PROJECTION": "Polar_Stereographic",
+    "latitude_of_origin": -71,
+    "central_meridian": 0,
+    "scale_factor": 1,
+    "false_easting": 0,
+    "false_northing": 0,
+    "AUTHORITY": {
+      "EPSG": "3031"
+    },
+    "AXIS": [
+      [
+        "Easting",
+        "UNKNOWN"
+      ],
+      [
+        "Northing",
+        "UNKNOWN"
+      ]
+    ],
+    "projName": "Polar_Stereographic",
+    "axis": "enu",
+    "units": "meter",
+    "to_meter": 1,
+    "datumCode": "wgs84",
+    "ellps": "WGS 84",
+    "a": 6378137,
+    "rf": 298.257223563,
+    "k0": 1,
+    "x0": 0,
+    "y0": 0,
+    "long0": 0,
+    "lat0": -1.5707963267948966,
+    "srsCode": "WGS 84 / Antarctic Polar Stereographic",
+    "lat_ts": -1.239183768915974
+  }
 }
 ]

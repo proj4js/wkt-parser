@@ -464,6 +464,9 @@ function cleanWKT(wkt) {
   if (!wkt.lat_ts && wkt.lat1 && (wkt.projName === 'Stereographic_South_Pole' || wkt.projName === 'Polar Stereographic (variant B)')) {
     wkt.lat0 = d2r(wkt.lat1 > 0 ? 90 : -90);
     wkt.lat_ts = wkt.lat1;
+  } else if (!wkt.lat_ts && wkt.lat0 && wkt.projName === 'Polar_Stereographic') {
+    wkt.lat_ts = wkt.lat0;
+    wkt.lat0 = d2r(wkt.lat0 > 0 ? 90 : -90);
   }
 }
 var index = function(wkt) {
