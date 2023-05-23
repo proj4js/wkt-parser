@@ -20,7 +20,7 @@ function d2r(input) {
 }
 
 function cleanWKT(wkt) {
-  if (wkt.type === 'GEOGCS') {
+  if (wkt.type === 'GEOGCS' || wkt.type === 'GEOGCRS') {
     wkt.projName = 'longlat';
   } else if (wkt.type === 'LOCAL_CS') {
     wkt.projName = 'identity';
@@ -59,7 +59,7 @@ function cleanWKT(wkt) {
       wkt.units = 'meter';
     }
     if (wkt.UNIT.convert) {
-      if (wkt.type === 'GEOGCS') {
+      if (wkt.type === 'GEOGCS' || wkt.type === 'GEOGCRS') {
         if (wkt.DATUM && wkt.DATUM.SPHEROID) {
           wkt.to_meter = wkt.UNIT.convert*wkt.DATUM.SPHEROID.a;
         }
@@ -68,8 +68,8 @@ function cleanWKT(wkt) {
       }
     }
   }
-  var geogcs = wkt.GEOGCS;
-  if (wkt.type === 'GEOGCS') {
+  var geogcs = wkt.GEOGCS || wkt.GEOGCRS;
+  if (wkt.type === 'GEOGCS' || wkt.type === 'GEOGCRS') {
     geogcs = wkt;
   }
   if (geogcs) {
@@ -87,7 +87,7 @@ function cleanWKT(wkt) {
     if (wkt.datumCode === 'new_zealand_geodetic_datum_1949' || wkt.datumCode === 'new_zealand_1949') {
       wkt.datumCode = 'nzgd49';
     }
-    if (wkt.datumCode === 'wgs_1984' || wkt.datumCode === 'world_geodetic_system_1984') {
+    if (wkt.datumCode === 'wgs_1984' || wkt.datumCode === 'world_geodetic_system_1984' || wkt.datumCode === 'world geodetic system 1984') {
       if (wkt.PROJECTION === 'Mercator_Auxiliary_Sphere') {
         wkt.sphere = true;
       }
