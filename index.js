@@ -20,6 +20,12 @@ function d2r(input) {
 }
 
 function cleanWKT(wkt) {
+  if (wkt.AUTHORITY) {
+    var authority = Object.keys(wkt.AUTHORITY)[0];
+    if (authority && authority in wkt.AUTHORITY) {
+      wkt.title = `${authority}:${wkt.AUTHORITY[authority]}`;
+    }
+  }
   if (wkt.type === 'GEOGCS') {
     wkt.projName = 'longlat';
   } else if (wkt.type === 'LOCAL_CS') {
