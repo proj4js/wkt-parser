@@ -13,18 +13,6 @@
     "type": "git",
     "url": "git+https://github.com/proj4js/wkt-parser.git"
   },
-  "browserify": {
-    "transform": [
-      [
-        "babelify",
-        {
-          "presets": [
-            "es2015"
-          ]
-        }
-      ]
-    ]
-  },
   "author": "",
   "license": "MIT",
   "bugs": {
@@ -34,7 +22,7 @@
   "devDependencies": {
     "esm": "^3.2.25",
     "js-struct-compare": "^1.1.0",
-    "rollup": "^0.41.4",
+    "rollup": "^4.24.0",
     "tape": "^4.6.3"
   }
 }
