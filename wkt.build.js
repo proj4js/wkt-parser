@@ -281,6 +281,9 @@ function sExpr(v, obj) {
 }
 
 var D2R = 0.01745329251994329577;
+
+
+
 function rename(obj, params) {
   var outName = params[0];
   var inName = params[1];
@@ -469,7 +472,7 @@ function cleanWKT(wkt) {
     wkt.lat0 = d2r(wkt.lat0 > 0 ? 90 : -90);
   }
 }
-var index = function(wkt) {
+function index(wkt) {
   var lisp = parseString(wkt);
   var type = lisp.shift();
   var name = lisp.shift();
@@ -479,6 +482,6 @@ var index = function(wkt) {
   sExpr(lisp, obj);
   cleanWKT(obj);
   return obj;
-};
+}
 
 module.exports = index;
