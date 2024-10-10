@@ -1,6 +1,6 @@
 var test = require('tape');
 import compare from 'js-struct-compare';
-var wktParser = require('./wkt.build.js');
+var wktParser = require('./dist/wkt.cjs');
 var fixtures = require('./test-fixtures.json');
 
 fixtures.forEach((item, i)=>{
