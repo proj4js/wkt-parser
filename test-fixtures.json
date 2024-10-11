@@ -62,6 +62,7 @@
       ["Easting", "EAST"],
       ["Northing", "NORTH"]
     ],
+    "title": "EPSG:27200",
     "projName": "New_Zealand_Map_Grid",
     "units": "meter",
     "to_meter": 1,
@@ -142,6 +143,7 @@
       ["X", "EAST"],
       ["Y", "NORTH"]
     ],
+    "title": "EPSG:26986",
     "projName": "Lambert_Conformal_Conic_2SP",
     "units": "meter",
     "to_meter": 1,
@@ -222,6 +224,7 @@
         "NORTH"
       ]
     ],
+    "title": "EPSG:3035",
     "projName": "Lambert_Azimuthal_Equal_Area",
     "axis": "enu",
     "units": "meter",
@@ -283,6 +286,7 @@
     "AUTHORITY": {
       "EPSG": "4258"
     },
+    "title": "EPSG:4258",
     "projName": "longlat",
     "units": "degree",
     "to_meter": 111319.4907932736,
@@ -454,6 +458,7 @@
         "UNKNOWN"
       ]
     ],
+    "title": "EPSG:3031",
     "projName": "Polar_Stereographic",
     "axis": "enu",
     "units": "meter",
