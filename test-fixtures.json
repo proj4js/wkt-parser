@@ -4,6 +4,7 @@
     "type": "PROJCS",
     "name": "NZGD49 / New Zealand Map Grid",
     "GEOGCS": {
+      "type": "GEOGCS",
       "name": "NZGD49",
       "DATUM": {
         "name": "New_Zealand_Geodetic_Datum_1949",
@@ -41,7 +42,25 @@
       },
       "AUTHORITY": {
         "EPSG": "4272"
-      }
+      },
+      "title": "EPSG:4272",
+      "projName": "longlat",
+      "units": "degree",
+      "to_meter": 111323.87156969598,
+      "datumCode": "nzgd49",
+      "ellps": "intl",
+      "a": 6378388,
+      "rf": 297,
+      "datum_params": [
+        59.47,
+        -5.04,
+        187.44,
+        0.47,
+        -0.1,
+        1.024,
+        -4.5993
+      ],
+      "srsCode": "NZGD49"
     },
     "UNIT": {
       "name": "metre",
@@ -89,6 +108,7 @@
     "type": "PROJCS",
     "name": "NAD83 / Massachusetts Mainland",
     "GEOGCS": {
+      "type": "GEOGCS",
       "name": "NAD83",
       "DATUM": {
         "name": "North_American_Datum_1983",
@@ -120,7 +140,16 @@
       },
       "AUTHORITY": {
         "EPSG": "4269"
-      }
+      },
+      "title": "EPSG:4269",
+      "projName": "longlat",
+      "units": "degree",
+      "to_meter": 111319.49079327348,
+      "datumCode": "north_american_datum_1983",
+      "ellps": "GRS 1980",
+      "a": 6378137,
+      "rf": 298.257222101,
+      "srsCode": "NAD83"
     },
     "UNIT": {
       "name": "metre",
@@ -166,6 +195,7 @@
     "type": "PROJCS",
     "name": "ETRS89 / ETRS-LAEA",
     "GEOGCS": {
+      "type": "GEOGCS",
       "name": "ETRS89",
       "DATUM": {
         "name": "European_Terrestrial_Reference_System_1989",
@@ -197,7 +227,17 @@
       },
       "AUTHORITY": {
         "EPSG": "4258"
-      }
+      },
+      "title": "EPSG:4258",
+      "projName": "longlat",
+      "units": "degree",
+      "to_meter": 111319.49079327348,
+      "datumCode": "european_terrestrial_reference_system_1989",
+      "ellps": "GRS 1980",
+      "a": 6378137,
+      "rf": 298.257222101,
+      "srsCode": "ETRS89"
+
     },
     "UNIT": {
       "name": "metre",
@@ -304,8 +344,10 @@
     "type": "COMPD_CS",
     "name": "unknown",
     "PROJCS": {
+      "type": "PROJCS",
       "name": "NAD83 / Texas North Central",
       "GEOGCS": {
+        "type": "GEOGCS",
         "name": "NAD83",
         "DATUM": {
           "name": "North_American_Datum_1983",
@@ -334,7 +376,16 @@
         },
         "AUTHORITY": {
           "EPSG": "4269"
-        }
+        },
+        "title": "EPSG:4269",
+        "projName": "longlat",
+        "units": "degree",
+        "to_meter": 111319.4907932736,
+        "datumCode": "north_american_datum_1983",
+        "ellps": "GRS 1980",
+        "a": 6378137,
+        "rf": 298.257222101004,
+        "srsCode": "NAD83"
       },
       "PROJECTION": "Lambert_Conformal_Conic_2SP",
       "latitude_of_origin": 31.6666666666667,
@@ -362,7 +413,23 @@
       ],
       "AUTHORITY": {
         "EPSG": "32138"
-      }
+      },
+      "title": "EPSG:32138",
+      "projName": "Lambert_Conformal_Conic_2SP",
+      "axis": "enu",
+      "units": "us survey foot",
+      "to_meter": 0.304800609601219,
+      "datumCode": "north_american_datum_1983",
+      "ellps": "GRS 1980",
+      "a": 6378137,
+      "rf": 298.257222101004,
+      "x0": 599999.9999999997,
+      "y0": 1999999.9999999998,
+      "long0": -1.7191493132144147,
+      "lat0": 0.5526875964648716,
+      "lat1": 0.5608324663075106,
+      "lat2": 0.5928301692607412,
+      "srsCode": "NAD83 / Texas North Central"
     },
     "VERT_CS": {
       "name": "NAVD88 height (ftUS)",
@@ -389,8 +456,7 @@
       "AUTHORITY": {
         "EPSG": "6360"
       }
-    },
-    "srsCode": "unknown"
+    }
   }
 },
 {
@@ -399,6 +465,7 @@
     "type": "PROJCS",
     "name": "WGS 84 / Antarctic Polar Stereographic",
     "GEOGCS": {
+      "type": "GEOGCS",
       "name": "WGS 84",
       "DATUM": {
         "name": "WGS_1984",
@@ -430,7 +497,16 @@
       },
       "AUTHORITY": {
         "EPSG": "4326"
-      }
+      },
+      "title": "EPSG:4326",
+      "projName": "longlat",
+      "units": "degree",
+      "to_meter": 111319.49079327348,
+      "datumCode": "wgs84",
+      "ellps": "WGS 84",
+      "a": 6378137,
+      "rf": 298.257223563,
+      "srsCode": "WGS 84"
     },
     "UNIT": {
       "name": "metre",

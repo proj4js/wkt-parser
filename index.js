@@ -2,7 +2,8 @@ var D2R = 0.01745329251994329577;
 import parser from './parser';
 import {sExpr} from './process';
 
-
+var knownTypes = ['PROJECTEDCRS', 'PROJCRS', 'GEOGCS', 'GEOCCS', 'PROJCS', 'LOCAL_CS', 'GEODCRS',
+  'GEODETICCRS', 'GEODETICDATUM', 'ENGCRS', 'ENGINEERINGCRS'];
 
 function rename(obj, params) {
   var outName = params[0];
@@ -20,10 +21,25 @@ function d2r(input) {
 }
 
 function cleanWKT(wkt) {
+  var keys = Object.keys(wkt);
+  for (var i = 0, ii = keys.length; i <ii; ++i) {
+    var key = keys[i];
+    // the followings are the crs defined in
+    // https://github.com/proj4js/proj4js/blob/1da4ed0b865d0fcb51c136090569210cdcc9019e/lib/parseCode.js#L11
+    if (knownTypes.indexOf(key) !== -1) {
+      setPropertiesFromWkt(wkt[key]);
+    }
+    if (typeof wkt[key] === 'object') {
+      cleanWKT(wkt[key]);
+    }
+  }
+}
+
+function setPropertiesFromWkt(wkt) {
   if (wkt.AUTHORITY) {
     var authority = Object.keys(wkt.AUTHORITY)[0];
     if (authority && authority in wkt.AUTHORITY) {
-      wkt.title = `${authority}:${wkt.AUTHORITY[authority]}`;
+      wkt.title = authority + ':' + wkt.AUTHORITY[authority];
     }
   }
   if (wkt.type === 'GEOGCS') {
@@ -200,12 +216,9 @@ function cleanWKT(wkt) {
 }
 export default function(wkt) {
   var lisp = parser(wkt);
-  var type = lisp.shift();
-  var name = lisp.shift();
-  lisp.unshift(['name', name]);
-  lisp.unshift(['type', type]);
+  var type = lisp[0];
   var obj = {};
   sExpr(lisp, obj);
   cleanWKT(obj);
-  return obj;
+  return obj[type];
 }
