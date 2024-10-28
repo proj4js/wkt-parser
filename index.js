@@ -106,7 +106,7 @@ function setPropertiesFromWkt(wkt) {
     if (wkt.datumCode.slice(0, 2) === 'd_') {
       wkt.datumCode = wkt.datumCode.slice(2);
     }
-    if (wkt.datumCode === 'new_zealand_geodetic_datum_1949' || wkt.datumCode === 'new_zealand_1949') {
+    if (wkt.datumCode === 'new_zealand_1949') {
       wkt.datumCode = 'nzgd49';
     }
     if (wkt.datumCode === 'wgs_1984' || wkt.datumCode === 'world_geodetic_system_1984') {
@@ -115,13 +115,7 @@ function setPropertiesFromWkt(wkt) {
       }
       wkt.datumCode = 'wgs84';
     }
-    if (wkt.datumCode.slice(-6) === '_ferro') {
-      wkt.datumCode = wkt.datumCode.slice(0, - 6);
-    }
-    if (wkt.datumCode.slice(-8) === '_jakarta') {
-      wkt.datumCode = wkt.datumCode.slice(0, - 8);
-    }
-    if (~wkt.datumCode.indexOf('belge')) {
+    if (wkt.datumCode === 'belge_1972') {
       wkt.datumCode = 'rnb72';
     }
     if (geogcs.DATUM && geogcs.DATUM.SPHEROID) {
