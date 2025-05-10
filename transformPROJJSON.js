@@ -1,4 +1,4 @@
-import { applyProjectionDefaults } from "./util";
+import { applyProjectionDefaults } from "./util.js";
 
 // Helper function to process units and to_meter
 function processUnit(unit) {
