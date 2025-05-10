@@ -4,8 +4,9 @@
   "description": "wkt-parser ===",
   "main": "dist/wkt.cjs",
   "module": "index.js",
+  "type": "module",
   "scripts": {
-    "test": "node -r esm test.js",
+    "test": "node test.js",
     "build": "rollup -c",
     "pretest": "npm run build"
   },

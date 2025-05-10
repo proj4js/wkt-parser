@@ -1,6 +1,9 @@
-var D2R = 0.01745329251994329577;
-import parser from './parser';
-import {sExpr} from './process';
+import { buildPROJJSON } from './buildPROJJSON.js';
+import { detectWKTVersion } from './detectWKTVersion.js';
+import parser from './parser.js';
+import {sExpr} from './process.js';
+import { transformPROJJSON } from './transformPROJJSON.js';
+import { applyProjectionDefaults, d2r } from './util.js';
 
 var knownTypes = ['PROJECTEDCRS', 'PROJCRS', 'GEOGCS', 'GEOCCS', 'PROJCS', 'LOCAL_CS', 'GEODCRS',
   'GEODETICCRS', 'GEODETICDATUM', 'ENGCRS', 'ENGINEERINGCRS'];
@@ -14,10 +17,6 @@ function rename(obj, params) {
       obj[outName] = params[2](obj[outName]);
     }
   }
-}
-
-function d2r(input) {
-  return input * D2R;
 }
 
 function cleanWKT(wkt) {
@@ -151,6 +150,9 @@ function setPropertiesFromWkt(wkt) {
   if (wkt.b && !isFinite(wkt.b)) {
     wkt.b = wkt.a;
   }
+  if (wkt.rectified_grid_angle) {
+    wkt.rectified_grid_angle = d2r(wkt.rectified_grid_angle);
+  }
 
   function toMeter(input) {
     var ratio = wkt.to_meter || 1;
@@ -197,19 +199,18 @@ function setPropertiesFromWkt(wkt) {
     ['srsCode', 'name']
   ];
   list.forEach(renamer);
-  if (!wkt.long0 && wkt.longc && (wkt.projName === 'Albers_Conic_Equal_Area' || wkt.projName === 'Lambert_Azimuthal_Equal_Area')) {
-    wkt.long0 = wkt.longc;
-  }
-  if (!wkt.lat_ts && wkt.lat1 && (wkt.projName === 'Stereographic_South_Pole' || wkt.projName === 'Polar Stereographic (variant B)')) {
-    wkt.lat0 = d2r(wkt.lat1 > 0 ? 90 : -90);
-    wkt.lat_ts = wkt.lat1;
-  } else if (!wkt.lat_ts && wkt.lat0 && wkt.projName === 'Polar_Stereographic') {
-    wkt.lat_ts = wkt.lat0;
-    wkt.lat0 = d2r(wkt.lat0 > 0 ? 90 : -90);
-  }
+  applyProjectionDefaults(wkt);
 }
 export default function(wkt) {
+  if (typeof wkt === 'object') {
+    return transformPROJJSON(wkt);
+  }
+  const version = detectWKTVersion(wkt);
   var lisp = parser(wkt);
+  if (version === 'WKT2') {
+    const projjson = buildPROJJSON(lisp);
+    return transformPROJJSON(projjson);
+  }
   var type = lisp[0];
   var obj = {};
   sExpr(lisp, obj);

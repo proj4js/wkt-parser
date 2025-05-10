@@ -1,7 +1,5 @@
 # wkt-parser
 
-The wkt parser pulled out of proj4 so it can be hacked on.
+The wkt parser pulled out of proj4 so it can be hacked on. Supports WKT1, WKT2 and PROJJSON.
 
-The parser currently only supports wkt strings of [version 1](https://docs.ogc.org/is/18-010r7/18-010r7.html#196) (earlier than 2015).
-
-It does not support geocentric currently (`GEOCCS`).
+It does not support geocentric currently (`GEOCCS`/`). `COMPOUNDCS` is only supported for WKT1.
