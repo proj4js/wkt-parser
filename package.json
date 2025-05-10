@@ -8,7 +8,8 @@
   "scripts": {
     "test": "node test.js",
     "build": "rollup -c",
-    "pretest": "npm run build"
+    "pretest": "npm run build",
+    "prepublishOnly": "npm run build"
   },
   "repository": {
     "type": "git",
@@ -21,7 +22,6 @@
   },
   "homepage": "https://github.com/proj4js/wkt-parser#readme",
   "devDependencies": {
-    "esm": "^3.2.25",
     "js-struct-compare": "^1.1.0",
     "rollup": "^4.24.0",
     "tape": "^4.6.3"
