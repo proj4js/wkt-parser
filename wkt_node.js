@@ -26,7 +26,7 @@ class WKTNode {
    */
   findChild(keyword) {
     return this.children.find(
-      (c) => c.keyword?.toUpperCase() === keyword.toUpperCase()
+      (c) => c.keyword && c.keyword.toUpperCase() === keyword.toUpperCase()
     );
   }
 
@@ -37,7 +37,7 @@ class WKTNode {
    */
   findChildren(keyword) {
     return this.children.filter(
-      (c) => c.keyword?.toUpperCase() === keyword.toUpperCase()
+      (c) => c.keyword && c.keyword.toUpperCase() === keyword.toUpperCase()
     );
   }
 
@@ -48,7 +48,7 @@ class WKTNode {
    */
   getValue(keyword) {
     const child = this.findChild(keyword);
-    return child?.value ?? child?.literal;
+    return child ? (child.value !== undefined ? child.value : child.literal) : undefined;
   }
 }
 

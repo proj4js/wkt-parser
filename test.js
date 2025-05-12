@@ -1,7 +1,7 @@
 import test from 'tape';
 import compare from 'js-struct-compare';
 import wktParser from './dist/wkt.cjs';
-import fixtures from './test-fixtures.json' with {type: 'json'};
+import fixtures from './test-fixtures.json' with {type: 'json'}; //eslint-disable-line
 
 function derivedPropertiesOnly(input) {
   const derivedProperties = (({
