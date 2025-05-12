@@ -8,21 +8,21 @@ import PROJJSONBuilder2019 from './PROJJSONBuilder2019.js';
  */
 function detectWKT2Version(root) {
   // Check for WKT2-2019-specific nodes
-  if (root.find((child) => Array.isArray(child) && child[0] === "USAGE")) {
-    return "2019"; // `USAGE` is specific to WKT2-2019
+  if (root.find((child) => Array.isArray(child) && child[0] === 'USAGE')) {
+    return '2019'; // `USAGE` is specific to WKT2-2019
   }
 
   // Check for WKT2-2015-specific nodes
-  if (root.find((child) => Array.isArray(child) && child[0] === "CS")) {
-    return "2015"; // `CS` is valid in both, but default to 2015 unless `USAGE` is present
+  if (root.find((child) => Array.isArray(child) && child[0] === 'CS')) {
+    return '2015'; // `CS` is valid in both, but default to 2015 unless `USAGE` is present
   }
 
-  if (root[0] === "BOUNDCRS" || root[0] === "PROJCRS" || root[0] === "GEOGCRS") {
-    return "2015"; // These are valid in both, but default to 2015
+  if (root[0] === 'BOUNDCRS' || root[0] === 'PROJCRS' || root[0] === 'GEOGCRS') {
+    return '2015'; // These are valid in both, but default to 2015
   }
 
   // Default to WKT2-2015 if no specific indicators are found
-  return "2015";
+  return '2015';
 }
 
 /**
@@ -32,6 +32,6 @@ function detectWKT2Version(root) {
  */
 export function buildPROJJSON(root) {
   const version = detectWKT2Version(root);
-  const builder = version === "2019" ? PROJJSONBuilder2019 : PROJJSONBuilder2015;
+  const builder = version === '2019' ? PROJJSONBuilder2019 : PROJJSONBuilder2015;
   return builder.convert(root);
 }

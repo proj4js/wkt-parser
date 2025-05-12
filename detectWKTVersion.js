@@ -9,28 +9,28 @@ export function detectWKTVersion(wkt) {
 
   // Check for WKT2-specific keywords
   if (
-    normalizedWKT.includes("PROJCRS") ||
-    normalizedWKT.includes("GEOGCRS") ||
-    normalizedWKT.includes("BOUNDCRS") ||
-    normalizedWKT.includes("VERTCRS") ||
-    normalizedWKT.includes("LENGTHUNIT") ||
-    normalizedWKT.includes("ANGLEUNIT") ||
-    normalizedWKT.includes("SCALEUNIT")
+    normalizedWKT.includes('PROJCRS') ||
+    normalizedWKT.includes('GEOGCRS') ||
+    normalizedWKT.includes('BOUNDCRS') ||
+    normalizedWKT.includes('VERTCRS') ||
+    normalizedWKT.includes('LENGTHUNIT') ||
+    normalizedWKT.includes('ANGLEUNIT') ||
+    normalizedWKT.includes('SCALEUNIT')
   ) {
-    return "WKT2";
+    return 'WKT2';
   }
 
   // Check for WKT1-specific keywords
   if (
-    normalizedWKT.includes("PROJCS") ||
-    normalizedWKT.includes("GEOGCS") ||
-    normalizedWKT.includes("LOCAL_CS") ||
-    normalizedWKT.includes("VERT_CS") ||
-    normalizedWKT.includes("UNIT")
+    normalizedWKT.includes('PROJCS') ||
+    normalizedWKT.includes('GEOGCS') ||
+    normalizedWKT.includes('LOCAL_CS') ||
+    normalizedWKT.includes('VERT_CS') ||
+    normalizedWKT.includes('UNIT')
   ) {
-    return "WKT1";
+    return 'WKT1';
   }
 
   // Default to WKT1 if no specific indicators are found
-  return "WKT1";
+  return 'WKT1';
 }

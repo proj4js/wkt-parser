@@ -1,4 +1,4 @@
-import { applyProjectionDefaults } from "./util.js";
+import { applyProjectionDefaults } from './util.js';
 
 // Helper function to process units and to_meter
 function processUnit(unit) {
@@ -12,7 +12,7 @@ function processUnit(unit) {
     if (result.units === 'meter') {
       result.to_meter = 1; // Only set to_meter if units are 'meter'
     }
-  } else if (unit?.name) {
+  } else if (unit && unit.name) {
     result.units = unit.name.toLowerCase();
     if (result.units === 'metre') {
       result.units = 'meter'; // Normalize 'metre' to 'meter'
@@ -53,7 +53,7 @@ export function transformPROJJSON(projjson, result = {}) {
     transformPROJJSON(projjson.source_crs, result);
 
     if (projjson.transformation) {
-      if (projjson.transformation.method?.name === 'NTv2') {
+      if (projjson.transformation.method && projjson.transformation.method.name === 'NTv2') {
         // Set nadgrids to the filename from the parameterfile
         result.nadgrids = projjson.transformation.parameters[0].value;
       } else {
@@ -83,8 +83,8 @@ export function transformPROJJSON(projjson, result = {}) {
       case 'type':
         if (value === 'GeographicCRS') {
           result.projName = 'longlat';
-        } else if (value === 'ProjectedCRS') {
-          result.projName = projjson.conversion?.method?.name; // Retain original capitalization
+        } else if (value === 'ProjectedCRS' && projjson.conversion && projjson.conversion.method) {
+          result.projName = projjson.conversion.method.name; // Retain original capitalization
         }
         break;
 
@@ -126,7 +126,7 @@ export function transformPROJJSON(projjson, result = {}) {
             const { units, to_meter } = processUnit(value.unit);
             result.units = units;
             result.to_meter = to_meter;
-          } else if (value.axis[0]?.unit) {
+          } else if (value.axis[0] && value.axis[0].unit) {
             const { units, to_meter } = processUnit(value.axis[0].unit);
             result.units = units;
             result.to_meter = to_meter;
