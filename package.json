@@ -1,6 +1,6 @@
 {
   "name": "wkt-parser",
-  "version": "1.5.1",
+  "version": "1.5.2",
   "description": "wkt-parser ===",
   "main": "dist/wkt.cjs",
   "module": "index.js",
