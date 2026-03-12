@@ -83,6 +83,12 @@ export function transformPROJJSON(projjson, result = {}) {
       case 'type':
         if (value === 'GeographicCRS') {
           result.projName = 'longlat';
+        } else if (value === 'GeodeticCRS') {
+          if (projjson.coordinate_system && projjson.coordinate_system.subtype === 'Cartesian') {
+            result.projName = 'geocent';
+          } else {
+            result.projName = 'longlat';
+          }
         } else if (value === 'ProjectedCRS' && projjson.conversion && projjson.conversion.method) {
           result.projName = projjson.conversion.method.name; // Retain original capitalization
         }
@@ -111,16 +117,24 @@ export function transformPROJJSON(projjson, result = {}) {
 
       case 'coordinate_system':
         if (value.axis) {
-          result.axis = value.axis
-            .map((axis) => {
-              const direction = axis.direction;
-              if (direction === 'east') return 'e';
-              if (direction === 'north') return 'n';
-              if (direction === 'west') return 'w';
-              if (direction === 'south') return 's';
-              throw new Error(`Unknown axis direction: ${direction}`);
-            })
-            .join('') + 'u'; // Combine into a single string (e.g., "enu")
+          const directionMap = {
+            'east': 'e',
+            'north': 'n',
+            'west': 'w',
+            'south': 's',
+            'up': 'u',
+            'down': 'd',
+            'geocentricX': 'e',
+            'geocentricY': 'n',
+            'geocentricZ': 'u',
+          };
+          const mapped = value.axis.map((axis) => directionMap[axis.direction]);
+          if (mapped.every(Boolean)) {
+            result.axis = mapped.join('');
+            if (result.axis.length === 2) {
+              result.axis += 'u';
+            }
+          }
 
           if (value.unit) {
             const { units, to_meter } = processUnit(value.unit);
