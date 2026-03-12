@@ -46,10 +46,11 @@ class PROJJSONBuilderBase {
       if (abbreviation === 'E') direction = 'east';
       else if (abbreviation === 'N') direction = 'north';
       else if (abbreviation === 'U') direction = 'up';
+      else if (node[2]) direction = node[2];
       else throw new Error(`Unknown axis abbreviation: ${abbreviation}`);
     } else {
       // Use the explicit direction provided in the AXIS node
-      direction = node[2] ? node[2].toLowerCase() : 'unknown';
+      direction = node[2] || 'unknown';
     }
 
     const orderNode = node.find((child) => Array.isArray(child) && child[0] === 'ORDER');
@@ -109,7 +110,8 @@ class PROJJSONBuilderBase {
 
       case 'BASEGEOGCRS':
       case 'GEOGCRS':
-        result.type = 'GeographicCRS';
+      case 'GEODCRS':
+        result.type = node[0] === 'GEODCRS' ? 'GeodeticCRS' : 'GeographicCRS';
         result.name = node[1];
       
         // Handle DATUM or ENSEMBLE

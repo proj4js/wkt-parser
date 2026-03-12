@@ -124,7 +124,7 @@ function setPropertiesFromWkt(wkt) {
       }
 
       wkt.a = geogcs.DATUM.SPHEROID.a;
-      wkt.rf = parseFloat(geogcs.DATUM.SPHEROID.rf, 10);
+      wkt.rf = parseFloat(geogcs.DATUM.SPHEROID.rf);
     }
 
     if (geogcs.DATUM && geogcs.DATUM.TOWGS84) {
