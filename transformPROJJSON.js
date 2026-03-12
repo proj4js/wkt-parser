@@ -124,11 +124,11 @@ export function transformPROJJSON(projjson, result = {}) {
             'south': 's',
             'up': 'u',
             'down': 'd',
-            'geocentricX': 'e',
-            'geocentricY': 'n',
-            'geocentricZ': 'u',
+            'geocentricx': 'e',
+            'geocentricy': 'n',
+            'geocentricz': 'u',
           };
-          const mapped = value.axis.map((axis) => directionMap[axis.direction]);
+          const mapped = value.axis.map((axis) => directionMap[axis.direction.toLowerCase()]);
           if (mapped.every(Boolean)) {
             result.axis = mapped.join('');
             if (result.axis.length === 2) {
