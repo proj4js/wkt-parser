@@ -5,6 +5,7 @@
   "main": "dist/wkt.cjs",
   "module": "index.js",
   "type": "module",
+  "funding": "https://github.com/sponsors/ahocevar",
   "scripts": {
     "test": "node test.js",
     "build": "rollup -c",
