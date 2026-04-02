@@ -94,9 +94,9 @@ function setPropertiesFromWkt(wkt) {
     geogcs = wkt;
   }
   if (geogcs) {
-    //if(wkt.GEOGCS.PRIMEM&&wkt.GEOGCS.PRIMEM.convert){
-    //  wkt.from_greenwich=wkt.GEOGCS.PRIMEM.convert*D2R;
-    //}
+    if (geogcs.PRIMEM && geogcs.PRIMEM.convert) {
+      wkt.from_greenwich = d2r(geogcs.PRIMEM.convert);
+    }
     if (geogcs.DATUM) {
       wkt.datumCode = geogcs.DATUM.name.toLowerCase();
     } else {
