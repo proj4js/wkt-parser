@@ -8,8 +8,8 @@ export function applyProjectionDefaults(wkt) {
   // Normalize projName for WKT2 compatibility
   const normalizedProjName = (wkt.projName || '').toLowerCase().replace(/_/g, ' ');
 
-  if (!wkt.long0 && wkt.longc && (normalizedProjName === 'albers conic equal area' || normalizedProjName === 'lambert azimuthal equal area')) {
-    wkt.long0 = wkt.longc;
+  if (wkt.long0 === undefined && wkt.longc !== undefined) {
+    wkt.long0 = wkt.longc; // keep in the projection's native prime meridian frame
   }
   if (!wkt.lat_ts && wkt.lat1 && (normalizedProjName === 'stereographic south pole' || normalizedProjName === 'polar stereographic (variant b)')) {
     wkt.lat0 = d2r(wkt.lat1 > 0 ? 90 : -90);
