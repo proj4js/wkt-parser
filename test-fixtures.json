@@ -1648,5 +1648,19 @@
     "name": "WGS 84",
     "title": "EPSG:4978"
   }
+}, {
+  "code": "GEODCRS[\"WGS 84\",DATUM[\"World Geodetic System 1984\",ELLIPSOID[\"WGS 84\",6378137,298.257223563,LENGTHUNIT[\"metre\",1]]],PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433]],CS[Cartesian,3],AXIS[\"(X)\",geocentricX,ORDER[1],LENGTHUNIT[\"metre\",1]],AXIS[\"(Y)\",geocentricY,ORDER[2],LENGTHUNIT[\"metre\",1]],AXIS[\"(Z)\",geocentricZ,ORDER[3],LENGTHUNIT[\"metre\",1]],ID[\"EPSG\",4978]]",
+  "value": {
+    "projName": "geocent",
+    "ellps": "WGS 84",
+    "a": 6378137,
+    "rf": 298.257223563,
+    "axis": "enu",
+    "units": "meter",
+    "to_meter": 1,
+    "srsCode": "WGS 84",
+    "name": "WGS 84",
+    "title": "EPSG:4978"
+  }
 }
 ]
