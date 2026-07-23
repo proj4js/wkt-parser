@@ -94,7 +94,7 @@ class PROJJSONBuilderBase {
         const csNode = node.find((child) => Array.isArray(child) && child[0] === 'CS');
         if (csNode) {
           result.coordinate_system = {
-            type: csNode[1],
+            subtype: csNode[1],
             axis: this.extractAxes(node),
           };
         }
@@ -134,8 +134,9 @@ class PROJJSONBuilderBase {
           }
         }
       
+        const geogCsNode = node.find((child) => Array.isArray(child) && child[0] === 'CS');
         result.coordinate_system = {
-          type: 'ellipsoidal',
+          subtype: geogCsNode ? geogCsNode[1] : 'ellipsoidal',
           axis: this.extractAxes(node),
         };
       
