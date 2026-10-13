@@ -196,6 +196,11 @@ export function transformPROJJSON(projjson, result = {}) {
     }
   });
 
+  // Geographic and geodetic CRSs have no base_crs, so use their own id as datumCode
+  if (!result.datumCode && (projjson.type === 'GeographicCRS' || projjson.type === 'GeodeticCRS') && projjson.id) {
+    result.datumCode = projjson.id.authority + '_' + projjson.id.code;
+  }
+
   // Additional calculated properties
   if (result.latitude_of_false_origin !== undefined) {
     result.lat0 = result.latitude_of_false_origin; // Already in radians
