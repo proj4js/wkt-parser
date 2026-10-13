@@ -1632,7 +1632,8 @@
     "to_meter": 1,
     "srsCode": "WGS 84",
     "name": "WGS 84",
-    "title": "EPSG:4978"
+    "title": "EPSG:4978",
+    "datumCode": "EPSG_4978"
   }
 }, {
   "code": "GEODCRS[\"WGS 84\",ENSEMBLE[\"World Geodetic System 1984 ensemble\",MEMBER[\"World Geodetic System 1984 (Transit)\"],MEMBER[\"World Geodetic System 1984 (G730)\"],MEMBER[\"World Geodetic System 1984 (G873)\"],MEMBER[\"World Geodetic System 1984 (G1150)\"],MEMBER[\"World Geodetic System 1984 (G1674)\"],MEMBER[\"World Geodetic System 1984 (G1762)\"],MEMBER[\"World Geodetic System 1984 (G2139)\"],MEMBER[\"World Geodetic System 1984 (G2296)\"],ELLIPSOID[\"WGS 84\",6378137,298.257223563,LENGTHUNIT[\"metre\",1]],ENSEMBLEACCURACY[2.0]],PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433]],CS[Cartesian,3],AXIS[\"(X)\",geocentricX,ORDER[1],LENGTHUNIT[\"metre\",1]],AXIS[\"(Y)\",geocentricY,ORDER[2],LENGTHUNIT[\"metre\",1]],AXIS[\"(Z)\",geocentricZ,ORDER[3],LENGTHUNIT[\"metre\",1]],USAGE[SCOPE[\"Geodesy. Navigation and positioning using GPS satellite system.\"],AREA[\"World.\"],BBOX[-90,-180,90,180]],ID[\"EPSG\",4978]]",
@@ -1646,7 +1647,8 @@
     "to_meter": 1,
     "srsCode": "WGS 84",
     "name": "WGS 84",
-    "title": "EPSG:4978"
+    "title": "EPSG:4978",
+    "datumCode": "EPSG_4978"
   }
 }, {
   "code": "GEODCRS[\"WGS 84\",DATUM[\"World Geodetic System 1984\",ELLIPSOID[\"WGS 84\",6378137,298.257223563,LENGTHUNIT[\"metre\",1]]],PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433]],CS[Cartesian,3],AXIS[\"(X)\",geocentricX,ORDER[1],LENGTHUNIT[\"metre\",1]],AXIS[\"(Y)\",geocentricY,ORDER[2],LENGTHUNIT[\"metre\",1]],AXIS[\"(Z)\",geocentricZ,ORDER[3],LENGTHUNIT[\"metre\",1]],ID[\"EPSG\",4978]]",
@@ -1660,7 +1662,37 @@
     "to_meter": 1,
     "srsCode": "WGS 84",
     "name": "WGS 84",
-    "title": "EPSG:4978"
+    "title": "EPSG:4978",
+    "datumCode": "EPSG_4978"
+  }
+}, {
+  "code": "GEOGCRS[\"DB_REF\",DATUM[\"Deutsche Bahn Reference System\",ELLIPSOID[\"Bessel 1841\",6377397.155,299.1528128,LENGTHUNIT[\"metre\",1]]],PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433]],CS[ellipsoidal,3],AXIS[\"geodetic latitude (Lat)\",north,ORDER[1],ANGLEUNIT[\"degree\",0.0174532925199433]],AXIS[\"geodetic longitude (Lon)\",east,ORDER[2],ANGLEUNIT[\"degree\",0.0174532925199433]],AXIS[\"ellipsoidal height (h)\",up,ORDER[3],LENGTHUNIT[\"metre\",1]],USAGE[SCOPE[\"Geodesy.\"],AREA[\"Germany - onshore.\"],BBOX[47.27,5.86,55.09,15.04]],ID[\"EPSG\",5830]]",
+  "value": {
+    "projName": "longlat",
+    "name": "DB_REF",
+    "srsCode": "DB_REF",
+    "ellps": "Bessel 1841",
+    "a": 6377397.155,
+    "rf": 299.1528128,
+    "axis": "neu",
+    "units": "degree",
+    "to_meter": 0.0174532925199433,
+    "title": "EPSG:5830",
+    "datumCode": "EPSG_5830"
+  }
+}, {
+  "code": {"$schema":"https://proj.org/schemas/v0.7/projjson.schema.json","type":"GeographicCRS","name":"DB_REF","datum":{"type":"GeodeticReferenceFrame","name":"Deutsche Bahn Reference System","ellipsoid":{"name":"Bessel 1841","semi_major_axis":6377397.155,"inverse_flattening":299.1528128}},"coordinate_system":{"subtype":"ellipsoidal","axis":[{"name":"Geodetic latitude","abbreviation":"Lat","direction":"north","unit":"degree"},{"name":"Geodetic longitude","abbreviation":"Lon","direction":"east","unit":"degree"},{"name":"Ellipsoidal height","abbreviation":"h","direction":"up","unit":"metre"}]},"scope":"Geodesy.","area":"Germany - onshore - states of Baden-Wurtemberg, Bayern, Berlin, Brandenburg, Bremen, Hamburg, Hessen, Mecklenburg-Vorpommern, Niedersachsen, Nordrhein-Westfalen, Rheinland-Pfalz, Saarland, Sachsen, Sachsen-Anhalt, Schleswig-Holstein, Thuringen.","bbox":{"south_latitude":47.27,"west_longitude":5.86,"north_latitude":55.09,"east_longitude":15.04},"id":{"authority":"EPSG","code":5830},"remarks":"Geometric component of both DB_REF2003 and DB_REF2016 systems."},
+  "value": {
+    "projName": "longlat",
+    "name": "DB_REF",
+    "srsCode": "DB_REF",
+    "ellps": "Bessel 1841",
+    "a": 6377397.155,
+    "rf": 299.1528128,
+    "axis": "neu",
+    "units": "degree",
+    "title": "EPSG:5830",
+    "datumCode": "EPSG_5830"
   }
 }
 ]
