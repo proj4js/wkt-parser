@@ -84,9 +84,10 @@ class PROJJSONBuilderBase {
       case 'PROJCRS':
         result.type = 'ProjectedCRS';
         result.name = node[1];
-        result.base_crs = node.find((child) => Array.isArray(child) && child[0] === 'BASEGEOGCRS')
-          ? this.convert(node.find((child) => Array.isArray(child) && child[0] === 'BASEGEOGCRS'))
-          : null;
+        const baseCrsNode = node.find(
+          (child) => Array.isArray(child) && (child[0] === 'BASEGEOGCRS' || child[0] === 'BASEGEODCRS')
+        );
+        result.base_crs = baseCrsNode ? this.convert(baseCrsNode) : null;
         result.conversion = node.find((child) => Array.isArray(child) && child[0] === 'CONVERSION')
           ? this.convert(node.find((child) => Array.isArray(child) && child[0] === 'CONVERSION'))
           : null;
@@ -109,6 +110,7 @@ class PROJJSONBuilderBase {
         break;
 
       case 'BASEGEOGCRS':
+      case 'BASEGEODCRS':
       case 'GEOGCRS':
       case 'GEODCRS':
         result.type = node[0] === 'GEODCRS' ? 'GeodeticCRS' : 'GeographicCRS';

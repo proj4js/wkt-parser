@@ -919,6 +919,47 @@
     "title": "EPSG:2065"
   }
 }, {
+  "code": "PROJCRS[\"S-JTSK (Ferro) / Krovak\",BASEGEODCRS[\"S-JTSK (Ferro)\",DATUM[\"System of the Unified Trigonometrical Cadastral Network (Ferro)\",ELLIPSOID[\"Bessel 1841\",6377397.155,299.1528128,LENGTHUNIT[\"metre\",1]]],PRIMEM[\"Ferro\",-17.6666666666667,ANGLEUNIT[\"degree\",0.0174532925199433]]],CONVERSION[\"Krovak\",METHOD[\"Krovak\",ID[\"EPSG\",9819]],PARAMETER[\"Latitude of projection centre\",49.5,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8811]],PARAMETER[\"Longitude of origin\",42.5,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8833]],PARAMETER[\"Co-latitude of cone axis\",30.2881397527778,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",1036]],PARAMETER[\"Latitude of pseudo standard parallel\",78.5,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8818]],PARAMETER[\"Scale factor on pseudo standard parallel\",0.9999,SCALEUNIT[\"unity\",1],ID[\"EPSG\",8819]],PARAMETER[\"False easting\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8806]],PARAMETER[\"False northing\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8807]]],CS[Cartesian,2],AXIS[\"southing (X)\",south,ORDER[1],LENGTHUNIT[\"metre\",1]],AXIS[\"westing (Y)\",west,ORDER[2],LENGTHUNIT[\"metre\",1]],SCOPE[\"Cadastre in Czechia.\"],AREA[\"Czechia; Slovakia.\"],BBOX[47.73,12.09,51.06,22.56],ID[\"EPSG\",2065]]",
+  "value": {
+    "projName": "Krovak",
+    "axis": "swu",
+    "units": "meter",
+    "to_meter": 1,
+    "datumCode": "S-JTSK (Ferro)",
+    "ellps": "Bessel 1841",
+    "from_greenwich": -0.30834150118566545,
+    "a": 6377397.155,
+    "rf": 299.1528128,
+    "k0": 0.9999,
+    "x0": 0,
+    "y0": 0,
+    "long0": 0.7417649320975902,
+    "lat0": 0.8639379797371933,
+    "srsCode": "S-JTSK (Ferro) / Krovak",
+    "name": "S-JTSK (Ferro) / Krovak",
+    "title": "EPSG:2065"
+  }
+}, {
+  "code": "PROJCRS[\"Amersfoort / RD New\",BASEGEODCRS[\"Amersfoort\",DATUM[\"Amersfoort\",ELLIPSOID[\"Bessel 1841\",6377397.155,299.1528128,LENGTHUNIT[\"metre\",1]]],PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433]]],CONVERSION[\"RD New\",METHOD[\"Oblique Stereographic\",ID[\"EPSG\",9809]],PARAMETER[\"Latitude of natural origin\",52.1561605555556,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8801]],PARAMETER[\"Longitude of natural origin\",5.38763888888889,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8802]],PARAMETER[\"Scale factor at natural origin\",0.9999079,SCALEUNIT[\"unity\",1],ID[\"EPSG\",8805]],PARAMETER[\"False easting\",155000,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8806]],PARAMETER[\"False northing\",463000,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8807]]],CS[Cartesian,2],AXIS[\"easting (X)\",east,ORDER[1],LENGTHUNIT[\"metre\",1]],AXIS[\"northing (Y)\",north,ORDER[2],LENGTHUNIT[\"metre\",1]],SCOPE[\"Engineering survey, topographic mapping.\"],AREA[\"Netherlands - onshore, including Waddenzee, Dutch Wadden Islands and 12-mile offshore coastal zone.\"],BBOX[50.75,3.2,53.7,7.22],ID[\"EPSG\",28992]]",
+  "value": {
+    "projName": "Oblique Stereographic",
+    "axis": "enu",
+    "units": "meter",
+    "to_meter": 1,
+    "datumCode": "Amersfoort",
+    "ellps": "Bessel 1841",
+    "a": 6377397.155,
+    "rf": 299.1528128,
+    "k0": 0.9999079,
+    "x0": 155000,
+    "y0": 463000,
+    "long0": 0.0940320375196001,
+    "lat0": 0.9102967268932403,
+    "srsCode": "Amersfoort / RD New",
+    "name": "Amersfoort / RD New",
+    "title": "EPSG:28992"
+  }
+}, {
   "code": "PROJCS[\"GDM2000 / Peninsula RSO\", GEOGCS[\"GDM2000\", DATUM[\"Geodetic_Datum_of_Malaysia_2000\", SPHEROID[\"GRS 1980\",6378137,298.257222101, AUTHORITY[\"EPSG\",\"7019\"]], AUTHORITY[\"EPSG\",\"6742\"]], PRIMEM[\"Greenwich\",0, AUTHORITY[\"EPSG\",\"8901\"]], UNIT[\"degree\",0.0174532925199433, AUTHORITY[\"EPSG\",\"9122\"]], AUTHORITY[\"EPSG\",\"4742\"]], PROJECTION[\"Hotine_Oblique_Mercator\"], PARAMETER[\"latitude_of_center\",4], PARAMETER[\"longitude_of_center\",102.25], PARAMETER[\"azimuth\",323.0257964666666], PARAMETER[\"rectified_grid_angle\",323.1301023611111], PARAMETER[\"scale_factor\",0.99984], PARAMETER[\"false_easting\",804671], PARAMETER[\"false_northing\",0], UNIT[\"metre\",1, AUTHORITY[\"EPSG\",\"9001\"]], AXIS[\"Easting\",EAST], AXIS[\"Northing\",NORTH], AUTHORITY[\"EPSG\",\"3375\"]]",
   "value": {
     "projName": "Hotine_Oblique_Mercator",
