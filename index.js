@@ -199,6 +199,9 @@ function setPropertiesFromWkt(wkt) {
     ['srsCode', 'name']
   ];
   list.forEach(renamer);
+  if (wkt.projName === 'IGAC_Plano_Cartesiano') {
+    renamer(['h0', 'Height', toMeter]);
+  }
   applyProjectionDefaults(wkt);
 }
 export default function(wkt) {
