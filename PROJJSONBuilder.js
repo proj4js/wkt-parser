@@ -1,3 +1,22 @@
+import { d2r } from './util.js';
+
+// Name, degrees, minutes and seconds of the meridians PROJ checks for values in the wrong unit
+const PRIME_MERIDIANS_DMS = [
+  { name: 'Lisbon', deg: -9, min: 7, sec: 54.862 },
+  { name: 'Bogota', deg: -74, min: 4, sec: 51.3 },
+  { name: 'Madrid', deg: -3, min: 41, sec: 14.55 },
+  { name: 'Rome', deg: 12, min: 27, sec: 8.4 },
+  { name: 'Bern', deg: 7, min: 26, sec: 22.5 },
+  { name: 'Jakarta', deg: 106, min: 48, sec: 27.79 },
+  { name: 'Ferro', deg: -17, min: 40, sec: 0 },
+  { name: 'Brussels', deg: 4, min: 22, sec: 4.71 },
+  { name: 'Stockholm', deg: 18, min: 3, sec: 29.8 },
+  { name: 'Athens', deg: 23, min: 42, sec: 58.815 },
+  { name: 'Oslo', deg: 10, min: 43, sec: 22.5 },
+  { name: 'Paris RGS', deg: 2, min: 20, sec: 13.95 },
+  { name: 'Paris_RGS', deg: 2, min: 20, sec: 13.95 }
+];
+
 class PROJJSONBuilderBase {
   static getId(node) {
     const idNode = node.find((child) => Array.isArray(child) && child[0] === 'ID');
@@ -78,6 +97,37 @@ class PROJJSONBuilderBase {
       .sort((a, b) => (a.order || 0) - (b.order || 0)); // Sort by the "order" property
   }
 
+  // Follows PROJ's WKT reader, which also recognises meridians given in degrees under another unit
+  static convertPrimeMeridianLongitude(primem, crsAngleUnitNode) {
+    const name = primem[1];
+    const value = parseFloat(primem[2]);
+    const unitNode = primem.find(
+      (child) => Array.isArray(child) && (child[0] === 'ANGLEUNIT' || child[0] === 'UNIT')
+    ) || crsAngleUnitNode;
+    const factor = unitNode ? parseFloat(unitNode[2]) : d2r(1);
+
+    if (name === 'Paris' && Math.abs(value - 2.33722917) < 1e-8 &&
+      Math.abs(factor - Math.PI / 200) <= 1e-10 * Math.abs(factor)) {
+      return value;
+    }
+    const dms = PRIME_MERIDIANS_DMS.find((pm) => pm.name === name);
+    if (dms) {
+      const sign = dms.deg >= 0 ? 1 : -1;
+      const dmsAsDecimal = sign * (Math.abs(dms.deg) + dms.min / 100 + dms.sec / 10000);
+      const decimalDegrees = sign * (Math.abs(dms.deg) + dms.min / 60 + dms.sec / 3600);
+      if (Math.abs(value - dmsAsDecimal) < 1e-8) {
+        return decimalDegrees;
+      }
+      if (Math.abs(value - decimalDegrees) < 1e-8) {
+        return value;
+      }
+    }
+
+    return unitNode
+      ? { value, unit: { type: 'AngularUnit', name: unitNode[1], conversion_factor: factor } }
+      : value;
+  }
+
   static convert(node, result = {}) {
 
     switch (node[0]) {
@@ -129,8 +179,11 @@ class PROJJSONBuilderBase {
           if (primem && primem[1] !== 'Greenwich') {
             datumOrEnsemble.prime_meridian = {
               name: primem[1],
-              longitude: parseFloat(primem[2]),
-            }
+              longitude: this.convertPrimeMeridianLongitude(
+                primem,
+                node.find((child) => Array.isArray(child) && child[0] === 'ANGLEUNIT')
+              ),
+            };
           }
         }
       
