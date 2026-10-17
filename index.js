@@ -150,8 +150,13 @@ function setPropertiesFromWkt(wkt) {
   if (wkt.b && !isFinite(wkt.b)) {
     wkt.b = wkt.a;
   }
+  // Angular parameters are in the unit of the GEOGCS, e.g. grads for NTF (Paris)
+  var angularUnit = geogcs && geogcs.UNIT && geogcs.UNIT.convert;
+  var toRadians = angularUnit && Math.abs(angularUnit / d2r(1) - 1) > 1e-9 ? function(input) {
+    return input * angularUnit;
+  } : d2r;
   if (wkt.rectified_grid_angle) {
-    wkt.rectified_grid_angle = d2r(wkt.rectified_grid_angle);
+    wkt.rectified_grid_angle = toRadians(wkt.rectified_grid_angle);
   }
 
   function toMeter(input) {
@@ -183,19 +188,19 @@ function setPropertiesFromWkt(wkt) {
     ['k0', 'scale_factor'],
     ['latitude_of_center', 'Latitude_Of_Center'],
     ['latitude_of_center', 'Latitude_of_center'],
-    ['lat0', 'latitude_of_center', d2r],
+    ['lat0', 'latitude_of_center', toRadians],
     ['longitude_of_center', 'Longitude_Of_Center'],
     ['longitude_of_center', 'Longitude_of_center'],
-    ['longc', 'longitude_of_center', d2r],
+    ['longc', 'longitude_of_center', toRadians],
     ['x0', 'false_easting', toMeter],
     ['y0', 'false_northing', toMeter],
-    ['long0', 'central_meridian', d2r],
-    ['lat0', 'latitude_of_origin', d2r],
-    ['lat0', 'standard_parallel_1', d2r],
-    ['lat1', 'standard_parallel_1', d2r],
-    ['lat2', 'standard_parallel_2', d2r],
+    ['long0', 'central_meridian', toRadians],
+    ['lat0', 'latitude_of_origin', toRadians],
+    ['lat0', 'standard_parallel_1', toRadians],
+    ['lat1', 'standard_parallel_1', toRadians],
+    ['lat2', 'standard_parallel_2', toRadians],
     ['azimuth', 'Azimuth'],
-    ['alpha', 'azimuth', d2r],
+    ['alpha', 'azimuth', toRadians],
     ['srsCode', 'name']
   ];
   list.forEach(renamer);
