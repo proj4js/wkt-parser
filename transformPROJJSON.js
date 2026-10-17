@@ -1,4 +1,4 @@
-import { applyProjectionDefaults } from './util.js';
+import { applyProjectionDefaults, d2r } from './util.js';
 
 // Helper function to process units and to_meter
 function processUnit(unit) {
@@ -28,6 +28,18 @@ function toValue(valueOrObject) {
     return valueOrObject.value * valueOrObject.unit.conversion_factor;
   }
   return valueOrObject;
+}
+
+// An angle is a number in degrees, or a value with a unit
+function toRadians(angle) {
+  if (!angle || typeof angle !== 'object') {
+    return angle * Math.PI / 180;
+  }
+  const factor = angle.unit === 'degree' ? d2r(1) : angle.unit && angle.unit.conversion_factor;
+  if (typeof factor === 'number' && Math.abs(factor / d2r(1) - 1) <= 1e-9) {
+    return angle.value * Math.PI / 180;
+  }
+  return angle.value * factor;
 }
 
 function calculateEllipsoid(value, result) {
@@ -102,7 +114,7 @@ export function transformPROJJSON(projjson, result = {}) {
           calculateEllipsoid(value, result);
         }
         if (value.prime_meridian) {
-          result.from_greenwich = value.prime_meridian.longitude * Math.PI / 180; // Convert to radians
+          result.from_greenwich = toRadians(value.prime_meridian.longitude);
         }
         break;
 
@@ -112,7 +124,7 @@ export function transformPROJJSON(projjson, result = {}) {
         break;
 
       case 'prime_meridian':
-        result.long0 = (value.longitude || 0) * Math.PI / 180; // Convert to radians
+        result.long0 = toRadians(value.longitude || 0);
         break;
 
       case 'coordinate_system':

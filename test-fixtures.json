@@ -597,6 +597,143 @@
     }
   }
 }, {
+  "code": "GEOGCRS[\"NTF (Paris)\",DATUM[\"Nouvelle Triangulation Francaise (Paris)\",ELLIPSOID[\"Clarke 1880 (IGN)\",6378249.2,293.466021293627,LENGTHUNIT[\"metre\",1]]],PRIMEM[\"Paris\",2.5969213,ANGLEUNIT[\"grad\",0.0157079632679489]],CS[ellipsoidal,2],AXIS[\"geodetic latitude (Lat)\",north,ORDER[1],ANGLEUNIT[\"grad\",0.0157079632679489]],AXIS[\"geodetic longitude (Lon)\",east,ORDER[2],ANGLEUNIT[\"grad\",0.0157079632679489]],USAGE[SCOPE[\"Geodesy.\"],AREA[\"France - onshore - mainland and Corsica.\"],BBOX[41.31,-4.87,51.14,9.63]],ID[\"EPSG\",4807]]",
+  "value": {
+    "projName": "longlat",
+    "name": "NTF (Paris)",
+    "srsCode": "NTF (Paris)",
+    "ellps": "Clarke 1880 (IGN)",
+    "a": 6378249.2,
+    "rf": 293.466021293627,
+    "from_greenwich": 0.04079234439015411,
+    "axis": "neu",
+    "units": "grad",
+    "to_meter": 0.0157079632679489,
+    "title": "EPSG:4807",
+    "datumCode": "EPSG_4807"
+  }
+}, {
+  "code": {"$schema":"https://proj.org/schemas/v0.7/projjson.schema.json","type":"GeographicCRS","name":"NTF (Paris)","datum":{"type":"GeodeticReferenceFrame","name":"Nouvelle Triangulation Francaise (Paris)","ellipsoid":{"name":"Clarke 1880 (IGN)","semi_major_axis":6378249.2,"semi_minor_axis":6356515},"prime_meridian":{"name":"Paris","longitude":{"value":2.5969213,"unit":{"type":"AngularUnit","name":"grad","conversion_factor":0.0157079632679489}}}},"coordinate_system":{"subtype":"ellipsoidal","axis":[{"name":"Geodetic latitude","abbreviation":"Lat","direction":"north","unit":{"type":"AngularUnit","name":"grad","conversion_factor":0.0157079632679489}},{"name":"Geodetic longitude","abbreviation":"Lon","direction":"east","unit":{"type":"AngularUnit","name":"grad","conversion_factor":0.0157079632679489}}]},"scope":"Geodesy.","area":"France - onshore - mainland and Corsica.","bbox":{"south_latitude":41.31,"west_longitude":-4.87,"north_latitude":51.14,"east_longitude":9.63},"id":{"authority":"EPSG","code":4807}},
+  "value": {
+    "projName": "longlat",
+    "name": "NTF (Paris)",
+    "srsCode": "NTF (Paris)",
+    "ellps": "Clarke 1880 (IGN)",
+    "a": 6378249.2,
+    "rf": 293.4660212936269,
+    "from_greenwich": 0.04079234439015411,
+    "axis": "neu",
+    "units": "grad",
+    "to_meter": 0.0157079632679489,
+    "title": "EPSG:4807",
+    "datumCode": "EPSG_4807"
+  }
+}, {
+  "code": "PROJCRS[\"NTF (Paris) / Lambert zone II\",BASEGEOGCRS[\"NTF (Paris)\",DATUM[\"Nouvelle Triangulation Francaise (Paris)\",ELLIPSOID[\"Clarke 1880 (IGN)\",6378249.2,293.466021293627,LENGTHUNIT[\"metre\",1]]],PRIMEM[\"Paris\",2.5969213,ANGLEUNIT[\"grad\",0.0157079632679489]],ID[\"EPSG\",4807]],CONVERSION[\"Lambert zone II\",METHOD[\"Lambert Conic Conformal (1SP)\",ID[\"EPSG\",9801]],PARAMETER[\"Latitude of natural origin\",52,ANGLEUNIT[\"grad\",0.0157079632679489],ID[\"EPSG\",8801]],PARAMETER[\"Longitude of natural origin\",0,ANGLEUNIT[\"grad\",0.0157079632679489],ID[\"EPSG\",8802]],PARAMETER[\"Scale factor at natural origin\",0.99987742,SCALEUNIT[\"unity\",1],ID[\"EPSG\",8805]],PARAMETER[\"False easting\",600000,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8806]],PARAMETER[\"False northing\",2200000,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8807]]],CS[Cartesian,2],AXIS[\"easting (X)\",east,ORDER[1],LENGTHUNIT[\"metre\",1]],AXIS[\"northing (Y)\",north,ORDER[2],LENGTHUNIT[\"metre\",1]],USAGE[SCOPE[\"Engineering survey, topographic mapping.\"],AREA[\"France mainland onshore between 50.5 grads and 53.5 grads North (45°27'N to 48°09'N). Also used over all onshore mainland France.\"],BBOX[42.33,-4.87,51.14,8.23]],ID[\"EPSG\",27572]]",
+  "value": {
+    "projName": "Lambert Conic Conformal (1SP)",
+    "axis": "enu",
+    "units": "meter",
+    "to_meter": 1,
+    "datumCode": "EPSG_4807",
+    "ellps": "Clarke 1880 (IGN)",
+    "from_greenwich": 0.04079234439015411,
+    "a": 6378249.2,
+    "rf": 293.466021293627,
+    "k0": 0.99987742,
+    "x0": 600000,
+    "y0": 2200000,
+    "long0": 0,
+    "lat0": 0.8168140899333428,
+    "srsCode": "NTF (Paris) / Lambert zone II",
+    "name": "NTF (Paris) / Lambert zone II",
+    "title": "EPSG:27572"
+  }
+}, {
+  "code": "GEOGCRS[\"NTF (Paris)\",DATUM[\"Nouvelle Triangulation Francaise (Paris)\",ELLIPSOID[\"Clarke 1880 (IGN)\",6378249.2,293.466021293627,LENGTHUNIT[\"metre\",1]]],PRIMEM[\"Paris\",2.33722917,ANGLEUNIT[\"grad\",0.0157079632679489]],CS[ellipsoidal,2],AXIS[\"geodetic latitude (Lat)\",north,ORDER[1],ANGLEUNIT[\"grad\",0.0157079632679489]],AXIS[\"geodetic longitude (Lon)\",east,ORDER[2],ANGLEUNIT[\"grad\",0.0157079632679489]]]",
+  "value": {
+    "projName": "longlat",
+    "name": "NTF (Paris)",
+    "srsCode": "NTF (Paris)",
+    "ellps": "Clarke 1880 (IGN)",
+    "a": 6378249.2,
+    "rf": 293.466021293627,
+    "from_greenwich": 0.04079234439015428,
+    "axis": "neu",
+    "units": "grad",
+    "to_meter": 0.0157079632679489
+  }
+}, {
+  "code": "GEOGCRS[\"MGI (Ferro)\",DATUM[\"Militar-Geographische Institut (Ferro)\",ELLIPSOID[\"Bessel 1841\",6377397.155,299.1528128,LENGTHUNIT[\"metre\",1]]],PRIMEM[\"Ferro\",-17.6666666666667,ANGLEUNIT[\"grad\",0.0157079632679489]],CS[ellipsoidal,2],AXIS[\"geodetic latitude (Lat)\",north,ORDER[1],ANGLEUNIT[\"degree\",0.0174532925199433]],AXIS[\"geodetic longitude (Lon)\",east,ORDER[2],ANGLEUNIT[\"degree\",0.0174532925199433]]]",
+  "value": {
+    "projName": "longlat",
+    "name": "MGI (Ferro)",
+    "srsCode": "MGI (Ferro)",
+    "ellps": "Bessel 1841",
+    "a": 6377397.155,
+    "rf": 299.1528128,
+    "from_greenwich": -0.30834150118566545,
+    "axis": "neu",
+    "units": "degree",
+    "to_meter": 0.0174532925199433
+  }
+}, {
+  "code": "GEOGCRS[\"NTF (Paris)\",DATUM[\"Nouvelle Triangulation Francaise (Paris)\",ELLIPSOID[\"Clarke 1880 (IGN)\",6378249.2,293.466021293627,LENGTHUNIT[\"metre\",1]]],PRIMEM[\"Paris\",2.5969213,UNIT[\"grad\",0.0157079632679489]],CS[ellipsoidal,2],AXIS[\"geodetic latitude (Lat)\",north,ORDER[1],ANGLEUNIT[\"grad\",0.0157079632679489]],AXIS[\"geodetic longitude (Lon)\",east,ORDER[2],ANGLEUNIT[\"grad\",0.0157079632679489]]]",
+  "value": {
+    "projName": "longlat",
+    "name": "NTF (Paris)",
+    "srsCode": "NTF (Paris)",
+    "ellps": "Clarke 1880 (IGN)",
+    "a": 6378249.2,
+    "rf": 293.466021293627,
+    "from_greenwich": 0.04079234439015411,
+    "axis": "neu",
+    "units": "grad",
+    "to_meter": 0.0157079632679489
+  }
+}, {
+  "code": "GEOGCRS[\"NTF (Paris)\",DATUM[\"Nouvelle Triangulation Francaise (Paris)\",ELLIPSOID[\"Clarke 1880 (IGN)\",6378249.2,293.466021293627,LENGTHUNIT[\"metre\",1]]],PRIMEM[\"Paris\",2.5969213],CS[ellipsoidal,2],AXIS[\"geodetic latitude (Lat)\",north,ORDER[1],ANGLEUNIT[\"grad\",0.0157079632679489]],AXIS[\"geodetic longitude (Lon)\",east,ORDER[2],ANGLEUNIT[\"grad\",0.0157079632679489]],ANGLEUNIT[\"grad\",0.0157079632679489]]",
+  "value": {
+    "projName": "longlat",
+    "name": "NTF (Paris)",
+    "srsCode": "NTF (Paris)",
+    "ellps": "Clarke 1880 (IGN)",
+    "a": 6378249.2,
+    "rf": 293.466021293627,
+    "from_greenwich": 0.04079234439015411,
+    "axis": "neu",
+    "units": "grad",
+    "to_meter": 0.0157079632679489
+  }
+}, {
+  "code": "GEOGCRS[\"NTF (Paris)\",DATUM[\"Nouvelle Triangulation Francaise (Paris)\",ELLIPSOID[\"Clarke 1880 (IGN)\",6378249.2,293.466021293627,LENGTHUNIT[\"metre\",1]]],PRIMEM[\"Paris\",2.5969213,ANGLEUNIT[\"degree\",0.0157079632679489]],CS[ellipsoidal,2],AXIS[\"geodetic latitude (Lat)\",north,ORDER[1],ANGLEUNIT[\"grad\",0.0157079632679489]],AXIS[\"geodetic longitude (Lon)\",east,ORDER[2],ANGLEUNIT[\"grad\",0.0157079632679489]]]",
+  "value": {
+    "projName": "longlat",
+    "name": "NTF (Paris)",
+    "srsCode": "NTF (Paris)",
+    "ellps": "Clarke 1880 (IGN)",
+    "a": 6378249.2,
+    "rf": 293.466021293627,
+    "from_greenwich": 0.04079234439015411,
+    "axis": "neu",
+    "units": "grad",
+    "to_meter": 0.0157079632679489
+  }
+}, {
+  "code": {"$schema":"https://proj.org/schemas/v0.7/projjson.schema.json","type":"GeographicCRS","name":"NTF (Paris)","datum":{"type":"GeodeticReferenceFrame","name":"Nouvelle Triangulation Francaise (Paris)","ellipsoid":{"name":"Clarke 1880 (IGN)","semi_major_axis":6378249.2,"semi_minor_axis":6356515},"prime_meridian":{"name":"Paris","longitude":{"value":2.5969213,"unit":{"type":"AngularUnit","name":"custom","conversion_factor":0}}}},"coordinate_system":{"subtype":"ellipsoidal","axis":[{"name":"Geodetic latitude","abbreviation":"Lat","direction":"north","unit":{"type":"AngularUnit","name":"grad","conversion_factor":0.0157079632679489}},{"name":"Geodetic longitude","abbreviation":"Lon","direction":"east","unit":{"type":"AngularUnit","name":"grad","conversion_factor":0.0157079632679489}}]}},
+  "value": {
+    "projName": "longlat",
+    "name": "NTF (Paris)",
+    "srsCode": "NTF (Paris)",
+    "ellps": "Clarke 1880 (IGN)",
+    "a": 6378249.2,
+    "rf": 293.4660212936269,
+    "from_greenwich": 0,
+    "axis": "neu",
+    "units": "grad",
+    "to_meter": 0.0157079632679489
+  }
+}, {
   "code": "PROJCRS[\"WGS 84 / Antarctic Polar Stereographic\",BASEGEOGCRS[\"WGS 84\",ENSEMBLE[\"World Geodetic System 1984 ensemble\",MEMBER[\"World Geodetic System 1984 (Transit)\"],MEMBER[\"World Geodetic System 1984 (G730)\"],MEMBER[\"World Geodetic System 1984 (G873)\"],MEMBER[\"World Geodetic System 1984 (G1150)\"],MEMBER[\"World Geodetic System 1984 (G1674)\"],MEMBER[\"World Geodetic System 1984 (G1762)\"],MEMBER[\"World Geodetic System 1984 (G2139)\"],MEMBER[\"World Geodetic System 1984 (G2296)\"],ELLIPSOID[\"WGS 84\",6378137,298.257223563,LENGTHUNIT[\"metre\",1]],ENSEMBLEACCURACY[2.0]],PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433]],ID[\"EPSG\",4326]],CONVERSION[\"Antarctic Polar Stereographic\",METHOD[\"Polar Stereographic (variant B)\",ID[\"EPSG\",9829]],PARAMETER[\"Latitude of standard parallel\",-71,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8832]],PARAMETER[\"Longitude of origin\",0,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8833]],PARAMETER[\"False easting\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8806]],PARAMETER[\"False northing\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8807]]],CS[Cartesian,2],AXIS[\"(E)\",north,MERIDIAN[90,ANGLEUNIT[\"degree\",0.0174532925199433]],ORDER[1],LENGTHUNIT[\"metre\",1]],AXIS[\"(N)\",north,MERIDIAN[0,ANGLEUNIT[\"degree\",0.0174532925199433]],ORDER[2],LENGTHUNIT[\"metre\",1]],USAGE[SCOPE[\"Antarctic Digital Database and small scale topographic mapping.\"],AREA[\"Antarctica.\"],BBOX[-90,-180,-60,180]],ID[\"EPSG\",3031]]",
   "value": {
     "projName": "Polar Stereographic (variant B)",
