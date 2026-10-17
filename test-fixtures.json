@@ -1410,6 +1410,101 @@
     "name": "unknown"
   }
 }, {
+  "code": "PROJCRS[\"MAGNA-SIRGAS / Bogota urban grid\",BASEGEOGCRS[\"MAGNA-SIRGAS\",DATUM[\"Marco Geocentrico Nacional de Referencia\",ELLIPSOID[\"GRS 1980\",6378137,298.257222101,LENGTHUNIT[\"metre\",1]]],PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433]],ID[\"EPSG\",4686]],CONVERSION[\"Bogota urban grid\",METHOD[\"Colombia Urban\",ID[\"EPSG\",1052]],PARAMETER[\"Latitude of natural origin\",4.68048611111111,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8801]],PARAMETER[\"Longitude of natural origin\",-74.1465916666667,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8802]],PARAMETER[\"False easting\",92334.879,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8806]],PARAMETER[\"False northing\",109320.965,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8807]],PARAMETER[\"Projection plane origin height\",2550,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",1039]]],CS[Cartesian,2],AXIS[\"northing (N)\",north,ORDER[1],LENGTHUNIT[\"metre\",1]],AXIS[\"easting (E)\",east,ORDER[2],LENGTHUNIT[\"metre\",1]],USAGE[SCOPE[\"Cadastre, engineering survey, topographic mapping (large scale).\"],AREA[\"Colombia - Bogota DC city.\"],BBOX[4.45,-74.27,4.85,-73.98]],ID[\"EPSG\",6247]]",
+  "value": {
+    "projName": "Colombia Urban",
+    "axis": "neu",
+    "units": "meter",
+    "to_meter": 1,
+    "datumCode": "EPSG_4686",
+    "ellps": "GRS 1980",
+    "a": 6378137,
+    "rf": 298.257222101,
+    "x0": 92334.879,
+    "y0": 109320.965,
+    "h0": 2550,
+    "long0": -1.294102153715124,
+    "lat0": 0.08168989323275404,
+    "srsCode": "MAGNA-SIRGAS / Bogota urban grid",
+    "name": "MAGNA-SIRGAS / Bogota urban grid",
+    "title": "EPSG:6247"
+  }
+}, {
+  "code": {"$schema":"https://proj.org/schemas/v0.7/projjson.schema.json","type":"ProjectedCRS","name":"MAGNA-SIRGAS / Bogota urban grid","base_crs":{"type":"GeographicCRS","name":"MAGNA-SIRGAS","datum":{"type":"GeodeticReferenceFrame","name":"Marco Geocentrico Nacional de Referencia","ellipsoid":{"name":"GRS 1980","semi_major_axis":6378137,"inverse_flattening":298.257222101}},"coordinate_system":{"subtype":"ellipsoidal","axis":[{"name":"Geodetic latitude","abbreviation":"Lat","direction":"north","unit":"degree"},{"name":"Geodetic longitude","abbreviation":"Lon","direction":"east","unit":"degree"}]},"id":{"authority":"EPSG","code":4686},"remarks":"Replaces Bogota 1975 (CRS code 4218). For high accuracy purposes replaced by MAGNA-SIRGAS 2018 (code 20046)."},"conversion":{"name":"Bogota urban grid","method":{"name":"Colombia Urban","id":{"authority":"EPSG","code":1052}},"parameters":[{"name":"Latitude of natural origin","value":4.68048611111111,"unit":"degree","id":{"authority":"EPSG","code":8801}},{"name":"Longitude of natural origin","value":-74.1465916666667,"unit":"degree","id":{"authority":"EPSG","code":8802}},{"name":"False easting","value":92334.879,"unit":"metre","id":{"authority":"EPSG","code":8806}},{"name":"False northing","value":109320.965,"unit":"metre","id":{"authority":"EPSG","code":8807}},{"name":"Projection plane origin height","value":2550,"unit":"metre","id":{"authority":"EPSG","code":1039}}]},"coordinate_system":{"subtype":"Cartesian","axis":[{"name":"Northing","abbreviation":"N","direction":"north","unit":"metre"},{"name":"Easting","abbreviation":"E","direction":"east","unit":"metre"}]},"scope":"Cadastre, engineering survey, topographic mapping (large scale).","area":"Colombia - Bogota DC city.","bbox":{"south_latitude":4.45,"west_longitude":-74.27,"north_latitude":4.85,"east_longitude":-73.98},"id":{"authority":"EPSG","code":6247}},
+  "value": {
+    "projName": "Colombia Urban",
+    "axis": "neu",
+    "units": "meter",
+    "to_meter": 1,
+    "datumCode": "EPSG_4686",
+    "ellps": "GRS 1980",
+    "a": 6378137,
+    "rf": 298.257222101,
+    "x0": 92334.879,
+    "y0": 109320.965,
+    "h0": 2550,
+    "long0": -1.2941021537151238,
+    "lat0": 0.08168989323275401,
+    "srsCode": "MAGNA-SIRGAS / Bogota urban grid",
+    "name": "MAGNA-SIRGAS / Bogota urban grid",
+    "title": "EPSG:6247"
+  }
+}, {
+  "code": "PROJCS[\"MAGNA_Bogota_DC_2005\",GEOGCS[\"GCS_MAGNA\",DATUM[\"D_MAGNA\",SPHEROID[\"GRS_1980\",6378137.0,298.257222101]],PRIMEM[\"Greenwich\",0.0],UNIT[\"Degree\",0.0174532925199433]],PROJECTION[\"IGAC_Plano_Cartesiano\"],PARAMETER[\"False_Easting\",92334.879],PARAMETER[\"False_Northing\",109320.965],PARAMETER[\"Longitude_Of_Center\",-74.1465916666667],PARAMETER[\"Latitude_Of_Center\",4.68048611111111],PARAMETER[\"Height\",2550.0],UNIT[\"Meter\",1.0]]",
+  "value": {
+    "projName": "IGAC_Plano_Cartesiano",
+    "units": "meter",
+    "to_meter": 1,
+    "datumCode": "magna",
+    "ellps": "GRS80",
+    "a": 6378137,
+    "rf": 298.257222101,
+    "x0": 92334.879,
+    "y0": 109320.965,
+    "h0": 2550,
+    "longc": -1.2941021537151236,
+    "long0": -1.2941021537151236,
+    "lat0": 0.08168989323275401,
+    "srsCode": "MAGNA_Bogota_DC_2005",
+    "name": "MAGNA_Bogota_DC_2005"
+  }
+}, {
+  "code": "PROJCS[\"MAGNA_Bogota_DC_2005_Foot\",GEOGCS[\"GCS_MAGNA\",DATUM[\"D_MAGNA\",SPHEROID[\"GRS_1980\",6378137.0,298.257222101]],PRIMEM[\"Greenwich\",0.0],UNIT[\"Degree\",0.0174532925199433]],PROJECTION[\"IGAC_Plano_Cartesiano\"],PARAMETER[\"False_Easting\",302935.95472440944],PARAMETER[\"False_Northing\",358664.5833333333],PARAMETER[\"Longitude_Of_Center\",-74.1465916666667],PARAMETER[\"Latitude_Of_Center\",4.68048611111111],PARAMETER[\"Height\",8366.141732283464],UNIT[\"Foot\",0.3048]]",
+  "value": {
+    "projName": "IGAC_Plano_Cartesiano",
+    "units": "foot",
+    "to_meter": 0.3048,
+    "datumCode": "magna",
+    "ellps": "GRS80",
+    "a": 6378137,
+    "rf": 298.257222101,
+    "x0": 92334.879,
+    "y0": 109320.965,
+    "h0": 2550,
+    "longc": -1.2941021537151236,
+    "long0": -1.2941021537151236,
+    "lat0": 0.08168989323275401,
+    "srsCode": "MAGNA_Bogota_DC_2005_Foot",
+    "name": "MAGNA_Bogota_DC_2005_Foot"
+  }
+}, {
+  "code": "PROJCS[\"unknown\",GEOGCS[\"GCS_unknown\",DATUM[\"D_Unknown_based_on_WGS_84_ellipsoid\",SPHEROID[\"WGS_1984\",6378137.0,298.257223563]],PRIMEM[\"Greenwich\",0.0],UNIT[\"Degree\",0.0174532925199433]],PROJECTION[\"Geostationary_Satellite\"],PARAMETER[\"False_Easting\",0.0],PARAMETER[\"False_Northing\",0.0],PARAMETER[\"Longitude_Of_Center\",0.0],PARAMETER[\"Height\",35785831.0],PARAMETER[\"Option\",0.0],UNIT[\"Meter\",1.0]]",
+  "value": {
+    "projName": "Geostationary_Satellite",
+    "units": "meter",
+    "to_meter": 1,
+    "datumCode": "unknown_based_on_wgs_84_ellipsoid",
+    "ellps": "WGS84",
+    "a": 6378137,
+    "rf": 298.257223563,
+    "x0": 0,
+    "y0": 0,
+    "longc": 0,
+    "long0": 0,
+    "srsCode": "unknown",
+    "name": "unknown"
+  }
+}, {
   "code": "BOUNDCRS[ SOURCECRS[ PROJCRS[\"unknown\", BASEGEOGCRS[\"unknown\", DATUM[\"Unknown based on Bessel 1841 ellipsoid\", ELLIPSOID[\"Bessel 1841\",6377397.155,299.1528128, LENGTHUNIT[\"metre\",1, ID[\"EPSG\",9001]]]], PRIMEM[\"Greenwich\",0, ANGLEUNIT[\"degree\",0.0174532925199433], ID[\"EPSG\",8901]]], CONVERSION[\"unknown\", METHOD[\"Lambert Conic Conformal (2SP)\", ID[\"EPSG\",9802]], PARAMETER[\"Latitude of false origin\",47.5, ANGLEUNIT[\"degree\",0.0174532925199433], ID[\"EPSG\",8821]], PARAMETER[\"Longitude of false origin\",13.3333333333333, ANGLEUNIT[\"degree\",0.0174532925199433], ID[\"EPSG\",8822]], PARAMETER[\"Latitude of 1st standard parallel\",49, ANGLEUNIT[\"degree\",0.0174532925199433], ID[\"EPSG\",8823]], PARAMETER[\"Latitude of 2nd standard parallel\",46, ANGLEUNIT[\"degree\",0.0174532925199433], ID[\"EPSG\",8824]], PARAMETER[\"Easting at false origin\",400000, LENGTHUNIT[\"metre\",1], ID[\"EPSG\",8826]], PARAMETER[\"Northing at false origin\",400000, LENGTHUNIT[\"metre\",1], ID[\"EPSG\",8827]]], CS[Cartesian,2], AXIS[\"(E)\",east, ORDER[1], LENGTHUNIT[\"metre\",1, ID[\"EPSG\",9001]]], AXIS[\"(N)\",north, ORDER[2], LENGTHUNIT[\"metre\",1, ID[\"EPSG\",9001]]]]], TARGETCRS[ GEOGCRS[\"WGS 84\", DATUM[\"World Geodetic System 1984\", ELLIPSOID[\"WGS 84\",6378137,298.257223563, LENGTHUNIT[\"metre\",1]]], PRIMEM[\"Greenwich\",0, ANGLEUNIT[\"degree\",0.0174532925199433]], CS[ellipsoidal,2], AXIS[\"latitude\",north, ORDER[1], ANGLEUNIT[\"degree\",0.0174532925199433]], AXIS[\"longitude\",east, ORDER[2], ANGLEUNIT[\"degree\",0.0174532925199433]], ID[\"EPSG\",4326]]], ABRIDGEDTRANSFORMATION[\"unknown to WGS84\", METHOD[\"NTv2\", ID[\"EPSG\",9615]], PARAMETERFILE[\"Latitude and longitude difference file\",\"AT_GIS_GRID.gsb\", ID[\"EPSG\",8656]]]]",
   "value": {
     "projName": "Lambert Conic Conformal (2SP)",
