@@ -214,6 +214,9 @@ function setPropertiesFromWkt(wkt) {
   if (!isEquidistantCylindrical(wkt.projName)) {
     renamer(['lat0', 'standard_parallel_1', toRadians]);
   }
+  if (wkt.projName === 'IGAC_Plano_Cartesiano') {
+    renamer(['h0', 'Height', toMeter]);
+  }
   applyProjectionDefaults(wkt);
 }
 
