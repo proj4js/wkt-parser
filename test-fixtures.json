@@ -843,6 +843,180 @@
     "title": "EPSG:2066"
   }
 }, {
+  "code": "PROJCS[\"WGS_1984_ARC_System_Zone_01\",GEOGCS[\"GCS_WGS_1984\",DATUM[\"D_WGS_1984\",SPHEROID[\"WGS_1984\",6378137.0,298.257223563]],PRIMEM[\"Greenwich\",0.0],UNIT[\"Degree\",0.0174532925199433]],PROJECTION[\"Equidistant_Cylindrical\"],PARAMETER[\"False_Easting\",0.0],PARAMETER[\"False_Northing\",0.0],PARAMETER[\"Central_Meridian\",0.0],PARAMETER[\"Standard_Parallel_1\",22.94791772],UNIT[\"Meter\",1.0]]",
+  "value": {
+    "projName": "Equidistant_Cylindrical",
+    "units": "meter",
+    "to_meter": 1,
+    "datumCode": "wgs84",
+    "ellps": "WGS84",
+    "a": 6378137,
+    "rf": 298.257223563,
+    "x0": 0,
+    "y0": 0,
+    "long0": 0,
+    "lat0": 0,
+    "lat_ts": 0.40051672069075017,
+    "srsCode": "WGS_1984_ARC_System_Zone_01",
+    "name": "WGS_1984_ARC_System_Zone_01"
+  }
+}, {
+  "code": "PROJCS[\"WGS_1984_ARC_System_Zone_01\",GEOGCS[\"WGS 84\",DATUM[\"WGS_1984\",SPHEROID[\"WGS 84\",6378137,298.257223563,AUTHORITY[\"EPSG\",\"7030\"]],AUTHORITY[\"EPSG\",\"6326\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AUTHORITY[\"EPSG\",\"4326\"]],PROJECTION[\"Equirectangular\"],PARAMETER[\"standard_parallel_1\",22.94791772],PARAMETER[\"central_meridian\",0],PARAMETER[\"false_easting\",0],PARAMETER[\"false_northing\",0],UNIT[\"metre\",1,AUTHORITY[\"EPSG\",\"9001\"]],AXIS[\"Easting\",EAST],AXIS[\"Northing\",NORTH],AUTHORITY[\"ESRI\",\"102421\"]]",
+  "value": {
+    "projName": "Equirectangular",
+    "axis": "enu",
+    "units": "meter",
+    "to_meter": 1,
+    "datumCode": "wgs84",
+    "ellps": "WGS 84",
+    "a": 6378137,
+    "rf": 298.257223563,
+    "x0": 0,
+    "y0": 0,
+    "long0": 0,
+    "lat0": 0,
+    "lat_ts": 0.40051672069075017,
+    "srsCode": "WGS_1984_ARC_System_Zone_01",
+    "name": "WGS_1984_ARC_System_Zone_01",
+    "title": "ESRI:102421"
+  }
+}, {
+  "code": "PROJCRS[\"WGS_1984_ARC_System_Zone_01\",BASEGEOGCRS[\"WGS 84\",ENSEMBLE[\"World Geodetic System 1984 ensemble\",MEMBER[\"World Geodetic System 1984 (Transit)\"],MEMBER[\"World Geodetic System 1984 (G730)\"],MEMBER[\"World Geodetic System 1984 (G873)\"],MEMBER[\"World Geodetic System 1984 (G1150)\"],MEMBER[\"World Geodetic System 1984 (G1674)\"],MEMBER[\"World Geodetic System 1984 (G1762)\"],MEMBER[\"World Geodetic System 1984 (G2139)\"],MEMBER[\"World Geodetic System 1984 (G2296)\"],ELLIPSOID[\"WGS 84\",6378137,298.257223563,LENGTHUNIT[\"metre\",1]],ENSEMBLEACCURACY[2.0]],PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433]],ID[\"EPSG\",4326]],CONVERSION[\"WGS_1984_ARC_System_Zone_01\",METHOD[\"Equidistant Cylindrical (Spherical)\",ID[\"EPSG\",1029]],PARAMETER[\"Latitude of 1st standard parallel\",22.94791772,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8823]],PARAMETER[\"Longitude of natural origin\",0,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8802]],PARAMETER[\"False easting\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8806]],PARAMETER[\"False northing\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8807]]],CS[Cartesian,2],AXIS[\"(E)\",east,ORDER[1],LENGTHUNIT[\"metre\",1]],AXIS[\"(N)\",north,ORDER[2],LENGTHUNIT[\"metre\",1]],USAGE[SCOPE[\"Not known.\"],AREA[\"ARC System - Zone 1\"],BBOX[0,-180,32,180]],ID[\"ESRI\",102421]]",
+  "value": {
+    "projName": "Equidistant Cylindrical (Spherical)",
+    "axis": "enu",
+    "units": "meter",
+    "to_meter": 1,
+    "datumCode": "EPSG_4326",
+    "ellps": "WGS 84",
+    "a": 6378137,
+    "rf": 298.257223563,
+    "x0": 0,
+    "y0": 0,
+    "long0": 0,
+    "lat0": 0,
+    "lat_ts": 0.4005167206907503,
+    "srsCode": "WGS_1984_ARC_System_Zone_01",
+    "name": "WGS_1984_ARC_System_Zone_01",
+    "title": "ESRI:102421"
+  }
+}, {
+  "code": "PROJCS[\"unknown\",GEOGCS[\"unknown\",DATUM[\"WGS_1984\",SPHEROID[\"WGS 84\",6378137,298.257223563,AUTHORITY[\"EPSG\",\"7030\"]],AUTHORITY[\"EPSG\",\"6326\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]]],PROJECTION[\"Equirectangular\"],PARAMETER[\"standard_parallel_1\",30],PARAMETER[\"latitude_of_origin\",10],PARAMETER[\"central_meridian\",15],PARAMETER[\"false_easting\",1000],PARAMETER[\"false_northing\",2000],UNIT[\"metre\",1,AUTHORITY[\"EPSG\",\"9001\"]],AXIS[\"Easting\",EAST],AXIS[\"Northing\",NORTH]]",
+  "value": {
+    "projName": "Equirectangular",
+    "axis": "enu",
+    "units": "meter",
+    "to_meter": 1,
+    "datumCode": "wgs84",
+    "ellps": "WGS 84",
+    "a": 6378137,
+    "rf": 298.257223563,
+    "x0": 1000,
+    "y0": 2000,
+    "long0": 0.2617993877991494,
+    "lat0": 0.17453292519943295,
+    "lat_ts": 0.5235987755982988,
+    "srsCode": "unknown",
+    "name": "unknown"
+  }
+}, {
+  "code": "PROJCRS[\"unknown\",BASEGEOGCRS[\"unknown\",DATUM[\"World Geodetic System 1984\",ELLIPSOID[\"WGS 84\",6378137,298.257223563,LENGTHUNIT[\"metre\",1]],ID[\"EPSG\",6326]],PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8901]]],CONVERSION[\"unknown\",METHOD[\"Equidistant Cylindrical\",ID[\"EPSG\",1028]],PARAMETER[\"Latitude of 1st standard parallel\",30,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8823]],PARAMETER[\"Latitude of natural origin\",10,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8801]],PARAMETER[\"Longitude of natural origin\",15,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8802]],PARAMETER[\"False easting\",1000,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8806]],PARAMETER[\"False northing\",2000,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8807]]],CS[Cartesian,2],AXIS[\"(E)\",east,ORDER[1],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],AXIS[\"(N)\",north,ORDER[2],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]]",
+  "value": {
+    "projName": "Equidistant Cylindrical",
+    "axis": "enu",
+    "units": "meter",
+    "to_meter": 1,
+    "datumCode": "unknown",
+    "ellps": "WGS 84",
+    "a": 6378137,
+    "rf": 298.257223563,
+    "x0": 1000,
+    "y0": 2000,
+    "long0": 0.26179938779914946,
+    "lat0": 0.17453292519943298,
+    "lat_ts": 0.5235987755982989,
+    "srsCode": "unknown",
+    "name": "unknown"
+  }
+}, {
+  "code": "PROJCRS[\"WGS 84 / World Equidistant Cylindrical\",BASEGEOGCRS[\"WGS 84\",ENSEMBLE[\"World Geodetic System 1984 ensemble\",MEMBER[\"World Geodetic System 1984 (Transit)\"],MEMBER[\"World Geodetic System 1984 (G730)\"],MEMBER[\"World Geodetic System 1984 (G873)\"],MEMBER[\"World Geodetic System 1984 (G1150)\"],MEMBER[\"World Geodetic System 1984 (G1674)\"],MEMBER[\"World Geodetic System 1984 (G1762)\"],MEMBER[\"World Geodetic System 1984 (G2139)\"],MEMBER[\"World Geodetic System 1984 (G2296)\"],ELLIPSOID[\"WGS 84\",6378137,298.257223563,LENGTHUNIT[\"metre\",1]],ENSEMBLEACCURACY[2.0]],PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433]],ID[\"EPSG\",4326]],CONVERSION[\"World Equidistant Cylindrical\",METHOD[\"Equidistant Cylindrical\",ID[\"EPSG\",1028]],PARAMETER[\"Latitude of 1st standard parallel\",0,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8823]],PARAMETER[\"Longitude of natural origin\",0,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8802]],PARAMETER[\"False easting\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8806]],PARAMETER[\"False northing\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8807]]],CS[Cartesian,2],AXIS[\"easting (X)\",east,ORDER[1],LENGTHUNIT[\"metre\",1]],AXIS[\"northing (Y)\",north,ORDER[2],LENGTHUNIT[\"metre\",1]],USAGE[SCOPE[\"Graticule coordinates expressed in simple Cartesian form.\"],AREA[\"World.\"],BBOX[-90,-180,90,180]],ID[\"EPSG\",4087]]",
+  "value": {
+    "projName": "Equidistant Cylindrical",
+    "axis": "enu",
+    "units": "meter",
+    "to_meter": 1,
+    "datumCode": "EPSG_4326",
+    "ellps": "WGS 84",
+    "a": 6378137,
+    "rf": 298.257223563,
+    "x0": 0,
+    "y0": 0,
+    "long0": 0,
+    "lat0": 0,
+    "lat_ts": 0,
+    "srsCode": "WGS 84 / World Equidistant Cylindrical",
+    "name": "WGS 84 / World Equidistant Cylindrical",
+    "title": "EPSG:4087"
+  }
+}, {
+  "code": {"$schema":"https://proj.org/schemas/v0.7/projjson.schema.json","type":"ProjectedCRS","name":"WGS 84 / World Equidistant Cylindrical","base_crs":{"type":"GeographicCRS","name":"WGS 84","datum_ensemble":{"name":"World Geodetic System 1984 ensemble","members":[{"name":"World Geodetic System 1984 (Transit)","id":{"authority":"EPSG","code":1166}},{"name":"World Geodetic System 1984 (G730)","id":{"authority":"EPSG","code":1152}},{"name":"World Geodetic System 1984 (G873)","id":{"authority":"EPSG","code":1153}},{"name":"World Geodetic System 1984 (G1150)","id":{"authority":"EPSG","code":1154}},{"name":"World Geodetic System 1984 (G1674)","id":{"authority":"EPSG","code":1155}},{"name":"World Geodetic System 1984 (G1762)","id":{"authority":"EPSG","code":1156}},{"name":"World Geodetic System 1984 (G2139)","id":{"authority":"EPSG","code":1309}},{"name":"World Geodetic System 1984 (G2296)","id":{"authority":"EPSG","code":1383}}],"ellipsoid":{"name":"WGS 84","semi_major_axis":6378137,"inverse_flattening":298.257223563},"accuracy":"2.0","id":{"authority":"EPSG","code":6326}},"coordinate_system":{"subtype":"ellipsoidal","axis":[{"name":"Geodetic latitude","abbreviation":"Lat","direction":"north","unit":"degree"},{"name":"Geodetic longitude","abbreviation":"Lon","direction":"east","unit":"degree"}]},"id":{"authority":"EPSG","code":4326}},"conversion":{"name":"World Equidistant Cylindrical","method":{"name":"Equidistant Cylindrical","id":{"authority":"EPSG","code":1028}},"parameters":[{"name":"Latitude of 1st standard parallel","value":0,"unit":"degree","id":{"authority":"EPSG","code":8823}},{"name":"Longitude of natural origin","value":0,"unit":"degree","id":{"authority":"EPSG","code":8802}},{"name":"False easting","value":0,"unit":"metre","id":{"authority":"EPSG","code":8806}},{"name":"False northing","value":0,"unit":"metre","id":{"authority":"EPSG","code":8807}}]},"coordinate_system":{"subtype":"Cartesian","axis":[{"name":"Easting","abbreviation":"X","direction":"east","unit":"metre"},{"name":"Northing","abbreviation":"Y","direction":"north","unit":"metre"}]},"scope":"Graticule coordinates expressed in simple Cartesian form.","area":"World.","bbox":{"south_latitude":-90,"west_longitude":-180,"north_latitude":90,"east_longitude":180},"id":{"authority":"EPSG","code":4087}},
+  "value": {
+    "projName": "Equidistant Cylindrical",
+    "axis": "enu",
+    "units": "meter",
+    "to_meter": 1,
+    "datumCode": "EPSG_4326",
+    "ellps": "WGS 84",
+    "a": 6378137,
+    "rf": 298.257223563,
+    "x0": 0,
+    "y0": 0,
+    "long0": 0,
+    "lat0": 0,
+    "lat_ts": 0,
+    "srsCode": "WGS 84 / World Equidistant Cylindrical",
+    "name": "WGS 84 / World Equidistant Cylindrical",
+    "title": "EPSG:4087"
+  }
+}, {
+  "code": "PROJCS[\"WGS_1984_ARC_System_Zone_17\",GEOGCS[\"GCS_WGS_1984\",DATUM[\"D_WGS_1984\",SPHEROID[\"WGS_1984\",6378137.0,298.257223563]],PRIMEM[\"Greenwich\",0.0],UNIT[\"Degree\",0.0174532925199433]],PROJECTION[\"Equidistant_Cylindrical\"],PARAMETER[\"False_Easting\",0.0],PARAMETER[\"False_Northing\",0.0],PARAMETER[\"Central_Meridian\",0.0],PARAMETER[\"Standard_Parallel_1\",-78.1728375],UNIT[\"Meter\",1.0]]",
+  "value": {
+    "projName": "Equidistant_Cylindrical",
+    "units": "meter",
+    "to_meter": 1,
+    "datumCode": "wgs84",
+    "ellps": "WGS84",
+    "a": 6378137,
+    "rf": 298.257223563,
+    "x0": 0,
+    "y0": 0,
+    "long0": 0,
+    "lat0": 0,
+    "lat_ts": -1.3643734000014927,
+    "srsCode": "WGS_1984_ARC_System_Zone_17",
+    "name": "WGS_1984_ARC_System_Zone_17"
+  }
+}, {
+  "code": {"$schema":"https://proj.org/schemas/v0.7/projjson.schema.json","type":"ProjectedCRS","name":"WGS_1984_ARC_System_Zone_01","base_crs":{"type":"GeographicCRS","name":"WGS 84","datum_ensemble":{"name":"World Geodetic System 1984 ensemble","members":[{"name":"World Geodetic System 1984 (Transit)","id":{"authority":"EPSG","code":1166}},{"name":"World Geodetic System 1984 (G730)","id":{"authority":"EPSG","code":1152}},{"name":"World Geodetic System 1984 (G873)","id":{"authority":"EPSG","code":1153}},{"name":"World Geodetic System 1984 (G1150)","id":{"authority":"EPSG","code":1154}},{"name":"World Geodetic System 1984 (G1674)","id":{"authority":"EPSG","code":1155}},{"name":"World Geodetic System 1984 (G1762)","id":{"authority":"EPSG","code":1156}},{"name":"World Geodetic System 1984 (G2139)","id":{"authority":"EPSG","code":1309}},{"name":"World Geodetic System 1984 (G2296)","id":{"authority":"EPSG","code":1383}}],"ellipsoid":{"name":"WGS 84","semi_major_axis":6378137,"inverse_flattening":298.257223563},"accuracy":"2.0","id":{"authority":"EPSG","code":6326}},"coordinate_system":{"subtype":"ellipsoidal","axis":[{"name":"Geodetic latitude","abbreviation":"Lat","direction":"north","unit":"degree"},{"name":"Geodetic longitude","abbreviation":"Lon","direction":"east","unit":"degree"}]},"id":{"authority":"EPSG","code":4326}},"conversion":{"name":"WGS_1984_ARC_System_Zone_01","method":{"name":"Equidistant_Cylindrical_Spherical","id":{"authority":"EPSG","code":1029}},"parameters":[{"name":"Latitude of 1st standard parallel","value":22.94791772,"unit":"degree","id":{"authority":"EPSG","code":8823}},{"name":"Longitude of natural origin","value":0,"unit":"degree","id":{"authority":"EPSG","code":8802}},{"name":"False easting","value":0,"unit":"metre","id":{"authority":"EPSG","code":8806}},{"name":"False northing","value":0,"unit":"metre","id":{"authority":"EPSG","code":8807}}]},"coordinate_system":{"subtype":"Cartesian","axis":[{"name":"Easting","abbreviation":"E","direction":"east","unit":"metre"},{"name":"Northing","abbreviation":"N","direction":"north","unit":"metre"}]},"scope":"Not known.","area":"ARC System - Zone 1","bbox":{"south_latitude":0,"west_longitude":-180,"north_latitude":32,"east_longitude":180},"id":{"authority":"ESRI","code":102421}},
+  "value": {
+    "projName": "Equidistant_Cylindrical_Spherical",
+    "axis": "enu",
+    "units": "meter",
+    "to_meter": 1,
+    "datumCode": "EPSG_4326",
+    "ellps": "WGS 84",
+    "a": 6378137,
+    "rf": 298.257223563,
+    "x0": 0,
+    "y0": 0,
+    "long0": 0,
+    "lat0": 0,
+    "lat_ts": 0.40051672069075017,
+    "srsCode": "WGS_1984_ARC_System_Zone_01",
+    "name": "WGS_1984_ARC_System_Zone_01",
+    "title": "ESRI:102421"
+  }
+}, {
   "code": "PROJCS[\"Mount Dillon / Tobago Grid\",GEOGCS[\"Mount Dillon\",DATUM[\"Mount_Dillon\",SPHEROID[\"Clarke 1858\",6378293.645208759,294.2606763692654,AUTHORITY[\"EPSG\",\"7007\"]],AUTHORITY[\"EPSG\",\"6157\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.01745329251994328,AUTHORITY[\"EPSG\",\"9122\"]],AUTHORITY[\"EPSG\",\"4157\"]],UNIT[\"Clarke's link\",0.201166195164,AUTHORITY[\"EPSG\",\"9039\"]],PROJECTION[\"Cassini_Soldner\"],PARAMETER[\"latitude_of_origin\",11.25217861111111],PARAMETER[\"central_meridian\",-60.68600888888889],PARAMETER[\"false_easting\",187500],PARAMETER[\"false_northing\",180000],AUTHORITY[\"EPSG\",\"2066\"],AXIS[\"Easting\",EAST],AXIS[\"Northing\",NORTH]]",
   "value": {
     "projName": "Cassini_Soldner",
@@ -874,8 +1048,9 @@
     "rf": 0,
     "x0": 0,
     "y0": 0,
-    "lat1": 0,
     "long0": 0,
+    "lat0": 0,
+    "lat_ts": 0,
     "srsCode": "World Equidistant Cylindrical (Sphere)",
     "name": "World Equidistant Cylindrical (Sphere)",
     "title": "EPSG:4088"
@@ -894,6 +1069,7 @@
     "x0": 0,
     "y0": 0,
     "long0": 0,
+    "lat0": 0,
     "srsCode": "World Equidistant Cylindrical (Sphere)",
     "name": "World Equidistant Cylindrical (Sphere)"
   }
