@@ -1694,5 +1694,25 @@
     "title": "EPSG:5830",
     "datumCode": "EPSG_5830"
   }
+}, {
+  "code": "PROJCRS[\"Local TM\",BASEGEOGCRS[\"DB_REF\",DATUM[\"Deutsche Bahn Reference System\",ELLIPSOID[\"Bessel 1841\",6377397.155,299.1528128,LENGTHUNIT[\"metre\",1]]],PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433]],ID[\"EPSG\",5681]],CONVERSION[\"Local Projection\",METHOD[\"Transverse_Mercator\"],PARAMETER[\"central_meridian\",10.4521,ANGLEUNIT[\"degree\",0.0174532925199433,ID[\"EPSG\",9122]]],PARAMETER[\"latitude_of_origin\",51.2763,ANGLEUNIT[\"degree\",0.0174532925199433,ID[\"EPSG\",9122]]],PARAMETER[\"scale_factor\",1.0000124,SCALEUNIT[\"unity\",1,ID[\"EPSG\",9201]]],PARAMETER[\"false_easting\",20000,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],PARAMETER[\"false_northing\",30000,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]],CS[Cartesian,2],AXIS[\"e\",east,ORDER[1],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],AXIS[\"n\",north,ORDER[2],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]]",
+  "value": {
+    "projName": "Transverse_Mercator",
+    "axis": "enu",
+    "units": "meter",
+    "to_meter": 1,
+    "datumCode": "EPSG_5681",
+    "a": 6377397.155,
+    "rf": 299.1528128,
+    "ellps": "Bessel 1841",
+    "k0": 1.0000124,
+    "x0": 20000,
+    "y0": 30000,
+    "long0": 0.18242355874769936,
+    "lat0": 0.8949402632403686,
+    "srsCode": "Local TM",
+    "name": "Local TM",
+    "title": "EPSG:5681"
+  }
 }
 ]
