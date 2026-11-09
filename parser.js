@@ -9,7 +9,7 @@ var ENDED = -1;
 var whitespace = /\s/;
 var latin = /[A-Za-z]/;
 var keyword = /[A-Za-z84_]/;
-var endThings = /[,\]]/;
+var endThings = /[,\])]/;
 var digets = /[\d\.E\-\+]/;
 // const ignoredChar = /[\s_\-\/\(\)]/g;
 function Parser(text) {
@@ -71,7 +71,7 @@ Parser.prototype.afterItem = function(char) {
     this.state = NEUTRAL;
     return;
   }
-  if (char === ']') {
+  if (char === ']' || char === ')') {
     this.level--;
     if (this.word !== null) {
       this.currentObject.push(this.word);
@@ -111,7 +111,7 @@ Parser.prototype.keyword = function(char) {
     this.word += char;
     return;
   }
-  if (char === '[') {
+  if (char === '[' || char === '(') {
     var newObjects = [];
     newObjects.push(this.word);
     this.level++;
