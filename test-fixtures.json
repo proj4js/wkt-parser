@@ -1714,5 +1714,148 @@
     "name": "Local TM",
     "title": "EPSG:5681"
   }
+}, {
+  "code": "PROJCS(\"NZGD49 / New Zealand Map Grid\",GEOGCS(\"NZGD49\",DATUM(\"New_Zealand_Geodetic_Datum_1949\",SPHEROID(\"International 1924\",6378388,297,AUTHORITY(\"EPSG\",\"7022\")),TOWGS84(59.47,-5.04,187.44,0.47,-0.1,1.024,-4.5993),AUTHORITY(\"EPSG\",\"6272\")),PRIMEM(\"Greenwich\",0,AUTHORITY(\"EPSG\",\"8901\")),UNIT(\"degree\",0.01745329251994328,AUTHORITY(\"EPSG\",\"9122\")),AUTHORITY(\"EPSG\",\"4272\")),UNIT(\"metre\",1,AUTHORITY(\"EPSG\",\"9001\")),PROJECTION(\"New_Zealand_Map_Grid\"),PARAMETER(\"latitude_of_origin\",-41),PARAMETER(\"central_meridian\",173),PARAMETER(\"false_easting\",2510000),PARAMETER(\"false_northing\",6023150),AUTHORITY(\"EPSG\",\"27200\"),AXIS(\"Easting\",EAST),AXIS(\"Northing\",NORTH))",
+  "value": {
+    "type": "PROJCS",
+    "name": "NZGD49 / New Zealand Map Grid",
+    "GEOGCS": {
+      "type": "GEOGCS",
+      "name": "NZGD49",
+      "DATUM": {
+        "name": "New_Zealand_Geodetic_Datum_1949",
+        "SPHEROID": {
+          "name": "International 1924",
+          "a": 6378388,
+          "rf": 297,
+          "AUTHORITY": {
+            "EPSG": "7022"
+          }
+        },
+        "TOWGS84": [
+          59.47,
+          -5.04,
+          187.44,
+          0.47,
+          -0.1,
+          1.024,
+          -4.5993
+        ],
+        "AUTHORITY": {
+          "EPSG": "6272"
+        }
+      },
+      "PRIMEM": {
+        "name": "greenwich",
+        "convert": 0,
+        "AUTHORITY": {
+          "EPSG": "8901"
+        }
+      },
+      "UNIT": {
+        "name": "degree",
+        "convert": 0.01745329251994328,
+        "AUTHORITY": {
+          "EPSG": "9122"
+        }
+      },
+      "AUTHORITY": {
+        "EPSG": "4272"
+      },
+      "title": "EPSG:4272",
+      "projName": "longlat",
+      "units": "degree",
+      "to_meter": 111323.87156969598,
+      "datumCode": "new_zealand_geodetic_datum_1949",
+      "ellps": "intl",
+      "a": 6378388,
+      "rf": 297,
+      "datum_params": [
+        59.47,
+        -5.04,
+        187.44,
+        0.47,
+        -0.1,
+        1.024,
+        -4.5993
+      ],
+      "srsCode": "NZGD49"
+    },
+    "UNIT": {
+      "name": "metre",
+      "convert": 1,
+      "AUTHORITY": {
+        "EPSG": "9001"
+      }
+    },
+    "PROJECTION": "New_Zealand_Map_Grid",
+    "latitude_of_origin": -41,
+    "central_meridian": 173,
+    "false_easting": 2510000,
+    "false_northing": 6023150,
+    "AUTHORITY": {
+      "EPSG": "27200"
+    },
+    "AXIS": [
+      [
+        "Easting",
+        "EAST"
+      ],
+      [
+        "Northing",
+        "NORTH"
+      ]
+    ],
+    "title": "EPSG:27200",
+    "projName": "New_Zealand_Map_Grid",
+    "units": "meter",
+    "to_meter": 1,
+    "datumCode": "new_zealand_geodetic_datum_1949",
+    "datum_params": [
+      59.47,
+      -5.04,
+      187.44,
+      0.47,
+      -0.1,
+      1.024,
+      -4.5993
+    ],
+    "ellps": "intl",
+    "a": 6378388,
+    "rf": 297,
+    "x0": 2510000,
+    "y0": 6023150,
+    "long0": 3.01941960595019,
+    "lat0": -0.7155849933176751,
+    "axis": "enu",
+    "srsCode": "NZGD49 / New Zealand Map Grid"
+  }
+}, {
+  "code": "PROJCRS(\"NAD83 / Massachusetts Mainland\",BASEGEOGCRS(\"NAD83\",DATUM(\"North American Datum 1983\",ELLIPSOID(\"GRS 1980\",6378137,298.257222101,LENGTHUNIT(\"metre\",1))),PRIMEM(\"Greenwich\",0,ANGLEUNIT(\"degree\",0.0174532925199433)),ID(\"EPSG\",4269)),CONVERSION(\"SPCS83 Massachusetts Mainland zone (meter)\",METHOD(\"Lambert Conic Conformal (2SP)\",ID(\"EPSG\",9802)),PARAMETER(\"Latitude of false origin\",41,ANGLEUNIT(\"degree\",0.0174532925199433),ID(\"EPSG\",8821)),PARAMETER(\"Longitude of false origin\",-71.5,ANGLEUNIT(\"degree\",0.0174532925199433),ID(\"EPSG\",8822)),PARAMETER(\"Latitude of 1st standard parallel\",42.6833333333333,ANGLEUNIT(\"degree\",0.0174532925199433),ID(\"EPSG\",8823)),PARAMETER(\"Latitude of 2nd standard parallel\",41.7166666666667,ANGLEUNIT(\"degree\",0.0174532925199433),ID(\"EPSG\",8824)),PARAMETER(\"Easting at false origin\",200000,LENGTHUNIT(\"metre\",1),ID(\"EPSG\",8826)),PARAMETER(\"Northing at false origin\",750000,LENGTHUNIT(\"metre\",1),ID(\"EPSG\",8827))),CS(Cartesian,2),AXIS(\"easting (X)\",east,ORDER(1),LENGTHUNIT(\"metre\",1)),AXIS(\"northing (Y)\",north,ORDER(2),LENGTHUNIT(\"metre\",1)),USAGE(SCOPE(\"Engineering survey, topographic mapping.\"),AREA(\"United States (USA) - Massachusetts onshore - counties of Barnstable; Berkshire; Bristol; Essex; Franklin; Hampden; Hampshire; Middlesex; Norfolk; Plymouth; Suffolk; Worcester.\"),BBOX(41.46,-73.5,42.89,-69.86)),ID(\"EPSG\",26986))",
+  "value": {
+    "projName": "Lambert Conic Conformal (2SP)",
+    "name": "NAD83 / Massachusetts Mainland",
+    "srsCode": "NAD83 / Massachusetts Mainland",
+    "datumCode": "EPSG_4269",
+    "ellps": "GRS 1980",
+    "a": 6378137,
+    "rf": 298.257222101,
+    "axis": "enu",
+    "title": "EPSG:26986",
+    "latitude_of_false_origin": 0.7155849933176752,
+    "longitude_of_false_origin": -1.247910415175946,
+    "latitude_of_1st_standard_parallel": 0.7449647023929126,
+    "latitude_of_2nd_standard_parallel": 0.7280931862903018,
+    "easting_at_false_origin": 200000,
+    "northing_at_false_origin": 750000,
+    "units": "meter",
+    "to_meter": 1,
+    "lat0": 0.7155849933176752,
+    "long0": -1.247910415175946,
+    "lat1": 0.7449647023929126,
+    "lat2": 0.7280931862903018,
+    "x0": 200000,
+    "y0": 750000
+  }
 }
 ]
