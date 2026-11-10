@@ -8,6 +8,13 @@ import { applyProjectionDefaults, d2r } from './util.js';
 var knownTypes = ['PROJECTEDCRS', 'PROJCRS', 'GEOGCS', 'GEOCCS', 'PROJCS', 'LOCAL_CS', 'GEODCRS',
   'GEODETICCRS', 'GEODETICDATUM', 'ENGCRS', 'ENGINEERINGCRS'];
 
+// The properties that define a projection, without its identity (name, title, srsCode)
+var projectionProperties = [
+  'projName', 'axis', 'units', 'to_meter', 'datumCode', 'datum_params', 'nadgrids', 'ellps',
+  'from_greenwich', 'a', 'rf', 'sphere', 'k0', 'x0', 'y0', 'long0', 'longc', 'lat0', 'lat1',
+  'lat2', 'lat_ts', 'alpha', 'rectified_grid_angle'
+];
+
 function rename(obj, params) {
   var outName = params[0];
   var inName = params[1];
@@ -201,6 +208,16 @@ function setPropertiesFromWkt(wkt) {
   list.forEach(renamer);
   applyProjectionDefaults(wkt);
 }
+// WKT2 keywords are case insensitive (ISO 19162, 6.5)
+function upperCaseKeywords(node) {
+  node[0] = node[0].toUpperCase();
+  for (var i = 1; i < node.length; i++) {
+    if (Array.isArray(node[i])) {
+      upperCaseKeywords(node[i]);
+    }
+  }
+}
+
 // The alternative WKT2 keywords and their preferred form (ISO 19162:2015 and 2019)
 var preferredKeywords = {
   GEODETICCRS: 'GEODCRS',
@@ -237,6 +254,7 @@ export default function(wkt) {
   const version = detectWKTVersion(wkt);
   var lisp = parser(wkt);
   if (version === 'WKT2') {
+    upperCaseKeywords(lisp);
     usePreferredKeywords(lisp);
     const projjson = buildPROJJSON(lisp);
     return transformPROJJSON(projjson);
@@ -245,5 +263,17 @@ export default function(wkt) {
   var obj = {};
   sExpr(lisp, obj);
   cleanWKT(obj);
-  return obj[type];
+  var result = obj[type];
+  if (type === 'COMPD_CS') {
+    // Only the horizontal CS of a compound CS can be used (OGC 01-009, 7.2)
+    var horizontal = result.PROJCS || result.GEOGCS;
+    if (horizontal) {
+      projectionProperties.forEach(function(key) {
+        if (key in horizontal) {
+          result[key] = horizontal[key];
+        }
+      });
+    }
+  }
+  return result;
 }
