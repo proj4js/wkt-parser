@@ -218,6 +218,35 @@ function upperCaseKeywords(node) {
   }
 }
 
+// The alternative WKT2 keywords and their preferred form (ISO 19162:2015 and 2019)
+var preferredKeywords = {
+  GEODETICCRS: 'GEODCRS',
+  GEOGRAPHICCRS: 'GEOGCRS',
+  PROJECTEDCRS: 'PROJCRS',
+  GEODETICDATUM: 'DATUM',
+  TRF: 'DATUM',
+  SPHEROID: 'ELLIPSOID',
+  PRIMEMERIDIAN: 'PRIMEM',
+  PROJECTION: 'METHOD',
+  VERTICALCRS: 'VERTCRS',
+  VERTICALDATUM: 'VDATUM',
+  VRF: 'VDATUM',
+  ENGINEERINGCRS: 'ENGCRS',
+  ENGINEERINGDATUM: 'EDATUM',
+  PARAMETRICDATUM: 'PDATUM',
+  TIMEDATUM: 'TDATUM',
+  TEMPORALQUANTITY: 'TIMEUNIT'
+};
+
+function usePreferredKeywords(node) {
+  node[0] = preferredKeywords[node[0]] || node[0];
+  for (var i = 1; i < node.length; i++) {
+    if (Array.isArray(node[i])) {
+      usePreferredKeywords(node[i]);
+    }
+  }
+}
+
 export default function(wkt) {
   if (typeof wkt === 'object') {
     return transformPROJJSON(wkt);
@@ -226,6 +255,7 @@ export default function(wkt) {
   var lisp = parser(wkt);
   if (version === 'WKT2') {
     upperCaseKeywords(lisp);
+    usePreferredKeywords(lisp);
     const projjson = buildPROJJSON(lisp);
     return transformPROJJSON(projjson);
   }
