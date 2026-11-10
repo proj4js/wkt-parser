@@ -6,10 +6,15 @@ class PROJJSONBuilderBase {
     if (idNode && idNode.length >= 3) {
       return {
         authority: idNode[1],
-        code: parseInt(idNode[2], 10),
+        code: this.parseCode(idNode[2]),
       };
     }
     return null;
+  }
+
+  // PROJJSON codes are integers, or strings for codes like IGNF:LURESG
+  static parseCode(code) {
+    return /^-?\d+$/.test(code) ? parseInt(code, 10) : code;
   }
 
   static convertUnit(node, type = 'unit') {
@@ -24,7 +29,7 @@ class PROJJSONBuilderBase {
     const id = idNode
       ? {
         authority: idNode[1],
-        code: parseInt(idNode[2], 10),
+        code: this.parseCode(idNode[2]),
       }
       : null;
 
