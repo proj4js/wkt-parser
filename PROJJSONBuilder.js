@@ -1,3 +1,5 @@
+import { d2r } from './util.js';
+
 class PROJJSONBuilderBase {
   static getId(node) {
     const idNode = node.find((child) => Array.isArray(child) && child[0] === 'ID');
@@ -78,6 +80,20 @@ class PROJJSONBuilderBase {
       .sort((a, b) => (a.order || 0) - (b.order || 0)); // Sort by the "order" property
   }
 
+  // A prime meridian without a unit takes the angle unit of its CRS (ISO 19162, 8.2.2).
+  // Like PROJ, write the longitude as a number in degrees, or as a value with a unit.
+  static convertPrimeMeridianLongitude(primem, crsAngleUnitNode) {
+    const value = parseFloat(primem[2]);
+    const unitNode = primem.find(
+      (child) => Array.isArray(child) && (child[0] === 'ANGLEUNIT' || child[0] === 'UNIT')
+    ) || crsAngleUnitNode;
+    const unit = this.convertUnit(unitNode, 'AngularUnit');
+    if (!unit.conversion_factor || Math.abs(unit.conversion_factor / d2r(1) - 1) < 1e-9) {
+      return value;
+    }
+    return { value, unit };
+  }
+
   static convert(node, result = {}) {
 
     switch (node[0]) {
@@ -129,8 +145,11 @@ class PROJJSONBuilderBase {
           if (primem && primem[1] !== 'Greenwich') {
             datumOrEnsemble.prime_meridian = {
               name: primem[1],
-              longitude: parseFloat(primem[2]),
-            }
+              longitude: this.convertPrimeMeridianLongitude(
+                primem,
+                node.find((child) => Array.isArray(child) && child[0] === 'ANGLEUNIT')
+              ),
+            };
           }
         }
       
