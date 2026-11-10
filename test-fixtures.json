@@ -103,6 +103,33 @@
     "srsCode": "NZGD49 / New Zealand Map Grid"
   }
 }, {
+  "code": "projcrs[\"NAD83 / Massachusetts Mainland\",Basegeogcrs[\"NAD83\",datum[\"North American Datum 1983\",ellipsoid[\"GRS 1980\",6378137,298.257222101,lengthunit[\"metre\",1]]],primem[\"Greenwich\",0,angleunit[\"degree\",0.0174532925199433]],id[\"EPSG\",4269]],Conversion[\"SPCS83 Massachusetts Mainland zone (meter)\",method[\"Lambert Conic Conformal (2SP)\",id[\"EPSG\",9802]],parameter[\"Latitude of false origin\",41,angleunit[\"degree\",0.0174532925199433],id[\"EPSG\",8821]],parameter[\"Longitude of false origin\",-71.5,angleunit[\"degree\",0.0174532925199433],id[\"EPSG\",8822]],parameter[\"Latitude of 1st standard parallel\",42.6833333333333,angleunit[\"degree\",0.0174532925199433],id[\"EPSG\",8823]],parameter[\"Latitude of 2nd standard parallel\",41.7166666666667,angleunit[\"degree\",0.0174532925199433],id[\"EPSG\",8824]],parameter[\"Easting at false origin\",200000,lengthunit[\"metre\",1],id[\"EPSG\",8826]],parameter[\"Northing at false origin\",750000,lengthunit[\"metre\",1],id[\"EPSG\",8827]]],cs[Cartesian,2],axis[\"easting (X)\",east,order[1],lengthunit[\"metre\",1]],axis[\"northing (Y)\",north,order[2],lengthunit[\"metre\",1]],usage[scope[\"Engineering survey, topographic mapping.\"],area[\"United States (USA) - Massachusetts onshore - counties of Barnstable; Berkshire; Bristol; Essex; Franklin; Hampden; Hampshire; Middlesex; Norfolk; Plymouth; Suffolk; Worcester.\"],bbox[41.46,-73.5,42.89,-69.86]],id[\"EPSG\",26986]]",
+  "value": {
+    "projName": "Lambert Conic Conformal (2SP)",
+    "name": "NAD83 / Massachusetts Mainland",
+    "srsCode": "NAD83 / Massachusetts Mainland",
+    "datumCode": "EPSG_4269",
+    "ellps": "GRS 1980",
+    "a": 6378137,
+    "rf": 298.257222101,
+    "axis": "enu",
+    "title": "EPSG:26986",
+    "latitude_of_false_origin": 0.7155849933176752,
+    "longitude_of_false_origin": -1.247910415175946,
+    "latitude_of_1st_standard_parallel": 0.7449647023929126,
+    "latitude_of_2nd_standard_parallel": 0.7280931862903018,
+    "easting_at_false_origin": 200000,
+    "northing_at_false_origin": 750000,
+    "units": "meter",
+    "to_meter": 1,
+    "lat0": 0.7155849933176752,
+    "long0": -1.247910415175946,
+    "lat1": 0.7449647023929126,
+    "lat2": 0.7280931862903018,
+    "x0": 200000,
+    "y0": 750000
+  }
+}, {
   "code": "PROJCRS[\"NAD83 / Massachusetts Mainland\",BASEGEOGCRS[\"NAD83\",DATUM[\"North American Datum 1983\",ELLIPSOID[\"GRS 1980\",6378137,298.257222101,LENGTHUNIT[\"metre\",1]]],PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433]],ID[\"EPSG\",4269]],CONVERSION[\"SPCS83 Massachusetts Mainland zone (meter)\",METHOD[\"Lambert Conic Conformal (2SP)\",ID[\"EPSG\",9802]],PARAMETER[\"Latitude of false origin\",41,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8821]],PARAMETER[\"Longitude of false origin\",-71.5,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8822]],PARAMETER[\"Latitude of 1st standard parallel\",42.6833333333333,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8823]],PARAMETER[\"Latitude of 2nd standard parallel\",41.7166666666667,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8824]],PARAMETER[\"Easting at false origin\",200000,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8826]],PARAMETER[\"Northing at false origin\",750000,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8827]]],CS[Cartesian,2],AXIS[\"easting (X)\",east,ORDER[1],LENGTHUNIT[\"metre\",1]],AXIS[\"northing (Y)\",north,ORDER[2],LENGTHUNIT[\"metre\",1]],USAGE[SCOPE[\"Engineering survey, topographic mapping.\"],AREA[\"United States (USA) - Massachusetts onshore - counties of Barnstable; Berkshire; Bristol; Essex; Franklin; Hampden; Hampshire; Middlesex; Norfolk; Plymouth; Suffolk; Worcester.\"],BBOX[41.46,-73.5,42.89,-69.86]],ID[\"EPSG\",26986]]",
   "value": {
     "projName": "Lambert Conic Conformal (2SP)",

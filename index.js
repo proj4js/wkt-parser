@@ -201,6 +201,16 @@ function setPropertiesFromWkt(wkt) {
   list.forEach(renamer);
   applyProjectionDefaults(wkt);
 }
+// WKT2 keywords are case insensitive (ISO 19162, 6.5)
+function upperCaseKeywords(node) {
+  node[0] = node[0].toUpperCase();
+  for (var i = 1; i < node.length; i++) {
+    if (Array.isArray(node[i])) {
+      upperCaseKeywords(node[i]);
+    }
+  }
+}
+
 export default function(wkt) {
   if (typeof wkt === 'object') {
     return transformPROJJSON(wkt);
@@ -208,6 +218,7 @@ export default function(wkt) {
   const version = detectWKTVersion(wkt);
   var lisp = parser(wkt);
   if (version === 'WKT2') {
+    upperCaseKeywords(lisp);
     const projjson = buildPROJJSON(lisp);
     return transformPROJJSON(projjson);
   }
