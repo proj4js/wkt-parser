@@ -594,7 +594,21 @@
       "AUTHORITY": {
         "EPSG": "6360"
       }
-    }
+    },
+    "projName": "Lambert_Conformal_Conic_2SP",
+    "axis": "enu",
+    "units": "us survey foot",
+    "to_meter": 0.304800609601219,
+    "datumCode": "north_american_datum_1983",
+    "ellps": "GRS 1980",
+    "a": 6378137,
+    "rf": 298.257222101004,
+    "x0": 599999.9999999997,
+    "y0": 1999999.9999999998,
+    "long0": -1.7191493132144147,
+    "lat0": 0.5526875964648716,
+    "lat1": 0.5608324663075106,
+    "lat2": 0.5928301692607412
   }
 }, {
   "code": "PROJCRS[\"WGS 84 / Antarctic Polar Stereographic\",BASEGEOGCRS[\"WGS 84\",ENSEMBLE[\"World Geodetic System 1984 ensemble\",MEMBER[\"World Geodetic System 1984 (Transit)\"],MEMBER[\"World Geodetic System 1984 (G730)\"],MEMBER[\"World Geodetic System 1984 (G873)\"],MEMBER[\"World Geodetic System 1984 (G1150)\"],MEMBER[\"World Geodetic System 1984 (G1674)\"],MEMBER[\"World Geodetic System 1984 (G1762)\"],MEMBER[\"World Geodetic System 1984 (G2139)\"],MEMBER[\"World Geodetic System 1984 (G2296)\"],ELLIPSOID[\"WGS 84\",6378137,298.257223563,LENGTHUNIT[\"metre\",1]],ENSEMBLEACCURACY[2.0]],PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433]],ID[\"EPSG\",4326]],CONVERSION[\"Antarctic Polar Stereographic\",METHOD[\"Polar Stereographic (variant B)\",ID[\"EPSG\",9829]],PARAMETER[\"Latitude of standard parallel\",-71,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8832]],PARAMETER[\"Longitude of origin\",0,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8833]],PARAMETER[\"False easting\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8806]],PARAMETER[\"False northing\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8807]]],CS[Cartesian,2],AXIS[\"(E)\",north,MERIDIAN[90,ANGLEUNIT[\"degree\",0.0174532925199433]],ORDER[1],LENGTHUNIT[\"metre\",1]],AXIS[\"(N)\",north,MERIDIAN[0,ANGLEUNIT[\"degree\",0.0174532925199433]],ORDER[2],LENGTHUNIT[\"metre\",1]],USAGE[SCOPE[\"Antarctic Digital Database and small scale topographic mapping.\"],AREA[\"Antarctica.\"],BBOX[-90,-180,-60,180]],ID[\"EPSG\",3031]]",
@@ -1856,6 +1870,114 @@
     "lat2": 0.7280931862903018,
     "x0": 200000,
     "y0": 750000
+  }
+}, {
+  "code": "COMPD_CS[\"NAD83 / Kentucky Single Zone (ftUS) + NAVD88 height (ftUS) - Geoid12B (ftUS)\",PROJCS[\"NAD83 / Kentucky Single Zone (ftUS)\",GEOGCS[\"NAD83\",DATUM[\"North_American_Datum_1983\",SPHEROID[\"GRS 1980\",6378137,298.257222101,AUTHORITY[\"EPSG\",\"7019\"]],TOWGS84[0,0,0,0,0,0,0],AUTHORITY[\"EPSG\",\"6269\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AUTHORITY[\"EPSG\",\"4269\"]],PROJECTION[\"Lambert_Conformal_Conic_2SP\"],PARAMETER[\"standard_parallel_1\",37.0833333333333],PARAMETER[\"standard_parallel_2\",38.6666666666667],PARAMETER[\"latitude_of_origin\",36.3333333333333],PARAMETER[\"central_meridian\",-85.75],PARAMETER[\"false_easting\",4921250],PARAMETER[\"false_northing\",3280833.333],UNIT[\"US survey foot\",0.304800609601219,AUTHORITY[\"EPSG\",\"9003\"]],AXIS[\"X\",EAST],AXIS[\"Y\",NORTH],AUTHORITY[\"EPSG\",\"3089\"]],VERT_CS[\"NAVD88 height (ftUS)\",VERT_DATUM[\"North American Vertical Datum 1988\",2005,AUTHORITY[\"EPSG\",\"5103\"]],UNIT[\"US survey foot\",0.304800609601219,AUTHORITY[\"EPSG\",\"9003\"]],AXIS[\"Up\",UP],AUTHORITY[\"EPSG\",\"6360\"]]]",
+  "value": {
+    "projName": "Lambert_Conformal_Conic_2SP",
+    "axis": "enu",
+    "units": "us survey foot",
+    "to_meter": 0.304800609601219,
+    "datumCode": "north_american_datum_1983",
+    "datum_params": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "ellps": "GRS 1980",
+    "a": 6378137,
+    "rf": 298.257222101,
+    "x0": 1499999.999999999,
+    "y0": 999999.9998983992,
+    "long0": -1.4966198335851375,
+    "lat0": 0.6341362948912725,
+    "lat1": 0.64722626428123,
+    "lat2": 0.6748606441044747,
+    "name": "NAD83 / Kentucky Single Zone (ftUS) + NAVD88 height (ftUS) - Geoid12B (ftUS)"
+  }
+}, {
+  "code": "COMPOUNDCRS[\"WGS 84 / UTM zone 32N + EGM96 height\",PROJCRS[\"WGS 84 / UTM zone 32N\",BASEGEOGCRS[\"WGS 84\",ENSEMBLE[\"World Geodetic System 1984 ensemble\",MEMBER[\"World Geodetic System 1984 (Transit)\"],MEMBER[\"World Geodetic System 1984 (G730)\"],MEMBER[\"World Geodetic System 1984 (G873)\"],MEMBER[\"World Geodetic System 1984 (G1150)\"],MEMBER[\"World Geodetic System 1984 (G1674)\"],MEMBER[\"World Geodetic System 1984 (G1762)\"],MEMBER[\"World Geodetic System 1984 (G2139)\"],MEMBER[\"World Geodetic System 1984 (G2296)\"],ELLIPSOID[\"WGS 84\",6378137,298.257223563,LENGTHUNIT[\"metre\",1]],ENSEMBLEACCURACY[2.0]],PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433]],ID[\"EPSG\",4326]],CONVERSION[\"UTM zone 32N\",METHOD[\"Transverse Mercator\",ID[\"EPSG\",9807]],PARAMETER[\"Latitude of natural origin\",0,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8801]],PARAMETER[\"Longitude of natural origin\",9,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8802]],PARAMETER[\"Scale factor at natural origin\",0.9996,SCALEUNIT[\"unity\",1],ID[\"EPSG\",8805]],PARAMETER[\"False easting\",500000,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8806]],PARAMETER[\"False northing\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8807]]],CS[Cartesian,2],AXIS[\"(E)\",east,ORDER[1],LENGTHUNIT[\"metre\",1]],AXIS[\"(N)\",north,ORDER[2],LENGTHUNIT[\"metre\",1]],USAGE[SCOPE[\"Navigation and medium accuracy spatial referencing.\"],AREA[\"Between 6°E and 12°E, northern hemisphere between equator and 84°N, onshore and offshore. Algeria. Austria. Cameroon. Denmark. Equatorial Guinea. France. Gabon. Germany. Italy. Libya. Liechtenstein. Monaco. Netherlands. Niger. Nigeria. Norway. Sao Tome and Principe. Svalbard. Sweden. Switzerland. Tunisia. Vatican City State.\"],BBOX[0,6,84,12]],ID[\"EPSG\",32632]],VERTCRS[\"EGM96 height\",VDATUM[\"EGM96 geoid\"],CS[vertical,1],AXIS[\"gravity-related height (H)\",up,LENGTHUNIT[\"metre\",1]],USAGE[SCOPE[\"Geodesy.\"],AREA[\"World.\"],BBOX[-90,-180,90,180]],ID[\"EPSG\",5773]]]",
+  "value": {
+    "projName": "Transverse Mercator",
+    "axis": "enu",
+    "units": "meter",
+    "to_meter": 1,
+    "datumCode": "EPSG_4326",
+    "ellps": "WGS 84",
+    "a": 6378137,
+    "rf": 298.257223563,
+    "k0": 0.9996,
+    "x0": 500000,
+    "y0": 0,
+    "long0": 0.15707963267948968,
+    "lat0": 0,
+    "srsCode": "WGS 84 / UTM zone 32N",
+    "name": "WGS 84 / UTM zone 32N",
+    "title": "EPSG:32632"
+  }
+}, {
+  "code": "COMPOUNDCRS[\"NAD83 / Kentucky Single Zone (ftUS) + NAVD88 height (ftUS) - Geoid12B (ftUS)\",BOUNDCRS[SOURCECRS[PROJCRS[\"NAD83 / Kentucky Single Zone (ftUS)\",BASEGEOGCRS[\"NAD83\",DATUM[\"North American Datum 1983\",ELLIPSOID[\"GRS 1980\",6378137,298.257222101,LENGTHUNIT[\"metre\",1]]],PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433]],ID[\"EPSG\",4269]],CONVERSION[\"unnamed\",METHOD[\"Lambert Conic Conformal (2SP)\",ID[\"EPSG\",9802]],PARAMETER[\"Latitude of 1st standard parallel\",37.0833333333333,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8823]],PARAMETER[\"Latitude of 2nd standard parallel\",38.6666666666667,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8824]],PARAMETER[\"Latitude of false origin\",36.3333333333333,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8821]],PARAMETER[\"Longitude of false origin\",-85.75,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8822]],PARAMETER[\"Easting at false origin\",4921250,LENGTHUNIT[\"US survey foot\",0.304800609601219],ID[\"EPSG\",8826]],PARAMETER[\"Northing at false origin\",3280833.333,LENGTHUNIT[\"US survey foot\",0.304800609601219],ID[\"EPSG\",8827]]],CS[Cartesian,2],AXIS[\"x\",east,ORDER[1],LENGTHUNIT[\"US survey foot\",0.304800609601219]],AXIS[\"y\",north,ORDER[2],LENGTHUNIT[\"US survey foot\",0.304800609601219]],ID[\"EPSG\",3089]]],TARGETCRS[GEOGCRS[\"WGS 84\",DATUM[\"World Geodetic System 1984\",ELLIPSOID[\"WGS 84\",6378137,298.257223563,LENGTHUNIT[\"metre\",1]]],PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433]],CS[ellipsoidal,2],AXIS[\"latitude\",north,ORDER[1],ANGLEUNIT[\"degree\",0.0174532925199433]],AXIS[\"longitude\",east,ORDER[2],ANGLEUNIT[\"degree\",0.0174532925199433]],ID[\"EPSG\",4326]]],ABRIDGEDTRANSFORMATION[\"Transformation from NAD83 to WGS84\",METHOD[\"Position Vector transformation (geog2D domain)\",ID[\"EPSG\",9606]],PARAMETER[\"X-axis translation\",0,ID[\"EPSG\",8605]],PARAMETER[\"Y-axis translation\",0,ID[\"EPSG\",8606]],PARAMETER[\"Z-axis translation\",0,ID[\"EPSG\",8607]],PARAMETER[\"X-axis rotation\",0,ID[\"EPSG\",8608]],PARAMETER[\"Y-axis rotation\",0,ID[\"EPSG\",8609]],PARAMETER[\"Z-axis rotation\",0,ID[\"EPSG\",8610]],PARAMETER[\"Scale difference\",1,ID[\"EPSG\",8611]]]],VERTCRS[\"NAVD88 height (ftUS)\",VDATUM[\"North American Vertical Datum 1988\"],CS[vertical,1],AXIS[\"up\",up,LENGTHUNIT[\"US survey foot\",0.304800609601219]],ID[\"EPSG\",6360]]]",
+  "value": {
+    "projName": "Lambert Conic Conformal (2SP)",
+    "axis": "enu",
+    "units": "us survey foot",
+    "to_meter": 0.304800609601219,
+    "datumCode": "EPSG_4269",
+    "datum_params": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "ellps": "GRS 1980",
+    "a": 6378137,
+    "rf": 298.257222101,
+    "x0": 1499999.999999999,
+    "y0": 999999.9998983992,
+    "long0": -1.496619833585138,
+    "lat0": 0.6341362948912727,
+    "lat1": 0.6472262642812301,
+    "lat2": 0.6748606441044748,
+    "srsCode": "NAD83 / Kentucky Single Zone (ftUS)",
+    "name": "NAD83 / Kentucky Single Zone (ftUS)",
+    "title": "EPSG:3089"
+  }
+}, {
+  "code": {"$schema":"https://proj.org/schemas/v0.7/projjson.schema.json","type":"CompoundCRS","name":"NAD83 / Kentucky Single Zone (ftUS) + NAVD88 height (ftUS) - Geoid12B (ftUS)","components":[{"type":"BoundCRS","source_crs":{"type":"ProjectedCRS","name":"NAD83 / Kentucky Single Zone (ftUS)","base_crs":{"name":"NAD83","datum":{"type":"GeodeticReferenceFrame","name":"North American Datum 1983","ellipsoid":{"name":"GRS 1980","semi_major_axis":6378137,"inverse_flattening":298.257222101}},"coordinate_system":{"subtype":"ellipsoidal","axis":[{"name":"Geodetic latitude","abbreviation":"Lat","direction":"north","unit":"degree"},{"name":"Geodetic longitude","abbreviation":"Lon","direction":"east","unit":"degree"}]},"id":{"authority":"EPSG","code":4269}},"conversion":{"name":"unnamed","method":{"name":"Lambert Conic Conformal (2SP)","id":{"authority":"EPSG","code":9802}},"parameters":[{"name":"Latitude of 1st standard parallel","value":37.0833333333333,"unit":"degree","id":{"authority":"EPSG","code":8823}},{"name":"Latitude of 2nd standard parallel","value":38.6666666666667,"unit":"degree","id":{"authority":"EPSG","code":8824}},{"name":"Latitude of false origin","value":36.3333333333333,"unit":"degree","id":{"authority":"EPSG","code":8821}},{"name":"Longitude of false origin","value":-85.75,"unit":"degree","id":{"authority":"EPSG","code":8822}},{"name":"Easting at false origin","value":4921250,"unit":{"type":"LinearUnit","name":"US survey foot","conversion_factor":0.304800609601219},"id":{"authority":"EPSG","code":8826}},{"name":"Northing at false origin","value":3280833.333,"unit":{"type":"LinearUnit","name":"US survey foot","conversion_factor":0.304800609601219},"id":{"authority":"EPSG","code":8827}}]},"coordinate_system":{"subtype":"Cartesian","axis":[{"name":"X","abbreviation":"","direction":"east","unit":{"type":"LinearUnit","name":"US survey foot","conversion_factor":0.304800609601219}},{"name":"Y","abbreviation":"","direction":"north","unit":{"type":"LinearUnit","name":"US survey foot","conversion_factor":0.304800609601219}}]},"id":{"authority":"EPSG","code":3089}},"target_crs":{"type":"GeographicCRS","name":"WGS 84","datum":{"type":"GeodeticReferenceFrame","name":"World Geodetic System 1984","ellipsoid":{"name":"WGS 84","semi_major_axis":6378137,"inverse_flattening":298.257223563}},"coordinate_system":{"subtype":"ellipsoidal","axis":[{"name":"Geodetic latitude","abbreviation":"Lat","direction":"north","unit":"degree"},{"name":"Geodetic longitude","abbreviation":"Lon","direction":"east","unit":"degree"}]},"id":{"authority":"EPSG","code":4326}},"transformation":{"name":"Transformation from NAD83 to WGS84","method":{"name":"Position Vector transformation (geog2D domain)","id":{"authority":"EPSG","code":9606}},"parameters":[{"name":"X-axis translation","value":0,"unit":"metre","id":{"authority":"EPSG","code":8605}},{"name":"Y-axis translation","value":0,"unit":"metre","id":{"authority":"EPSG","code":8606}},{"name":"Z-axis translation","value":0,"unit":"metre","id":{"authority":"EPSG","code":8607}},{"name":"X-axis rotation","value":0,"unit":{"type":"AngularUnit","name":"arc-second","conversion_factor":4.84813681109536e-06},"id":{"authority":"EPSG","code":8608}},{"name":"Y-axis rotation","value":0,"unit":{"type":"AngularUnit","name":"arc-second","conversion_factor":4.84813681109536e-06},"id":{"authority":"EPSG","code":8609}},{"name":"Z-axis rotation","value":0,"unit":{"type":"AngularUnit","name":"arc-second","conversion_factor":4.84813681109536e-06},"id":{"authority":"EPSG","code":8610}},{"name":"Scale difference","value":0,"unit":{"type":"ScaleUnit","name":"parts per million","conversion_factor":1e-06},"id":{"authority":"EPSG","code":8611}}]}},{"type":"VerticalCRS","name":"NAVD88 height (ftUS)","datum":{"type":"VerticalReferenceFrame","name":"North American Vertical Datum 1988"},"coordinate_system":{"subtype":"vertical","axis":[{"name":"Up","abbreviation":"","direction":"up","unit":{"type":"LinearUnit","name":"US survey foot","conversion_factor":0.304800609601219}}]},"id":{"authority":"EPSG","code":6360}}]},
+  "value": {
+    "projName": "Lambert Conic Conformal (2SP)",
+    "axis": "enu",
+    "units": "us survey foot",
+    "to_meter": 0.304800609601219,
+    "datumCode": "EPSG_4269",
+    "datum_params": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "ellps": "GRS 1980",
+    "a": 6378137,
+    "rf": 298.257222101,
+    "x0": 1499999.999999999,
+    "y0": 999999.9998983992,
+    "long0": -1.4966198335851377,
+    "lat0": 0.6341362948912724,
+    "lat1": 0.64722626428123,
+    "lat2": 0.6748606441044747,
+    "srsCode": "NAD83 / Kentucky Single Zone (ftUS)",
+    "name": "NAD83 / Kentucky Single Zone (ftUS)",
+    "title": "EPSG:3089"
   }
 }
 ]

@@ -221,6 +221,16 @@ class PROJJSONBuilderBase {
         result.id = this.getId(node);
         break;
 
+      case 'COMPOUNDCRS':
+        result.type = 'CompoundCRS';
+        result.name = node[1];
+        result.components = node
+          .slice(2)
+          .filter((child) => Array.isArray(child) && child[0].endsWith('CRS'))
+          .map((child) => this.convert(child));
+        result.id = this.getId(node);
+        break;
+
       case 'BOUNDCRS':
         result.type = 'BoundCRS';
 

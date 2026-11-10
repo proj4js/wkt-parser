@@ -44,9 +44,25 @@ function calculateEllipsoid(value, result) {
   }
 }
 
+function isHorizontalCRS(crs) {
+  if (crs.type === 'BoundCRS') {
+    return Boolean(crs.source_crs) && isHorizontalCRS(crs.source_crs);
+  }
+  if (crs.type === 'GeodeticCRS') {
+    return !crs.coordinate_system || crs.coordinate_system.subtype !== 'Cartesian';
+  }
+  return crs.type === 'GeographicCRS' || crs.type === 'ProjectedCRS';
+}
+
 export function transformPROJJSON(projjson, result = {}) {
   if (!projjson || typeof projjson !== 'object') {
     return projjson; // Return primitive values as-is
+  }
+
+  if (projjson.type === 'CompoundCRS') {
+    // Only the horizontal CRS of a compound CRS can be used (ISO 19111:2019, 9.3.2)
+    const horizontal = (projjson.components || []).find(isHorizontalCRS);
+    return horizontal ? transformPROJJSON(horizontal, result) : result;
   }
 
   if (projjson.type === 'BoundCRS') {

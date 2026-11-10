@@ -8,6 +8,13 @@ import { applyProjectionDefaults, d2r } from './util.js';
 var knownTypes = ['PROJECTEDCRS', 'PROJCRS', 'GEOGCS', 'GEOCCS', 'PROJCS', 'LOCAL_CS', 'GEODCRS',
   'GEODETICCRS', 'GEODETICDATUM', 'ENGCRS', 'ENGINEERINGCRS'];
 
+// The properties that define a projection, without its identity (name, title, srsCode)
+var projectionProperties = [
+  'projName', 'axis', 'units', 'to_meter', 'datumCode', 'datum_params', 'nadgrids', 'ellps',
+  'from_greenwich', 'a', 'rf', 'sphere', 'k0', 'x0', 'y0', 'long0', 'longc', 'lat0', 'lat1',
+  'lat2', 'lat_ts', 'alpha', 'rectified_grid_angle'
+];
+
 function rename(obj, params) {
   var outName = params[0];
   var inName = params[1];
@@ -215,5 +222,17 @@ export default function(wkt) {
   var obj = {};
   sExpr(lisp, obj);
   cleanWKT(obj);
-  return obj[type];
+  var result = obj[type];
+  if (type === 'COMPD_CS') {
+    // Only the horizontal CS of a compound CS can be used (OGC 01-009, 7.2)
+    var horizontal = result.PROJCS || result.GEOGCS;
+    if (horizontal) {
+      projectionProperties.forEach(function(key) {
+        if (key in horizontal) {
+          result[key] = horizontal[key];
+        }
+      });
+    }
+  }
+  return result;
 }
