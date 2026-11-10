@@ -1,4 +1,4 @@
-import { applyProjectionDefaults, d2r } from './util.js';
+import { applyProjectionDefaults } from './util.js';
 
 // Helper function to process units and to_meter
 function processUnit(unit) {
@@ -32,14 +32,10 @@ function toValue(valueOrObject) {
 
 // An angle is a number in degrees, or a value with a unit
 function toRadians(angle) {
-  if (!angle || typeof angle !== 'object') {
+  if (typeof angle !== 'object') {
     return angle * Math.PI / 180;
   }
-  const factor = angle.unit === 'degree' ? d2r(1) : angle.unit && angle.unit.conversion_factor;
-  if (typeof factor === 'number' && Math.abs(factor / d2r(1) - 1) <= 1e-9) {
-    return angle.value * Math.PI / 180;
-  }
-  return angle.value * factor;
+  return angle.unit === 'degree' ? angle.value * Math.PI / 180 : toValue(angle);
 }
 
 function calculateEllipsoid(value, result) {
