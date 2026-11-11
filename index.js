@@ -205,6 +205,7 @@ function setPropertiesFromWkt(wkt) {
     ['lat0', 'latitude_of_origin', toRadians],
     ['lat1', 'standard_parallel_1', toRadians],
     ['lat2', 'standard_parallel_2', toRadians],
+    ['h', 'Height', toMeter],
     ['azimuth', 'Azimuth'],
     ['alpha', 'azimuth', toRadians],
     ['srsCode', 'name']
