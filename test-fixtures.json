@@ -991,7 +991,6 @@
     "x0": 0,
     "y0": 0,
     "long0": 0,
-    "lat0": 0,
     "lat_ts": 0.40051672069075017,
     "srsCode": "WGS_1984_ARC_System_Zone_01",
     "name": "WGS_1984_ARC_System_Zone_01"
@@ -1048,7 +1047,6 @@
     "x0": 0,
     "y0": 0,
     "long0": 0,
-    "lat0": 0,
     "lat_ts": 0,
     "srsCode": "World Equidistant Cylindrical (Sphere)",
     "name": "World Equidistant Cylindrical (Sphere)",
@@ -1068,7 +1066,6 @@
     "x0": 0,
     "y0": 0,
     "long0": 0,
-    "lat0": 0,
     "srsCode": "World Equidistant Cylindrical (Sphere)",
     "name": "World Equidistant Cylindrical (Sphere)"
   }

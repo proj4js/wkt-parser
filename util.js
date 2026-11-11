@@ -23,13 +23,8 @@ export function applyProjectionDefaults(wkt) {
     wkt.lat_ts = wkt.lat0;
     wkt.lat0 = d2r(wkt.lat0 > 0 ? 90 : -90);
     delete wkt.lat1;
-  } else if (isEquidistantCylindrical(wkt.projName)) {
-    if (wkt.lat_ts === undefined && wkt.lat1 !== undefined) {
-      wkt.lat_ts = wkt.lat1;
-      delete wkt.lat1;
-    }
-    if (wkt.lat0 === undefined) {
-      wkt.lat0 = 0;
-    }
+  } else if (wkt.lat_ts === undefined && wkt.lat1 !== undefined && isEquidistantCylindrical(wkt.projName)) {
+    wkt.lat_ts = wkt.lat1;
+    delete wkt.lat1;
   }
 }
