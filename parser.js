@@ -10,7 +10,7 @@ var whitespace = /\s/;
 var latin = /[A-Za-z]/;
 var keyword = /[A-Za-z84_]/;
 var endThings = /[,\])]/;
-var digets = /[\d\.E\-\+]/;
+var digets = /[\d\.Ee\-\+]/;
 // const ignoredChar = /[\s_\-\/\(\)]/g;
 function Parser(text) {
   if (typeof text !== 'string') {
