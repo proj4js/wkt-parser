@@ -307,11 +307,13 @@ class PROJJSONBuilderBase {
             }
           });
 
-        // Adjust the Scale difference parameter if present
+        // Without a unit, the Scale difference is a scale factor (e.g. 1.000000219), like PROJ writes it.
+        // Convert it to parts per million.
         if (result.parameters.length === 7) {
           const scaleDifference = result.parameters[6];
-          if (scaleDifference.name === 'Scale difference') {
+          if (scaleDifference.name === 'Scale difference' && !scaleDifference.unit.conversion_factor) {
             scaleDifference.value = Math.round((scaleDifference.value - 1) * 1e12) / 1e6;
+            scaleDifference.unit = { type: 'ScaleUnit', name: 'parts per million', conversion_factor: 1e-6, id: null };
           }
         }
 

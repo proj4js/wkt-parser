@@ -38,6 +38,33 @@ function toRadians(angle) {
   return angle.unit === 'degree' ? angle.value * Math.PI / 180 : toValue(angle);
 }
 
+const ARC_SECOND = Math.PI / 648000;
+// Units of datum_params: metres for translations, arc-seconds for rotations, ppm for scale
+const DATUM_PARAMS_UNITS = [1, 1, 1, ARC_SECOND, ARC_SECOND, ARC_SECOND, 1e-6];
+
+// Converts a transformation parameter to the unit datum_params uses at its position
+function toDatumParam(param, i) {
+  const unit = param.unit;
+  const factor = unit && typeof unit === 'object' ? unit.conversion_factor
+    : unit === 'degree' ? Math.PI / 180
+      : unit === 'metre' || unit === 'unity' ? 1
+        : null;
+  // Without a unit, the value is assumed to be in the unit datum_params uses
+  return factor && i < DATUM_PARAMS_UNITS.length ? param.value * factor / DATUM_PARAMS_UNITS[i] : param.value;
+}
+
+// Coordinate Frame rotations have the opposite sign of the Position Vector rotations
+// datum_params uses (IOGP Guidance Note 7-2, 4.2.3)
+function isCoordinateFrameRotation(method) {
+  if (!method) {
+    return false;
+  }
+  if (method.id && method.id.authority === 'EPSG') {
+    return [9607, 1032, 1038].includes(Number(method.id.code));
+  }
+  return /^Coordinate Frame rotation\b/i.test(method.name);
+}
+
 function calculateEllipsoid(value, result) {
   if (value.ellipsoid.radius) {
     result.a = value.ellipsoid.radius;
@@ -82,7 +109,12 @@ export function transformPROJJSON(projjson, result = {}) {
         result.nadgrids = projjson.transformation.parameters[0].value;
       } else {
         // Populate datum_params if no parameterfile is found
-        result.datum_params = projjson.transformation.parameters.map((param) => param.value);
+        result.datum_params = projjson.transformation.parameters.map(toDatumParam);
+        if (result.datum_params.length >= 6 && isCoordinateFrameRotation(projjson.transformation.method)) {
+          for (let i = 3; i < 6; ++i) {
+            result.datum_params[i] = -result.datum_params[i];
+          }
+        }
       }
     }
     return result; // Return early for BoundCRS
