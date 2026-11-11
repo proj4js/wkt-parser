@@ -1,15 +1,11 @@
 var D2R = 0.01745329251994329577;
 
-var equidistantCylindricalNames = [
-  'equirectangular',
-  'equidistant cylindrical',
-  'equidistant cylindrical (spherical)',
-  'equidistant cylindrical spherical',
-  'equidistant cylindrical ellipsoidal'
-];
-
 export function d2r(input) {
   return input * D2R;
+}
+
+export function isEquidistantCylindrical(projName) {
+  return /^(equirectangular|equidistant[ _]cylindrical)/i.test(projName || '');
 }
 
 export function applyProjectionDefaults(wkt) {
@@ -27,12 +23,12 @@ export function applyProjectionDefaults(wkt) {
     wkt.lat_ts = wkt.lat0;
     wkt.lat0 = d2r(wkt.lat0 > 0 ? 90 : -90);
     delete wkt.lat1;
-  } else if (equidistantCylindricalNames.indexOf(normalizedProjName) !== -1) {
+  } else if (isEquidistantCylindrical(wkt.projName)) {
     if (wkt.lat_ts === undefined && wkt.lat1 !== undefined) {
       wkt.lat_ts = wkt.lat1;
       delete wkt.lat1;
     }
-    if (wkt.latitude_of_origin === undefined && wkt.latitude_of_natural_origin === undefined) {
+    if (wkt.lat0 === undefined) {
       wkt.lat0 = 0;
     }
   }
