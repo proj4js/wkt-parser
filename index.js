@@ -3,7 +3,7 @@ import { detectWKTVersion } from './detectWKTVersion.js';
 import parser from './parser.js';
 import {sExpr} from './process.js';
 import { transformPROJJSON } from './transformPROJJSON.js';
-import { applyProjectionDefaults, d2r } from './util.js';
+import { applyProjectionDefaults, d2r, isEquidistantCylindrical } from './util.js';
 
 var knownTypes = ['PROJECTEDCRS', 'PROJCRS', 'GEOGCS', 'GEOCCS', 'PROJCS', 'LOCAL_CS', 'GEODCRS',
   'GEODETICCRS', 'GEODETICDATUM', 'ENGCRS', 'ENGINEERINGCRS'];
@@ -203,7 +203,6 @@ function setPropertiesFromWkt(wkt) {
     ['y0', 'false_northing', toMeter],
     ['long0', 'central_meridian', toRadians],
     ['lat0', 'latitude_of_origin', toRadians],
-    ['lat0', 'standard_parallel_1', toRadians],
     ['lat1', 'standard_parallel_1', toRadians],
     ['lat2', 'standard_parallel_2', toRadians],
     ['azimuth', 'Azimuth'],
@@ -211,6 +210,10 @@ function setPropertiesFromWkt(wkt) {
     ['srsCode', 'name']
   ];
   list.forEach(renamer);
+  // The standard parallel of these methods is not their latitude of origin
+  if (!isEquidistantCylindrical(wkt.projName)) {
+    renamer(['lat0', 'standard_parallel_1', toRadians]);
+  }
   applyProjectionDefaults(wkt);
 }
 
