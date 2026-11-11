@@ -276,7 +276,13 @@ export function transformPROJJSON(projjson, result = {}) {
     result.y0 = result.northing_at_projection_centre;
   }
   if (result.projection_plane_origin_height !== undefined) {
-    result.h0 = result.projection_plane_origin_height;
+    result.h = result.projection_plane_origin_height;
+  }
+  if (result.satellite_height !== undefined) {
+    result.h = result.satellite_height;
+  }
+  if (result.viewpoint_height !== undefined) {
+    result.h = result.viewpoint_height;
   }
   if (result.standard_parallel_1 !== undefined) {
     result.lat1 = result.standard_parallel_1;

@@ -205,6 +205,7 @@ function setPropertiesFromWkt(wkt) {
     ['lat0', 'latitude_of_origin', toRadians],
     ['lat1', 'standard_parallel_1', toRadians],
     ['lat2', 'standard_parallel_2', toRadians],
+    ['h', 'Height', toMeter],
     ['azimuth', 'Azimuth'],
     ['alpha', 'azimuth', toRadians],
     ['srsCode', 'name']
@@ -213,9 +214,6 @@ function setPropertiesFromWkt(wkt) {
   // The standard parallel of these methods is not their latitude of origin
   if (!isEquidistantCylindrical(wkt.projName)) {
     renamer(['lat0', 'standard_parallel_1', toRadians]);
-  }
-  if (wkt.projName === 'IGAC_Plano_Cartesiano') {
-    renamer(['h0', 'Height', toMeter]);
   }
   applyProjectionDefaults(wkt);
 }
