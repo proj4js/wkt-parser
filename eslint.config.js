@@ -37,4 +37,10 @@ export default [
       'consistent-return': 'off',
     },
   },
+  {
+    files: ['fixture.js'],
+    languageOptions: {
+      ecmaVersion: 'latest',
+    },
+  },
 ];

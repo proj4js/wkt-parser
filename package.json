@@ -8,6 +8,7 @@
   "funding": "https://github.com/sponsors/ahocevar",
   "scripts": {
     "test": "node test.js",
+    "fixture": "node fixture.js",
     "build": "rollup -c",
     "pretest": "npm run build",
     "prepublishOnly": "npm run build"
