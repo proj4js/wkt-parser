@@ -38,7 +38,7 @@ export default [
     },
   },
   {
-    files: ['fixture.js'],
+    files: ['test/fixture.js'],
     languageOptions: {
       ecmaVersion: 'latest',
     },
