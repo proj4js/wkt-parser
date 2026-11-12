@@ -1,17 +1,17 @@
-// Usage: node fixture.js <AUTH:CODE | WKT | PROJJSON | file> [--format WKT2:2019|WKT1:GDAL|PROJJSON] [--point lon,lat]
+// Usage: npm run fixture -- <AUTH:CODE | WKT | PROJJSON | file> [--format WKT2:2019|WKT1:GDAL|PROJJSON] [--point lon,lat]
 //
 // Transforms a point from WGS 84 with proj4js, using the definition parsed by
 // wkt-parser, and with PROJ's cs2cs. If the results agree, prints a fixture for
-// test-fixtures.json.
+// test/test-fixtures.json.
 //
 // Requires PROJ (projinfo, cs2cs) and proj4js, which is not a dependency so it
 // doesn't get in the way of npm link. Install it with `npm install --no-save proj4`.
 
 import { execFileSync } from 'node:child_process';
 import { existsSync, readFileSync } from 'node:fs';
-import wktParser from './index.js';
+import wktParser from '../index.js';
 
-const usage = 'Usage: node fixture.js <AUTH:CODE | WKT | PROJJSON | file> [--format WKT2:2019|WKT1:GDAL|PROJJSON] [--point lon,lat]';
+const usage = 'Usage: npm run fixture -- <AUTH:CODE | WKT | PROJJSON | file> [--format WKT2:2019|WKT1:GDAL|PROJJSON] [--point lon,lat]';
 
 function option(args, name) {
   const index = args.indexOf(name);

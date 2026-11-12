@@ -4,13 +4,25 @@
   "description": "wkt-parser ===",
   "main": "dist/wkt.cjs",
   "module": "index.js",
+  "files": [
+    "dist",
+    "index.js",
+    "buildPROJJSON.js",
+    "detectWKTVersion.js",
+    "parser.js",
+    "process.js",
+    "PROJJSONBuilder.js",
+    "transformPROJJSON.js",
+    "util.js"
+  ],
   "type": "module",
   "funding": "https://github.com/sponsors/ahocevar",
   "scripts": {
-    "test": "node test.js",
-    "fixture": "node fixture.js",
+    "test": "node test/test.js",
+    "fixture": "node test/fixture.js",
     "build": "rollup -c",
-    "pretest": "npm run build",
+    "lint": "eslint .",
+    "pretest": "npm run lint && npm run build",
     "prepublishOnly": "npm run build"
   },
   "repository": {
@@ -24,7 +36,6 @@
   },
   "homepage": "https://github.com/proj4js/wkt-parser#readme",
   "devDependencies": {
-    "@eslint/eslintrc": "^3.3.1",
     "eslint": "^9.26.0",
     "js-struct-compare": "^1.1.0",
     "rollup": "^4.24.0",
