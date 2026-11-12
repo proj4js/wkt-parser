@@ -211,9 +211,10 @@ class PROJJSONBuilderBase {
         result.name = node[1];
         result.semi_major_axis = parseFloat(node[2]);
         result.inverse_flattening = parseFloat(node[3]);
-        const units = node.find((child) => Array.isArray(child) && child[0] === 'LENGTHUNIT')
-          ? this.convert(node.find((child) => Array.isArray(child) && child[0] === 'LENGTHUNIT'), result)
-          : null;
+        const ellipsoidUnitNode = node.find((child) => Array.isArray(child) && child[0] === 'LENGTHUNIT');
+        if (ellipsoidUnitNode) {
+          this.convert(ellipsoidUnitNode, result);
+        }
         break;
 
       case 'CONVERSION':

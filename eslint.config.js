@@ -1,18 +1,3 @@
-import { FlatCompat } from '@eslint/eslintrc';
-
-const compat = new FlatCompat({
-  recommendedConfigs: {
-    'eslint:recommended': {
-      rules: {
-        'no-unused-vars': [
-          'error',
-          { vars: 'all', args: 'after-used', ignoreRestSiblings: true },
-        ],
-      },
-    },
-  },
-});
-
 export default [
   {
     files: ['**/*.js'],
@@ -35,10 +20,11 @@ export default [
       'no-constant-condition': 'off',
       'space-after-function-name': 'off',
       'consistent-return': 'off',
+      'no-unused-vars': ['error', { vars: 'all', args: 'after-used', ignoreRestSiblings: true }],
     },
   },
   {
-    files: ['test/fixture.js'],
+    files: ['test/**/*.js'],
     languageOptions: {
       ecmaVersion: 'latest',
     },
