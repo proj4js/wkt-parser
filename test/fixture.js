@@ -70,7 +70,8 @@ if (!point) {
 // Both outputs are in the axis order of the CRS
 const expected = run('cs2cs', ['-f', '%.10f', 'OGC:CRS84', code], `${point[0]} ${point[1]}`)
   .split(/\s+/).slice(0, 2).map(Number);
-const got = proj4('EPSG:4326', parsed).forward(point.slice(), true);
+// proj4js modifies the definition object it is given
+const got = proj4('EPSG:4326', structuredClone(parsed)).forward(point.slice(), true);
 // Same transformation with proj4js, but from PROJ's PROJ string, to tell wkt-parser issues from proj4js issues
 const projString = run('projinfo', ['-o', 'PROJ', '-q', code]);
 const reference = proj4('EPSG:4326', proj4.Proj(projString)).forward(point.slice(), true);
