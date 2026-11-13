@@ -35,7 +35,7 @@ Bug fixes need a test that fails without the fix, and new features need tests th
 
 - Write as few tests as needed. Add a fixture to `test/test-fixtures.json` only if no existing fixture already covers the same code path.
 - Use the definition from the use case as the fixture's `code`, instead of a made-up one.
-- Generate the fixture with `npm run fixture -- <code>` (or a WKT/PROJJSON string or file instead of the code). It checks that proj4js, with the definition parsed by wkt-parser, transforms coordinates like [PROJ](https://proj.org) does, and prints the fixture only if it does. It needs PROJ's `projinfo` and `cs2cs`, and proj4js (`npm install --no-save proj4`). Include the coordinate comparison it prints in the pull request description.
+- Fixtures can be generated with `npm run fixture -- <code>` (or a WKT/PROJJSON string or file instead of the code). It checks that proj4js, with the definition parsed by wkt-parser, transforms coordinates like [PROJ](https://proj.org) does, and prints the fixture only if it does. It needs PROJ's `projinfo` and `cs2cs`, and proj4js (`npm install --no-save proj4`). Include the coordinate comparison it prints in the pull request description.
 - Leave existing fixtures alone unless the expected behavior has changed. If an existing fixture has to change, explain why in the pull request description.
 
 ## Code comments
